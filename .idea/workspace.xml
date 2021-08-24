@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="New development branch + cancelled main.py content">
+      <change afterPath="$PROJECT_DIR$/.idea/AnconAmbienteERP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaClienti.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaListaClienti.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/controller/ControlloreListaMezzi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/controller/ControlloreMezzo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/model/ListaMezzi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/model/Mezzo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaInserimentoMezzo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaMezzo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaModificaMezzo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/controller/ControllereListaOperatori.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/controller/ControlloreOperatore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/model/ListaOperatori.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/model/Operatore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaInserimentoOperatore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaModificaOperatore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaOperatore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaListaServizi.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1x8VeiRtCpijzydKNBNhyQINy8k" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../esempio_progetto_ingsoft-master" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="" />
+      <created>1629736802072</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629736802072</updated>
+    </task>
+    <task id="LOCAL-00001" summary="New development branch + cancelled main.py content">
+      <created>1629737371370</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629737371370</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="development" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New development branch + cancelled main.py content" />
+    <option name="LAST_COMMIT_MESSAGE" value="New development branch + cancelled main.py content" />
+  </component>
+</project>
