@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="New development branch + cancelled main.py content">
-      <change afterPath="$PROJECT_DIR$/.idea/AnconAmbienteERP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaClienti.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaListaClienti.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/controller/ControlloreListaMezzi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/controller/ControlloreMezzo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/model/ListaMezzi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/model/Mezzo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaInserimentoMezzo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaMezzo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaModificaMezzo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/controller/ControllereListaOperatori.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/controller/ControlloreOperatore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/model/ListaOperatori.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/model/Operatore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaInserimentoOperatore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaModificaOperatore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaOperatore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaListaServizi.py" afterDir="false" />
-    </list>
+    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Definita Struttura Progetto (Packages+Classi)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +51,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629737371370</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Definita Struttura Progetto (Packages+Classi)">
+      <created>1629809121752</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629809121752</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +87,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New development branch + cancelled main.py content" />
-    <option name="LAST_COMMIT_MESSAGE" value="New development branch + cancelled main.py content" />
+    <MESSAGE value="Definita Struttura Progetto (Packages+Classi)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Definita Struttura Progetto (Packages+Classi)" />
   </component>
 </project>
