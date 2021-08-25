@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/profile-user60.png</file>
+    <file>images/padlock40.png</file>
+    <file>images/user40.png</file>
     <file>images/AnconAmbiente_Logo.png</file>
     <file>images/AnconAmbiente_Scritta.png</file>
   </qresource>
