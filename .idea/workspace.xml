@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Inizio sviluppo Gui">
+    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Login Gui, sistemato codice e creato primo collegamento">
+      <change afterPath="$PROJECT_DIR$/src/main/gui/images/padlock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/gui/images/padlock40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/gui/images/profile-user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/gui/images/profile-user60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/gui/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/gui/images/user40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/gui/login.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/home.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/home.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/home.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/xz.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/xz.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/xz_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/xz_rc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/xz_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/xz_rc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629832150824</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Login Gui, sistemato codice e creato primo collegamento">
+      <created>1629896618083</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1629896618083</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +148,7 @@
     <MESSAGE value="Definita Struttura Progetto (Packages+Classi)" />
     <MESSAGE value="Sistemati Pacchetti Report ed Utenti" />
     <MESSAGE value="Inizio sviluppo Gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inizio sviluppo Gui" />
+    <MESSAGE value="Login Gui, sistemato codice e creato primo collegamento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login Gui, sistemato codice e creato primo collegamento" />
   </component>
 </project>
