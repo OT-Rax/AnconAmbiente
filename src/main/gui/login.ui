@@ -10,6 +10,24 @@
     <height>400</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>400</height>
+   </size>
+  </property>
   <property name="font">
    <font>
     <pointsize>16</pointsize>
@@ -53,7 +71,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>280</y>
+      <y>300</y>
       <width>300</width>
       <height>40</height>
      </rect>
@@ -73,7 +91,7 @@ font:  bold 14px
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>160</y>
+      <y>180</y>
       <width>61</width>
       <height>41</height>
      </rect>
@@ -86,7 +104,7 @@ font:  bold 14px
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>220</y>
+      <y>240</y>
       <width>47</width>
       <height>41</height>
      </rect>
@@ -99,7 +117,7 @@ font:  bold 14px
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>160</y>
+      <y>180</y>
       <width>260</width>
       <height>40</height>
      </rect>
@@ -115,7 +133,7 @@ font:  bold 14px
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>220</y>
+      <y>240</y>
       <width>260</width>
       <height>40</height>
      </rect>
@@ -128,6 +146,24 @@ font:  bold 14px
     </property>
     <property name="placeholderText">
      <string>Password</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>150</y>
+      <width>301</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

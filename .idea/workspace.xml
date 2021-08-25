@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Login Gui, sistemato codice e creato primo collegamento">
-      <change afterPath="$PROJECT_DIR$/src/main/gui/images/padlock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/gui/images/padlock40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/gui/images/profile-user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/gui/images/profile-user60.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/gui/images/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/gui/images/user40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/gui/login.ui" afterDir="false" />
+    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Immagini">
+      <change afterPath="$PROJECT_DIR$/src/main/gui/operatori.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/login.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/xz.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/xz.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/xz_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/xz_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/xz_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/xz_rc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +75,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\ramoa\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="" />
@@ -116,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629896618083</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Immagini">
+      <created>1629898090822</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1629898090822</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,6 +161,7 @@
     <MESSAGE value="Sistemati Pacchetti Report ed Utenti" />
     <MESSAGE value="Inizio sviluppo Gui" />
     <MESSAGE value="Login Gui, sistemato codice e creato primo collegamento" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Gui, sistemato codice e creato primo collegamento" />
+    <MESSAGE value="Immagini" />
+    <option name="LAST_COMMIT_MESSAGE" value="Immagini" />
   </component>
 </project>
