@@ -77,11 +77,21 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>LOGIN</string>
@@ -161,6 +171,9 @@ font:  bold 14px
      <font>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: red;</string>
     </property>
     <property name="text">
      <string/>

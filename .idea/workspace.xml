@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Immagini">
-      <change afterPath="$PROJECT_DIR$/src/main/gui/operatori.ui" afterDir="false" />
+    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Inserita gui vista lista operatori (bug login)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/clienti/view/VistaInserimentoCliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaInserimentoCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/clienti/view/VistaListaClienti.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaListaClienti.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/home.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/home.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/gui/login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/login.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/xz.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/xz.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/xz_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/xz_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/operatori.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/operatori.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaInserimentoMezzo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaInserimentoMezzo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaInserimentoOperatore.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaInserimentoOperatore.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/xz_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/xz_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/report/view/VistaReport.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/report/view/VistaReport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/servizi/view/VistaInserimentoServizio.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaInserimentoServizio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/servizi/view/VistaListaServizi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaListaServizi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/turni/view/VistaInserimentoTurno.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/turni/view/VistaInserimentoTurno.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/turni/view/VistaListaTurni.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/turni/view/VistaListaTurni.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utenti/view/VistaInserimentoUtente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utenti/view/VistaInserimentoUtente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utenti/view/VistaListaUtenti.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utenti/view/VistaListaUtenti.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629898090822</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Inserita gui vista lista operatori (bug login)">
+      <created>1629911960259</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1629911960259</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +178,7 @@
     <MESSAGE value="Inizio sviluppo Gui" />
     <MESSAGE value="Login Gui, sistemato codice e creato primo collegamento" />
     <MESSAGE value="Immagini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Immagini" />
+    <MESSAGE value="Inserita gui vista lista operatori (bug login)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserita gui vista lista operatori (bug login)" />
   </component>
 </project>

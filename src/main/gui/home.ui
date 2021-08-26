@@ -282,11 +282,21 @@ QPushButton instance-&gt;setStyleSheet(&quot;border: 1px; border-radius: 6px; ba
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>OPERATORI</string>
@@ -310,11 +320,21 @@ font:  bold 14px
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>MEZZI</string>
@@ -338,11 +358,21 @@ font:  bold 14px
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>SERVIZI</string>
@@ -366,11 +396,21 @@ font:  bold 14px
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>TURNI</string>
@@ -394,11 +434,21 @@ font:  bold 14px
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>CLIENTI</string>
@@ -422,11 +472,21 @@ font:  bold 14px
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>UTENTI</string>
@@ -450,11 +510,21 @@ font:  bold 14px
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(24, 105, 68);
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
 color: white;
 border-style: outset;
 font:  bold 14px
-</string>
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 14px
+}</string>
     </property>
     <property name="text">
      <string>REPORT</string>

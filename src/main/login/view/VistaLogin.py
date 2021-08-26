@@ -13,3 +13,4 @@ class VistaLogin(QtWidgets.QMainWindow):
     def go_home(self):
         self.vista_home=VistaHome()
         self.vista_home.show()
+        self.close()
