@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../esempio_progetto_ingsoft-master/.idea/IngSoft.iml" filepath="$PROJECT_DIR$/../esempio_progetto_ingsoft-master/.idea/IngSoft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AnconAmbienteERP.iml" filepath="$PROJECT_DIR$/.idea/AnconAmbienteERP.iml" />
     </modules>
   </component>
 </project>
