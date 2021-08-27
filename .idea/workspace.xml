@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Inserita gui vista lista operatori (bug login)">
+    <list default="true" id="e2e48b3c-a485-40ef-bc21-3afd1319cb11" name="Changes" comment="Inserite tutte le GUI Gestione ed inserimento + GUI Report + risolto bug apertura gui">
+      <change afterPath="$PROJECT_DIR$/src/main/utenti/view/VistaModificaUtente.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/clienti/view/VistaInserimentoCliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaInserimentoCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/clienti/view/VistaClienti.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaCliente.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/clienti/view/VistaListaClienti.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaListaClienti.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/home.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/home.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/login.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/gui/operatori.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/operatori.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/home/view/VistaHome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/login/view/VistaLogin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaInserimentoMezzo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaInserimentoMezzo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/clienti/view/VistaModificaCliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/clienti/view/VistaModificaCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/inserimento_cliente.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/inserimento_cliente.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/inserimento_mezzo.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/inserimento_mezzo.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/inserimento_turno.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/inserimento_turno.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gui/servizi.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/gui/servizi.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaListaMezzi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaInserimentoOperatore.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaInserimentoOperatore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaMezzo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaMezzo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mezzi/view/VistaModificaMezzo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mezzi/view/VistaModificaMezzo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaListaOperatori.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/report/view/VistaReport.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/report/view/VistaReport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/servizi/view/VistaInserimentoServizio.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaInserimentoServizio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaModificaOperatore.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaModificaOperatore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/operatori/view/VistaOperatore.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/operatori/view/VistaOperatore.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/servizi/view/VistaListaServizi.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaListaServizi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/turni/view/VistaInserimentoTurno.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/turni/view/VistaInserimentoTurno.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/servizi/view/VistaModificaServizio.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaModificaServizio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/servizi/view/VistaServizio.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/servizi/view/VistaServizio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/turni/view/VistaListaTurni.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/turni/view/VistaListaTurni.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/utenti/view/VistaInserimentoUtente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utenti/view/VistaInserimentoUtente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/turni/view/VistaModificaTurno.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/turni/view/VistaModificaTurno.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/turni/view/VistaTurno.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/turni/view/VistaTurno.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/utenti/view/VistaListaUtenti.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utenti/view/VistaListaUtenti.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utenti/view/VistaModifcaUtente.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/utenti/view/VistaUtente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/utenti/view/VistaUtente.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -144,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629911960259</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Inserite tutte le GUI Gestione ed inserimento + GUI Report + risolto bug apertura gui">
+      <created>1630003984069</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1630003984069</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +191,7 @@
     <MESSAGE value="Login Gui, sistemato codice e creato primo collegamento" />
     <MESSAGE value="Immagini" />
     <MESSAGE value="Inserita gui vista lista operatori (bug login)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserita gui vista lista operatori (bug login)" />
+    <MESSAGE value="Inserite tutte le GUI Gestione ed inserimento + GUI Report + risolto bug apertura gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserite tutte le GUI Gestione ed inserimento + GUI Report + risolto bug apertura gui" />
   </component>
 </project>

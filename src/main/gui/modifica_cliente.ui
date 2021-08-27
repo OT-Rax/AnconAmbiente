@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>inserimentocliente_window</class>
- <widget class="QMainWindow" name="inserimentocliente_window">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,14 +11,33 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Inserimento Cliente</string>
+   <string>Modifica Cliente</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="xz.qrc">
-    <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
-  </property>
-  <widget class="QWidget" name="inserimentocliente_widget">
-   <widget class="QPushButton" name="inserisci_button">
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="indirizzo_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>180</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>25</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nome:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="salva_button">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -45,16 +64,29 @@ font:  bold 11px
 }</string>
     </property>
     <property name="text">
-     <string>INSERISCI</string>
+     <string>SALVA</string>
     </property>
    </widget>
-   <widget class="QDateEdit" name="nascita_datepicker">
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>265</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Numero:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cognome_field">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>140</y>
+      <y>60</y>
       <width>220</width>
-      <height>22</height>
+      <height>20</height>
      </rect>
     </property>
    </widget>
@@ -71,14 +103,50 @@ font:  bold 11px
      <string>Data di Nascita:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cognome_field">
+   <widget class="QLineEdit" name="cf_field">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>60</y>
+      <y>100</y>
       <width>220</width>
       <height>20</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>225</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>E-mail:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nome_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>65</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cognome:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -92,6 +160,39 @@ font:  bold 11px
     </property>
     <property name="text">
      <string>Codice Fiscale:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>185</y>
+      <width>80</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Indirizzo:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="email_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>220</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="numero_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>260</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="annulla_button">
@@ -124,126 +225,19 @@ font:  bold 11px
      <string>ANNULLA</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cf_field">
+   <widget class="QDateEdit" name="nascita_datepicker">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>100</y>
+      <y>140</y>
       <width>220</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>25</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nome:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="nome_field">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>20</y>
-      <width>220</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>65</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cognome:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>185</y>
-      <width>80</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Indirizzo:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>225</y>
-      <width>100</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>E-mail:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>265</y>
-      <width>100</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Numero:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="indirizzo_field">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>180</y>
-      <width>220</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="email_field">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>220</y>
-      <width>220</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="numero_field">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>260</y>
-      <width>220</width>
-      <height>20</height>
+      <height>22</height>
      </rect>
     </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="xz.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

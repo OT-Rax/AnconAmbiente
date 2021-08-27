@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>inserimentomezzo_window</class>
- <widget class="QMainWindow" name="inserimentomezzo_window">
+ <class>modificamezzo_window</class>
+ <widget class="QMainWindow" name="modificamezzo_window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>380</width>
-    <height>274</height>
+    <height>315</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Inserimento Mezzo</string>
+   <string>Modifica Mezzo</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="xz.qrc">
-    <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
-  </property>
-  <widget class="QWidget" name="inserimentomezzo_widget">
-   <widget class="QPushButton" name="annulla_button">
+  <widget class="QWidget" name="modificamezzo_widget">
+   <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>220</y>
+      <x>20</x>
+      <y>145</y>
+      <width>120</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fine iscrizione Albo:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>25</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Targa:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>260</y>
       <width>160</width>
       <height>23</height>
      </rect>
@@ -46,6 +68,16 @@ font:  bold 11px
     </property>
     <property name="text">
      <string>ANNULLA</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="targa_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
     </property>
    </widget>
    <widget class="QComboBox" name="patente_combo">
@@ -88,17 +120,40 @@ font:  bold 11px
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label_9">
+   <widget class="QLineEdit" name="modello_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>60</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>25</y>
+      <y>65</y>
       <width>47</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
-     <string>Targa:</string>
+     <string>Modello:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>105</y>
+      <width>80</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Funzione:</string>
     </property>
    </widget>
    <widget class="QDateEdit" name="iscrizione_datepicker">
@@ -111,11 +166,11 @@ font:  bold 11px
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="inserisci_button">
+   <widget class="QPushButton" name="salva_button">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>220</y>
+      <x>10</x>
+      <y>260</y>
       <width>161</width>
       <height>23</height>
      </rect>
@@ -138,7 +193,7 @@ font:  bold 11px
 }</string>
     </property>
     <property name="text">
-     <string>INSERISCI</string>
+     <string>SALVA</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="funzione_field">
@@ -149,29 +204,6 @@ font:  bold 11px
       <width>220</width>
       <height>20</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="targa_field">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>20</y>
-      <width>220</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>65</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Modello:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -187,47 +219,42 @@ font:  bold 11px
      <string>Patente Necessaria</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>105</y>
-      <width>80</width>
+      <y>225</y>
+      <width>47</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
-     <string>Funzione:</string>
+     <string>Stato:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>145</y>
-      <width>120</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Fine iscrizione Albo:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="modello_field">
+   <widget class="QComboBox" name="stato_combo">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>60</y>
+      <y>220</y>
       <width>220</width>
-      <height>20</height>
+      <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>Regolare</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Manutenzione</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="xz.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

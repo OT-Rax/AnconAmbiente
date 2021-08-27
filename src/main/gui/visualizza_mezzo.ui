@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>visualizzamezzo_window</class>
+ <widget class="QMainWindow" name="visualizzamezzo_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>353</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Visualizza Mezzo</string>
+  </property>
+  <widget class="QWidget" name="visualizzamezzo_widget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>65</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Targa:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="annulla_button">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>300</y>
+      <width>160</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+    </property>
+    <property name="text">
+     <string>INDIETRO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="modifica_button">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>300</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+    </property>
+    <property name="text">
+     <string>MODIFICA</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="patente_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>225</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="id_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>25</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>105</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Modello:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>225</y>
+      <width>80</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Patente Necessaria:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>25</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ID:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="targa_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>65</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>265</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stato:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="modello_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>105</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>185</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fine iscrizione Albo:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="funzione_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>145</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="datanascita_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>185</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>145</y>
+      <width>80</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Funzione:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="stato_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>265</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
