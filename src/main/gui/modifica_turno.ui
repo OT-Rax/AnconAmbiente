@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Modifica Turno</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="xz.qrc">
+    <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
+  </property>
   <widget class="QWidget" name="modificaturno_widget">
    <widget class="QTabWidget" name="inserimentoturno_tabs">
     <property name="geometry">
@@ -276,6 +280,8 @@ font:  bold 11px
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="xz.qrc"/>
+ </resources>
  <connections/>
 </ui>

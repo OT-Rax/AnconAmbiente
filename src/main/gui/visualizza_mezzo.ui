@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Visualizza Mezzo</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="xz.qrc">
+    <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
+  </property>
   <widget class="QWidget" name="visualizzamezzo_widget">
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -259,6 +263,8 @@ font:  bold 11px
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="xz.qrc"/>
+ </resources>
  <connections/>
 </ui>

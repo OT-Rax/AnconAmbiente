@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="xz.qrc">
+    <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
+  </property>
   <widget class="QWidget" name="modificaservizio_widget">
    <widget class="QLineEdit" name="luogo_field_2">
     <property name="geometry">
@@ -404,6 +408,8 @@ font:  bold 8px
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="xz.qrc"/>
+ </resources>
  <connections/>
 </ui>
