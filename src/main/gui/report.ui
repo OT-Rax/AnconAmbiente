@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>report_window</class>
+ <widget class="QMainWindow" name="report_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>564</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Report</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="xz.qrc">
+    <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
+  </property>
+  <widget class="QWidget" name="report_widget">
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>781</width>
+      <height>391</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="entita_combo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Operatori</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Mezzi</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Servizi</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Turni</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Clienti</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Utenti</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="oggetto_combo">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>20</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="opzione_combo">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>20</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="da_datepicker">
+    <property name="geometry">
+     <rect>
+      <x>35</x>
+      <y>57</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="a_datepicker">
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>57</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>60</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Da:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>60</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>A:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="warning_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>761</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:red</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="xz.qrc"/>
+ </resources>
+ <connections/>
+</ui>
