@@ -7,10 +7,10 @@ import xz_rc
 from views.VistaInserimentoOperatore import VistaInserimentoOperatore
 from views.VistaModificaOperatore import VistaModificaOperatore
 from views.VistaOperatore import VistaOperatore
-from controllers.ControlloreListaOperatori import ControlloreListaOperatori
+from controllers.ControlloreOperatori import ControlloreOperatori
 
 class VistaListaOperatori(QtWidgets.QMainWindow):
-    controller = ControlloreListaOperatori()
+    controller = ControlloreOperatori()
 
     def __init__(self):
         super(VistaListaOperatori, self).__init__()  # Call the inherited classes __init__ method
