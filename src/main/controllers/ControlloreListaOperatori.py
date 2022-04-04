@@ -5,8 +5,8 @@ class ControlloreListaOperatori:
         self.model = ListaOperatori()
         self.mapper = MapperOperatori()
 
-    def get_lista_operatori(self):
-        return  self.mapper.get_lista_operatori()
+    def get_operatori(self):
+        return  self.mapper.get_operatori()
 
     #Metodo che restituisce l'operatore in posizione "index"
     def get_operatore_by_id(self, index):

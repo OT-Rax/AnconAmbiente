@@ -7,14 +7,18 @@ import xz_rc
 from views.VistaInserimentoOperatore import VistaInserimentoOperatore
 from views.VistaModificaOperatore import VistaModificaOperatore
 from views.VistaOperatore import VistaOperatore
+from controllers.ControlloreListaOperatori import ControlloreListaOperatori
 
 class VistaListaOperatori(QtWidgets.QMainWindow):
+    controller = ControlloreListaOperatori()
+
     def __init__(self):
         super(VistaListaOperatori, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/operatori.ui', self)  # Load the .ui file
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)
+        self.indietr_button.clicked.connect(self.close)
         print(os.getcwd())
         self.update()
 
@@ -31,8 +35,12 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.vista_operatore.show()
 
     def update(self):
-        con = sqlite3.connect('db/AAdb')
-        cur = con.cursor()
-        for row in cur.execute('SELECT ID, Nome, Cognome, Stato FROM Operatori'):
-            print(row)
-        con.close()
+        for operatore in self.controller.get_operatori():
+            numRows = self.tabella_operatori.rowCount()
+            self.tabella_operatori.insertRow(numRows)
+            self.tabella_operatori.setItem(numRows, 0, QtWidgets.QTableWidgetItem(operatore.get_id()))
+            self.tabella_operatori.setItem(numRows, 1, QtWidgets.QTableWidgetItem(operatore.get_nome()))
+            self.tabella_operatori.setItem(numRows, 2, QtWidgets.QTableWidgetItem(operatore.get_cognome()))
+            self.tabella_operatori.setItem(numRows, 3, QtWidgets.QTableWidgetItem(operatore.get_stato()))
+
+    
