@@ -163,11 +163,6 @@ font:  bold 11px
     <attribute name="verticalHeaderCascadingSectionResizes">
      <bool>false</bool>
     </attribute>
-    <row>
-     <property name="text">
-      <string>DADADAD</string>
-     </property>
-    </row>
     <column>
      <property name="text">
       <string>ID</string>
