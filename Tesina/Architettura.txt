@@ -1,7 +1,0 @@
-Architettura
-
-Il pattern architetturale utilizzato per progettare il software è l'MVC(Model-View-Controller). La principale motivazione dietro questa scelta è la possibilità di separare la business logic del servizio dalle viste degli utenti, che, come emerso dall'intervista, abbiamo visto essere eterogenee; questo permette a diversi client di utilizzare lo stesso EDM(Enterprise Data Model), portando quindi ad un importante risparmio di risorse. Per ora l'unica interfaccia che progetteremo è quella per un client desktop, sviluppata utilizzando il toolkit QT, senza quindi sfruttare appieno il potenziale di questo pattern, ma tenendo in considerazione un possibile sviluppo futuro di una web app legata al servizio.
-
-Questo pattern divide il nostro servizio in due layers, ovvero il Presentation Layer ed il Model Layer:
--Il Presentation Layer si occupa di...
-
