@@ -1,6 +1,7 @@
 \documentclass[green, fancy, 11pt]{elegantbook}
 
 \usepackage{lscape}
+\usepackage{float}
 
 \definecolor{RussianGreen}{RGB}{102, 150, 111}
 \definecolor{OldLace}{RGB}{248, 250, 229}
@@ -35,7 +36,7 @@ pubbliche affissioni e prevenzione infestanti.
 
 \noindent Di seguito è mostrato lo schema dell'organizzazione dell'area tecnica operativa:\\
 
-\begin{figure}
+\begin{figure}[H]
 	\includegraphics[width=15cm,scale=0.5]{schema_AA}\\
 \end{figure}
 \newpage
@@ -388,10 +389,14 @@ La seguente tabella descrive lo scopo di ciascun requisito
 \noindent
 Il diagramma sottostante rappresenta una generalizzazione del diagramma dei casi d'uso. Nelle prossime sezioni sarà possibile osservare un diagramma dei casi d'uso per ciascuna delle possibili attività.\\
 \small
-\includegraphics[scale=0.8]{UC_general}
+\begin{figure}[H]
+	\includegraphics[scale=0.8]{UC_general}
+\end{figure}
 \newpage
 \subsection{Gestione Operatori}
-\includegraphics[scale=0.7]{UC_GestioneDipendenti}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneDipendenti}
+\end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Operatore}
 \noindent
@@ -478,7 +483,9 @@ La sequenza alternativa inizia dal punto 4.
 
 %-----------------------------------GESIONE MEZZI----------------------------------------------------
 \subsection{Gestione Mezzi}
-\includegraphics[scale=0.7]{UC_GestioneMezzi}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneMezzi}
+\end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Mezzo}
 \noindent
@@ -563,7 +570,9 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsection{Gestione Servizi}
-\includegraphics[scale=0.7]{UC_GestioneServizi}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneServizi}
+\end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Servizio}
 \noindent
@@ -671,7 +680,9 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsection{Gestione Clienti}
-\includegraphics[scale=0.7]{UC_GestioneClienti}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneClienti}
+\end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Cliente}
 \noindent
@@ -732,7 +743,9 @@ Nessuna.
 \newpage
 
 \subsection{Gestione Turni}
-\includegraphics[scale=0.7]{UC_GestioneTurni}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneTurni}
+\end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Turno}
 \noindent
@@ -807,7 +820,9 @@ Nessuna.
 \newpage
 
 \subsection{Gestione Utenti}
-\includegraphics[scale=0.7]{UC_GestioneUtenti}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneUtenti}
+\end{figure}
 
 \subsubsection{Caso d'uso: Crea Utente}
 \noindent
@@ -884,7 +899,9 @@ L’utente non esiste più nel sistema.\\
 Nessuna.\\
 
 \subsection{Gestione Report}
-\includegraphics[scale=0.7]{UC_GestioneReport}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{UC_GestioneReport}
+\end{figure}
 
 \subsubsection{Caso d’uso: Crea Report}
 \noindent
@@ -923,7 +940,9 @@ Nessuna.
 \subsection{Matrice di Mapping}
 Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mapping possiamo verificare che ogni requisito sia soddisfatto da almeno un caso d'uso.
 \scriptsize
-\noindent \includegraphics[scale=0.65]{matrice_mapping}
+\begin{figure}[H]
+	\includegraphics[scale=0.65]{matrice_mapping}
+\end{figure}
 \end{landscape}
 }
 
@@ -936,77 +955,115 @@ Questo pattern divide il nostro servizio in due layers, ovvero il Presentation L
 Il Presentation Layer si occupa di mostrare le informazione all'utente e permette di visualizzare le interazioni con il programma.
 Il Model Layer è responsabile della memorizzazione dei dati.
 \\
-\includegraphics[scale=0.53]{Architettura}
+\begin{figure}[H]
+	\includegraphics[scale=0.53]{Architettura}
+\end{figure}
 
 \newpage
 \section{Diagramma delle classi}
 Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mapping possiamo verificare che ogni requisito sia soddisfatto da almeno un caso d'uso.
 \\
-\noindent \includegraphics[scale=0.75]{classi_generale}
+\begin{figure}[H]
+	\includegraphics[scale=0.75]{classi_generale}
+\end{figure}
 \newpage
 
 \subsection{Gestione Operatori}
-\noindent \includegraphics[scale=0.55]{classi_operatori}
+\begin{figure}[H]
+	\includegraphics[scale=0.55]{classi_operatori}
+\end{figure}
 \subsection{Gestione Mezzi}
-\noindent \includegraphics[scale=0.55]{classi_mezzi}
+\begin{figure}[H]
+	\includegraphics[scale=0.55]{classi_mezzi}
+\end{figure}
 \newpage
 
 \subsection{Gestione Servizi}
-\noindent \includegraphics[scale=0.6]{classi_servizi}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{classi_servizi}
+\end{figure}
 \subsection{Gestione Turni}
-\noindent \includegraphics[scale=0.6]{classi_turni}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{classi_turni}
+\end{figure}
 \newpage
 
 \subsection{Gestione Clienti}
-\noindent \includegraphics[scale=0.6]{classi_clienti}
+\begin{figure}[H]
+	\includegraphics[scale=0.6]{classi_clienti}
+\end{figure}
 \subsection{Gestione Utenti}
-\noindent \includegraphics[scale=0.65]{classi_utenti}
+\begin{figure}[H]
+	\includegraphics[scale=0.65]{classi_utenti}
+\end{figure}
 \newpage
 
 \subsection{Gestione Report}
-\noindent \includegraphics[scale=0.7]{classi_report}
+\begin{figure}[H]
+	\includegraphics[scale=0.7]{classi_report}
+\end{figure}
 \newpage
 
 \section{Diagrammi delle sequenze}
 I diagrammi delle sequenze vengono riportati solo in parte, in quanto molte delle attività prevedono azioni simili tra loro.
 \subsection{Eliminazione Turno}
-\noindent \includegraphics[scale=0.75]{sequenza_eliminaturno}
+\begin{figure}[H]
+	\includegraphics[scale=0.75]{sequenza_eliminaturno}
+\end{figure}
 \newpage
 \subsection{Inserimento Utente}
-\noindent \includegraphics[scale=0.85]{sequenza_inserimentoutente}
+\begin{figure}[H]
+	\includegraphics[scale=0.85]{sequenza_inserimentoutente}
+\end{figure}
 \subsection{Creazione Report}
-\noindent \includegraphics[scale=0.8]{sequenza_creazionereport}
+\begin{figure}[H]
+	\includegraphics[scale=0.8]{sequenza_creazionereport}
+\end{figure}
 \newpage
 \subsection{Modifica Servizio}
-\noindent \includegraphics[scale=0.5]{Sequenza_modifica}
+\begin{figure}[H]
+	\includegraphics[scale=0.5]{Sequenza_modifica}
+\end{figure}
 \newpage
 
 \section{Diagrammi delle attività}
 \noindent  I seguenti diagrammi delle attività sono solo una parte dei diagrammi, poiché molte delle attività prevedono una sequenza di azioni molto simili tra loro.
 {\center
 \subsection{Inserimento Operatore}
-\noindent \includegraphics[scale=0.75]{attività_inserimentooperatore}
+\begin{figure}[H]
+	\includegraphics[scale=0.75]{attività_inserimentooperatore}
+\end{figure}
 \newpage
 \subsection{Modifica Operatore}
-\noindent \includegraphics[scale=0.75]{attività_modificaoperatore}
+\begin{figure}[H]
+	\includegraphics[scale=0.75]{attività_modificaoperatore}
+\end{figure}
 \newpage
 \subsection{Creazione Report}
-\noindent \includegraphics[scale=0.75]{attività_report}
+\begin{figure}[H]
+	\includegraphics[scale=0.75]{attività_report}
+\end{figure}
 \newpage
 }
 
 \section{Schema Database}
 Viene riportato lo schema ER del DataBase, dove vengono mostrate le entità che comporrano il DB e i loro attribuiti.
-\noindent \includegraphics[scale=0.75]{schema_db4}
+\begin{figure}[H]
+	\includegraphics[scale=0.75]{schema_db4}
+\end{figure}
 
 \newpage
 \section{WireFrame}
 Per l'ideazione della parte grafica del programma, in prima fase si sono progettati i WireFrame che saranno la base di partenza per l'implementazione dell'interfaccia grafica.
-\noindent \includegraphics[scale=0.95]{wireframe}
+\begin{figure}[H]
+	\includegraphics[scale=0.95]{wireframe}
+\end{figure}
 
 \newpage
 \section{Mockup}
 Partendo dalla base dei WireFrame si sono sviluppati i Mockup per pensare l'obiettivo che si vuole raggiungere al momento della implementazione della interfaccia grafica.
-\noindent \includegraphics[scale=0.68]{mockup}
+\begin{figure}[H]
+	\includegraphics[scale=0.68]{mockup}
+\end{figure}
 
 \end{document}
