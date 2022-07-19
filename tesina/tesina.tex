@@ -41,6 +41,10 @@ pubbliche affissioni e prevenzione infestanti.
 \newpage
 
 \section{Intervista}
+A Maggio 2021 è stata effettuata una intervista a distanza (a causa pandemia) con il Sir. Andrea Cardoni.
+Questa intervista ha come scopo di capire come funziona l'aziende e come vengono gestite le varie attività.
+A seguire viene riportata la trascrizione parziale dell'intervista contenente le parti fondamentali per la progettazione del software.
+
 \begin{itemize}
 	\item \textbf{Qual è lo scopo del programma?}\\
 	Il programma deve aiutare a gestire i servizi e la programmazione dei clienti.
@@ -114,7 +118,7 @@ pubbliche affissioni e prevenzione infestanti.
 \newpage
 
 \section{Descrizione}
-\noindent Quanto segue è una descrizione in linguaggio naturale dell’intervista.\\
+Viene riportata una descrizione in linguaggio naturale dell'intervista per comprendere meglio gli obiettivi che il software deve raggiungere.
 \\
 Il sistema da realizzare sarà utilizzato da AnconAmbiente, azienda di raccolta rifiuti che opera nel territorio della provincia di ancona.\\
 \\
@@ -165,6 +169,7 @@ I comuni devono avere la possibilità di accedere al sistema per controllare che
 Il sistema deve inserire i servizi giornalieri automaticamente.
 
 \section{Glossario}
+Vengono riportati un elenco di termini presenti nell'intervista con relativa descrizione e sinonimo.
 {
 	\rowcolors{2}{RussianGreen}{OldLace}
 	\begin{tabular}{|p{2,5cm}|p{6cm}|l|p{4cm}|}
@@ -226,12 +231,19 @@ Il sistema deve inserire i servizi giornalieri automaticamente.
 
 %--------------------------------------------------ANALISI DEI REQUISITI---------------------------------------
 \chapter{ANALISI DEI REQUISITI}
-
+Per motivi fini all'esame nella realizzazione del progetto sono stai escluse alcune implementazioni riportate seguentemente:
+- Calcolo costi
+- Calcolo stipendi
+- Gestione fatture
+- Applicazione per operatori ecologici
+- Accesso remoto dei comuuni
 \newcounter{RF}[section]
 \newcounter{RNF}[section]
 \refstepcounter{RF}
 \refstepcounter{RNF}
 \section{Requisiti}
+Il nostro target è quello di progettare un software gestionale per AnconAmbiente
+I requisiti sono stati ricavati dalle richieste e informazioni ottenuti durante l'intervista.
 \begin{center}
 \noindent
 \begin{tabular}{|p{0.2cm} p{2.5cm} p{1.85cm} p{0.2cm} p{2.5cm} p{1.85cm} p{0.2cm}|}
@@ -303,6 +315,7 @@ Il sistema deve inserire i servizi giornalieri automaticamente.
 \end{tabular}
 
 \section{Descrizione}
+La seguente tabella descrive lo scopo di ciascun requisito
 {
 \small
 \rowcolors{2}{RussianGreen}{OldLace}
@@ -908,6 +921,7 @@ Nessuna.
 {
 \begin{landscape}
 \subsection{Matrice di Mapping}
+Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mapping possiamo verificare che ogni requisito sia soddisfatto da almeno un caso d'uso.
 \scriptsize
 \noindent \includegraphics[scale=0.65]{matrice_mapping}
 \end{landscape}
@@ -919,13 +933,15 @@ Il pattern architetturale utilizzato per progettare il software è l'MVC(Model-V
 di risorse. Per ora l'unica interfaccia che progetteremo è quella per un client desktop, sviluppata utilizzando il toolkit QT, senza quindi sfruttare appieno il potenziale di questo pattern, ma tenendo in considerazione un possibile sviluppo futuro di una web app legata al servizio.
 
 Questo pattern divide il nostro servizio in due layers, ovvero il Presentation Layer ed il Model Layer:
--Il Presentation Layer si occupa di...
+Il Presentation Layer si occupa di mostrare le informazione all'utente e permette di visualizzare le interazioni con il programma.
+Il Model Layer è responsabile della memorizzazione dei dati.
 \\
 \includegraphics[scale=0.53]{Architettura}
 
 \newpage
 \section{Diagramma delle classi}
-\noindent Il seguente diagramma delle classi mostra il legame tra i pacchetti che compongono il programma, poi mostrati in dettaglio singolarmente con i diagrammi delle classi successivi.\\
+Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mapping possiamo verificare che ogni requisito sia soddisfatto da almeno un caso d'uso.
+\\
 \noindent \includegraphics[scale=0.75]{classi_generale}
 \newpage
 
@@ -952,7 +968,7 @@ Questo pattern divide il nostro servizio in due layers, ovvero il Presentation L
 \newpage
 
 \section{Diagrammi delle sequenze}
-\noindent I seguenti diagrammi delle sequenze sono solo una parte dei diagrammi, poiché molte delle attività prevedono una sequenza di azioni molto simili tra loro.
+I diagrammi delle sequenze vengono riportati solo in parte, in quanto molte delle attività prevedono azioni simili tra loro.
 \subsection{Eliminazione Turno}
 \noindent \includegraphics[scale=0.75]{sequenza_eliminaturno}
 \newpage
@@ -980,14 +996,17 @@ Questo pattern divide il nostro servizio in due layers, ovvero il Presentation L
 }
 
 \section{Schema Database}
+Viene riportato lo schema ER del DataBase, dove vengono mostrate le entità che comporrano il DB e i loro attribuiti.
 \noindent \includegraphics[scale=0.75]{schema_db4}
 
 \newpage
 \section{WireFrame}
+Per l'ideazione della parte grafica del programma, in prima fase si sono progettati i WireFrame che saranno la base di partenza per l'implementazione dell'interfaccia grafica.
 \noindent \includegraphics[scale=0.95]{wireframe}
 
 \newpage
 \section{Mockup}
+Partendo dalla base dei WireFrame si sono sviluppati i Mockup per pensare l'obiettivo che si vuole raggiungere al momento della implementazione della interfaccia grafica.
 \noindent \includegraphics[scale=0.68]{mockup}
 
 \end{document}
