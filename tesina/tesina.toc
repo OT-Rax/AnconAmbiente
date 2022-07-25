@@ -1,0 +1,64 @@
+\contentsline {chapter}{\numberline {1}INTRODUZIONE}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Intervista}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Descrizione}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Glossario}{7}{section.1.3}%
+\contentsline {chapter}{\numberline {2}ANALISI DEI REQUISITI}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Requisiti}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Descrizione}{10}{section.2.2}%
+\contentsline {chapter}{\numberline {3}PROGETTAZIONE}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Diagramma dei casi d'uso}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Gestione Operatori}{12}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}Caso d'uso: Inserisci Operatore}{12}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.2}Caso d'uso Visualizza Operatore}{13}{subsubsection.3.1.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.1.3}Caso d'uso: Modifica Dati Operatore}{13}{subsubsection.3.1.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.1.4}Caso d'uso: Gestione Stato Operatore}{13}{subsubsection.3.1.1.4}%
+\contentsline {subsection}{\numberline {3.1.2}Gestione Mezzi}{14}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Caso d'uso: Inserisci Mezzo}{14}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Caso d'uso: Visualizza Mezzo}{15}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}Caso d'uso: Modifica Dati Mezzo}{15}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}Caso d'uso: Gestione Stato Mezzo}{15}{subsubsection.3.1.2.4}%
+\contentsline {subsection}{\numberline {3.1.3}Gestione Servizi}{16}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Caso d'uso: Inserisci Servizio}{16}{subsubsection.3.1.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}Caso d'uso: Visualizza Servizio}{17}{subsubsection.3.1.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.3.3}Caso d'uso: Modifica Servizio}{17}{subsubsection.3.1.3.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.4}Caso d'uso: Gestione Stato Servizio}{18}{subsubsection.3.1.3.4}%
+\contentsline {subsubsection}{\numberline {3.1.3.5}Caso d'uso: Gestione Periodicità}{18}{subsubsection.3.1.3.5}%
+\contentsline {subsection}{\numberline {3.1.4}Gestione Clienti}{19}{subsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.4.1}Caso d'uso: Inserisci Cliente}{19}{subsubsection.3.1.4.1}%
+\contentsline {subsubsection}{\numberline {3.1.4.2}Caso d'uso: Visualizza Cliente}{20}{subsubsection.3.1.4.2}%
+\contentsline {subsubsection}{\numberline {3.1.4.3}Caso d'uso: Modifica Dati Cliente}{20}{subsubsection.3.1.4.3}%
+\contentsline {subsection}{\numberline {3.1.5}Gestione Turni}{21}{subsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.5.1}Caso d'uso: Inserisci Turno}{21}{subsubsection.3.1.5.1}%
+\contentsline {subsubsection}{\numberline {3.1.5.2}Cado d'uso: Visualizza Turno}{22}{subsubsection.3.1.5.2}%
+\contentsline {subsubsection}{\numberline {3.1.5.3}Caso d’uso: Modifica Turno}{22}{subsubsection.3.1.5.3}%
+\contentsline {subsection}{\numberline {3.1.6}Caso d'uso: Elimina Turno}{22}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Gestione Utenti}{23}{subsection.3.1.7}%
+\contentsline {subsubsection}{\numberline {3.1.7.1}Caso d'uso: Crea Utente}{23}{subsubsection.3.1.7.1}%
+\contentsline {subsubsection}{\numberline {3.1.7.2}Caso d'uso: Visualizza Utente}{24}{subsubsection.3.1.7.2}%
+\contentsline {subsubsection}{\numberline {3.1.7.3}Caso d'uso: Gestione Permessi}{24}{subsubsection.3.1.7.3}%
+\contentsline {subsubsection}{\numberline {3.1.7.4}Caso d'uso: Elimina Utente}{24}{subsubsection.3.1.7.4}%
+\contentsline {subsection}{\numberline {3.1.8}Gestione Report}{25}{subsection.3.1.8}%
+\contentsline {subsubsection}{\numberline {3.1.8.1}Caso d’uso: Crea Report}{25}{subsubsection.3.1.8.1}%
+\contentsline {subsubsection}{\numberline {3.1.8.2}Caso d'uso: Visualizza Report}{25}{subsubsection.3.1.8.2}%
+\contentsline {subsection}{\numberline {3.1.9}Matrice di Mapping}{26}{subsection.3.1.9}%
+\contentsline {section}{\numberline {3.2}Architettura}{27}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Diagramma delle classi}{28}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Gestione Operatori}{29}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Gestione Mezzi}{29}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Gestione Servizi}{30}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Gestione Turni}{30}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Gestione Clienti}{31}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Gestione Utenti}{31}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Gestione Report}{32}{subsection.3.3.7}%
+\contentsline {section}{\numberline {3.4}Diagrammi delle sequenze}{33}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Eliminazione Turno}{33}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Inserimento Utente}{34}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Creazione Report}{34}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Modifica Servizio}{35}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Diagrammi delle attività}{36}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Inserimento Operatore}{36}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Modifica Operatore}{37}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Creazione Report}{38}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Schema Database}{39}{section.3.6}%
+\contentsline {section}{\numberline {3.7}WireFrame}{40}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Mockup}{41}{section.3.8}%
