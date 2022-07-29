@@ -2,6 +2,7 @@
 
 \usepackage{lscape}
 \usepackage{float}
+\usepackage[italian]{babel}
 
 \definecolor{RussianGreen}{RGB}{102, 150, 111}
 \definecolor{OldLace}{RGB}{248, 250, 229}
@@ -30,14 +31,16 @@
 \mainmatter
 
 \chapter{INTRODUZIONE}
-\noindent AnconAmbiente Spa è il maggiore gestore dei servizi di igiene urbana della provincia di Ancona.
-\noindent E’ nel comune di Ancona che l’Azienda gestisce numericamente più servizi, infatti oltre all’igiene urbana (raccolta rifiuti solidi urbani e differenziati, pulizia e spazzamento), che rappresenta il principale settore, Anconambiente gestisce i servizi di pubblica illuminazione (riqualificazione e manutenzione), servizi cimiteriali e lampade votive. In passato si è anche occupata della gestione dei servizi di ventilazione gallerie, 
+AnconAmbiente Spa è il maggiore gestore dei servizi di igiene urbana della provincia di Ancona.
+E’ nel comune di Ancona che l’Azienda gestisce numericamente più servizi, infatti oltre all’igiene urbana (raccolta rifiuti solidi urbani e differenziati, pulizia e spazzamento), che rappresenta il principale settore, Anconambiente gestisce i servizi di pubblica illuminazione (riqualificazione e manutenzione), servizi cimiteriali e lampade votive. In passato si è anche occupata della gestione dei servizi di ventilazione gallerie, 
 pubbliche affissioni e prevenzione infestanti.
-
-\noindent Di seguito è mostrato lo schema dell'organizzazione dell'area tecnica operativa:\\
+Uno schema dell'organizzazione dell'area tecnica operativa è visibile in figura \ref{organigramma}:
 
 \begin{figure}[H]
+	\centering
 	\includegraphics[width=15cm,scale=0.5]{schema_AA}\\
+	\caption{Organizzazione area tecnica operativa}
+	\label{organigramma}
 \end{figure}
 \newpage
 
@@ -148,7 +151,7 @@ Per l’inserimento di un servizio nel sistema i dipendenti dell’ufficio turni
 \\
 Inoltre, si dovrà includere il formulario se necessario che includerà tutte le informazioni sui rifiuti trasportati.
 Per quanto riguarda gli operatori ambientali il sistema deve permettere di salvare informazioni su di essi, come l’anagrafica con relativo CF, periodo di assunzione, specializzazioni e patenti conseguite; Ogni operatore sarà identificato per mezzo di un numero di matricola.
-L’inserimento di un nuovo dipendente nel sistema sarà effettuato dall’ufficio turni su richiesta dell’uffivio del personale.\\
+L’inserimento di un nuovo dipendente nel sistema sarà effettuato dall’ufficio turni su richiesta dell’ufficio del personale.\\
 \\
 Per quanto riguarda i mezzi si salvano informazioni sulla grandezza, patente necessaria per guidarli, funzione che ricoprono e lo stato dell’iscrizione all’albo dei trasportatori con relativa scadenza; Saranno identificati da un codice.\\
 \\
@@ -169,20 +172,19 @@ I comuni devono avere la possibilità di accedere al sistema per controllare che
 \\
 Il sistema deve inserire i servizi giornalieri automaticamente.
 
+\newpage
 \section{Glossario}
 Vengono riportati un elenco di termini presenti nell'intervista con relativa descrizione e sinonimo.
 {
 	\rowcolors{2}{RussianGreen}{OldLace}
-	\begin{tabular}{|p{2,5cm}|p{6cm}|l|p{4cm}|}
+	\begin{table}[H]
+		\centering
+	\begin{tabular}{|p{2,5cm}|p{8cm}|l|p{4cm}|}
 		\hline
 		\rowcolor{DarkGreen}
 		\textbf{\textcolor{white}{Termine}} & \textbf{\textcolor{white}{Descrizione}} & \textbf{\textcolor{white}{Tipo}} & \textbf{\textcolor{white}{Sinonimo}}\\
 		\hline
-		Servizio & Svolgimento di una determinata attività & Business & \\
-		\hline
-		Programmazione &Organizzazione secondo criteri prestabiliti &Business&\\
-		\hline
-		Programma & Procedimento algoritmico applicato ad un problema da automatizzare & Business & Software, Sistema\\
+		Servizio & Svolgimento di una attività professionale offerta dall'azienda AnconAmbiente & Business & \\
 		\hline
 		Cliente &Colui che fruisce dei servizi di AnconAmbiente &Business&\\
 		\hline
@@ -196,7 +198,7 @@ Vengono riportati un elenco di termini presenti nell'intervista con relativa des
 		\hline
 		Modulo&Parte del programma accessibile secondo determinati criteri&Business&\\
 		\hline
-		Ruolo &insieme di compiti che deve eseguire un determinato settore &Business& Funzione\\
+		Ruolo &Compito che deve svolgere un determinato dipendente &Business& Funzione\\
 		\hline
 		Richiesta &Domanda rivolta ad ottenere un servizio& Business &\\
 		\hline
@@ -227,26 +229,26 @@ Vengono riportati un elenco di termini presenti nell'intervista con relativa des
 		Amministratore di sistema &Colui che si occupa della gestione delle credenziali e degli accessi al programma &Business&\\
 		\hline 
 	\end{tabular}
+		\caption{Glossario}
+\end{table}
 }
 \newpage
 
 %--------------------------------------------------ANALISI DEI REQUISITI---------------------------------------
 \chapter{ANALISI DEI REQUISITI}
-Per motivi fini all'esame nella realizzazione del progetto sono stai escluse alcune implementazioni riportate seguentemente:
-- Calcolo costi
-- Calcolo stipendi
-- Gestione fatture
-- Applicazione per operatori ecologici
-- Accesso remoto dei comuuni
+Ai fini dell'esame, nella realizzazione del progetto sono stai escluse le seguenti implementazioni: calcolo costi, stipendi e fatture, applicazione per operatori ecologici, e l'accesso remoto dei comuni.
+
 \newcounter{RF}[section]
 \newcounter{RNF}[section]
 \refstepcounter{RF}
 \refstepcounter{RNF}
+
 \section{Requisiti}
-Il nostro target è quello di progettare un software gestionale per AnconAmbiente
-I requisiti sono stati ricavati dalle richieste e informazioni ottenuti durante l'intervista.
-\begin{center}
-\noindent
+I seguenti sono requisiti ricavati dalle richieste e informazioni ottenuti durante l'intervista.
+
+\begin{table}[H]
+	\footnotesize
+\centering
 \begin{tabular}{|p{0.2cm} p{2.5cm} p{1.85cm} p{0.2cm} p{2.5cm} p{1.85cm} p{0.2cm}|}
 	\hline
 	\multicolumn{7}{|c|}{\cellcolor{DarkGreen}{\textcolor{white}{REQUISITI}}}\\
@@ -267,7 +269,11 @@ I requisiti sono stati ricavati dalle richieste e informazioni ottenuti durante 
 	&&&&&&\\
 	\hline
 \end{tabular}
-\\
+\caption{Tabella requisiti generale}
+\end{table}
+\begin{table}[H]
+	\footnotesize
+\centering
 \begin{tabular}{|p{0.2cm} p{2.5cm} p{2cm} p{0.2cm} p{2.5cm} p{1cm} p{0.2cm}|}
 	\hline
 	\multicolumn{7}{|c|}{\cellcolor{DarkGreen}{\textcolor{white}{REQUISITI FUNZIONALI}}}\\
@@ -314,13 +320,18 @@ I requisiti sono stati ricavati dalle richieste e informazioni ottenuti durante 
 	&&&&&&\\
 	\hline
 \end{tabular}
+	\caption{Requisiti Funzionali}
+\end{table}
 
+\newpage
 \section{Descrizione}
 La seguente tabella descrive lo scopo di ciascun requisito
 {
-\small
 \rowcolors{2}{RussianGreen}{OldLace}
-\begin{tabular}{|p{5cm}|p{10cm}|}
+\begin{table}[H]
+	\small
+	\centering
+\begin{tabular}{|p{5cm}|p{11cm}|}
 	\hline
 	\rowcolor{DarkGreen}
 	\textcolor{white}{REQUISITO} & \textcolor{white}{DESCRIZIONE}\\
@@ -380,26 +391,30 @@ La seguente tabella descrive lo scopo di ciascun requisito
 	RF27 Visualizzazione Report&Il sistema dovrà gestire la visualizzazione dei report\\
 	\hline
 \end{tabular}
+	\caption{Descrizione Requisiti}
+\end{table}
 }
-\end{center}
-
 %--------------------------------------PROGETTAZIONE-----------------------------------------
 \chapter{PROGETTAZIONE}
 \section{Diagramma dei casi d'uso}
-\noindent
+
 Il diagramma sottostante rappresenta una generalizzazione del diagramma dei casi d'uso. Nelle prossime sezioni sarà possibile osservare un diagramma dei casi d'uso per ciascuna delle possibili attività.\\
 \small
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.8]{UC_general}
+	\caption{Diagramma generale dei casi d'uso}
 \end{figure}
 \newpage
 \subsection{Gestione Operatori}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneDipendenti}
+	\caption{Diagramma dei casi d'uso - Gestione Operatori}
 \end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Operatore}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia inserire un nuovo operatore a sistema.\\
 \textbf{Pre-Condizioni}\\
 L’operatore non esiste nel sistema.\\
@@ -423,7 +438,7 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsubsection{Caso d'uso Visualizza Operatore}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare le informazioni di un operatore.\\
 \textbf{Pre-Condizioni}\\
 L’operatore esiste nel sistema.\\
@@ -439,7 +454,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Modifica Dati Operatore}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia modificare i dati di un operatore esistente nel sistema.\\
 \textbf{Pre-Condizioni}\\
 L’operatore esiste nel sistema.\\
@@ -457,7 +472,7 @@ I dati dell'operatore sono stati modificati (o la modifica non è andata a buon 
 Nessuna.
 
 \subsubsection{Caso d'uso: Gestione Stato Operatore}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia gestire i giorni in cui l’operatore è indisponibile (ferie/malattia). Nello stato dell’operatore è incluso anche il suo periodo di assunzione.\\
 \textbf{Pre-Condizioni}\\
 L'operatore esiste nel sistema.\\
@@ -484,11 +499,13 @@ La sequenza alternativa inizia dal punto 4.
 %-----------------------------------GESIONE MEZZI----------------------------------------------------
 \subsection{Gestione Mezzi}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneMezzi}
+	\caption{Diagramma dei casi d'uso - Gestione Mezzi}
 \end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Mezzo}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia inserire un nuovo mezzo a sistema.\\
 \textbf{Pre-Condizioni}\\
 Il mezzo non esiste nel sistema.\\
@@ -512,7 +529,7 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsubsection{Caso d'uso: Visualizza Mezzo}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare le informazioni di un mezzo.\\
 \textbf{Pre-Condizioni}\\
 Il mezzo esiste nel sistema.\\
@@ -528,7 +545,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Modifica Dati Mezzo}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia modificare le informazioni di un mezzo esistente nel sistema.\\
 \textbf{Pre-Condizioni}\\
 Il  mezzo esiste nel sistema.\\
@@ -546,7 +563,7 @@ I dati del mezzo sono stati modificati.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Gestione Stato Mezzo}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia gestire i giorni in cui il mezzo è indisponibile.\\
 \textbf{Pre-Condizioni}\\
 Il mezzo esiste nel sistema.\\
@@ -571,11 +588,13 @@ La sequenza alternativa inizia dal punto 4.
 
 \subsection{Gestione Servizi}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneServizi}
+	\caption{Diagramma dei casi d'uso - Gestione Servizi}
 \end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Servizio}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia inserire un nuovo servizio a sistema.\\
 \textbf{Pre-Condizioni}\\
 Il servizio non esiste nel sistema.\\
@@ -599,7 +618,7 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsubsection{Caso d'uso: Visualizza Servizio}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare le informazioni di un servizio.\\
 \textbf{Pre-Condizioni}\\
 Il servizio esiste nel sistema.\\
@@ -615,7 +634,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Modifica Servizio}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia modificare le informazioni di un servizio esistente nel sistema.\\
 \textbf{Pre-Condizioni}\\
 Il servizio esiste nel sistema.\\
@@ -634,7 +653,7 @@ Nessuna.
 \newpage
 
 \subsubsection{Caso d'uso: Gestione Stato Servizio}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia annullare o modificare un servizio stabilito in un determinato giorno a causa di un imprevisto.\\
 \textbf{Pre-Condizioni}\\
 Il servizio esiste nel sistema.\\
@@ -681,11 +700,13 @@ La sequenza alternativa inizia dal punto 4.
 
 \subsection{Gestione Clienti}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneClienti}
+	\caption{Diagramma dei casi d'uso - Gestione Clienti}
 \end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Cliente}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia inserire un nuovo cliente a sistema.\\
 \textbf{Pre-Condizioni}\\
 Il cliente non esiste nel sistema\\
@@ -708,7 +729,7 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsubsection{Caso d'uso: Visualizza Cliente}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare le informazioni di un cliente.\\
 \textbf{Pre-Condizioni}\\
 Il cliente esiste nel sistema.\\
@@ -724,7 +745,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Modifica Dati Cliente}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia modificare le informazioni di un cliente esistente nel sistema.\\
 \textbf{Pre-Condizioni}\\
 Il cliente esiste nel sistema.\\
@@ -744,11 +765,13 @@ Nessuna.
 
 \subsection{Gestione Turni}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneTurni}
+	\caption{Diagramma dei casi d'uso - Gestione Turni}
 \end{figure}
 
 \subsubsection{Caso d'uso: Inserisci Turno}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia inserire un nuovo turno a sistema.\\
 \textbf{Pre-Condizioni}\\
 Il turno non esiste nel sistema.\\
@@ -767,7 +790,7 @@ Nessuna.
 \newpage
 
 \subsubsection{Cado d'uso: Visualizza Turno}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare le informazioni di un turno.\\
 \textbf{Pre-Condizioni}\\
 Il turno esiste nel sistema.\\
@@ -783,7 +806,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d’uso: Modifica Turno}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia modificare le informazioni di un turno esistente nel sistema.\\
 \textbf{Pre-Condizioni}\\
 Il turno esiste nel sistema.\\
@@ -801,7 +824,7 @@ Il turno è stato modificato.\\
 Nessuna.
 
 \subsection{Caso d'uso: Elimina Turno}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia eliminare un turno dal sistema.\\
 \textbf{Pre-Condizioni}\\
 Il turno esiste nel sistema.\\
@@ -821,11 +844,13 @@ Nessuna.
 
 \subsection{Gestione Utenti}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneUtenti}
+	\caption{Diagramma dei casi d'uso - Gestione Utenti}
 \end{figure}
 
 \subsubsection{Caso d'uso: Crea Utente}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia creare un nuovo utente a sistema.\\
 \textbf{Pre-Condizioni}\\
 L’utente non esiste nel sistema.\\
@@ -849,7 +874,7 @@ La sequenza alternativa inizia dal punto 4.
 \newpage
 
 \subsubsection{Caso d'uso: Visualizza Utente}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare le credenziali e i permessi di un utente.\\
 \textbf{Pre-Condizioni}\\
 L’utente esiste nel sistema.\\
@@ -865,7 +890,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Gestione Permessi}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia visualizzare quali parti di software saranno utilizzabili da un determinato utente.\\
 \textbf{Pre-Condizioni}\\
 L'utente esiste nel sistema.\\
@@ -881,7 +906,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Elimina Utente}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia eliminare un utente dal sistema.\\
 \textbf{Pre-Condizioni}\\
 L’utente esiste nel sistema.\\
@@ -900,11 +925,13 @@ Nessuna.\\
 
 \subsection{Gestione Report}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{UC_GestioneReport}
+	\caption{Diagramma dei casi d'uso - Gestione Report}
 \end{figure}
 
 \subsubsection{Caso d’uso: Crea Report}
-\noindent
+
 Questo caso d’uso si verifica qualora il responsabile di area voglia creare un report.\\
 \textbf{Pre-Condizioni}\\
 Nessuna.\\
@@ -920,7 +947,7 @@ Nessuna.\\
 Nessuna.
 
 \subsubsection{Caso d'uso: Visualizza Report}
-\noindent
+
 Questo caso d'uso si verifica dopo che il responsabile di area ha creato un report e vuole visualizzarlo.\\
 \textbf{Pre-Condizioni}\\
 Il sistema ha creato il report in precedenza.\\
@@ -941,13 +968,15 @@ Nessuna.
 Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mapping possiamo verificare che ogni requisito sia soddisfatto da almeno un caso d'uso.
 \scriptsize
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.65]{matrice_mapping}
+	\caption{Matrice di mapping}
 \end{figure}
 \end{landscape}
 }
 
 \section{Architettura}
-\noindent
+
 Il pattern architetturale utilizzato per progettare il software è l'MVC(Model-View-Controller). La principale motivazione dietro questa scelta è la possibilità di separare la business logic del servizio dalle viste degli utenti, che, come emerso dall'intervista, abbiamo visto essere eterogenee; questo permette a diversi client di utilizzare lo stesso EDM(Enterprise Data Model), portando quindi ad un importante risparmio
 di risorse. Per ora l'unica interfaccia che progetteremo è quella per un client desktop, sviluppata utilizzando il toolkit QT, senza quindi sfruttare appieno il potenziale di questo pattern, ma tenendo in considerazione un possibile sviluppo futuro di una web app legata al servizio.
 
@@ -956,7 +985,9 @@ Il Presentation Layer si occupa di mostrare le informazione all'utente e permett
 Il Model Layer è responsabile della memorizzazione dei dati.
 \\
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.53]{Architettura}
+	\caption{Schema architetturale}
 \end{figure}
 
 \newpage
@@ -964,43 +995,59 @@ Il Model Layer è responsabile della memorizzazione dei dati.
 Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mapping possiamo verificare che ogni requisito sia soddisfatto da almeno un caso d'uso.
 \\
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.75]{classi_generale}
+	\caption{Diagramma delle classi - Generale}
 \end{figure}
 \newpage
 
 \subsection{Gestione Operatori}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.55]{classi_operatori}
+	\caption{Diagramma delle classi - Operatori}
 \end{figure}
 \subsection{Gestione Mezzi}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.55]{classi_mezzi}
+	\caption{Diagramma delle classi - Mezzi}
 \end{figure}
 \newpage
 
 \subsection{Gestione Servizi}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.6]{classi_servizi}
+	\caption{Diagramma delle classi - Servizi}
 \end{figure}
 \subsection{Gestione Turni}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.6]{classi_turni}
+	\caption{Diagramma delle classi - Turni}
 \end{figure}
 \newpage
 
 \subsection{Gestione Clienti}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.6]{classi_clienti}
+	\caption{Diagramma delle classi - Clienti}
 \end{figure}
 \subsection{Gestione Utenti}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.65]{classi_utenti}
+	\caption{Diagramma delle classi - Utenti}
 \end{figure}
 \newpage
 
 \subsection{Gestione Report}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.7]{classi_report}
+	\caption{Diagramma delle classi - Report}
 \end{figure}
 \newpage
 
@@ -1008,40 +1055,54 @@ Una volta progettati i diagrammi dei casi d'uso, attraverso la matrice di mappin
 I diagrammi delle sequenze vengono riportati solo in parte, in quanto molte delle attività prevedono azioni simili tra loro.
 \subsection{Eliminazione Turno}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.75]{sequenza_eliminaturno}
+	\caption{Diagrammi delle sequenze - Eliminazione turno}
 \end{figure}
 \newpage
 \subsection{Inserimento Utente}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.85]{sequenza_inserimentoutente}
+	\caption{Diagrammi delle sequenze - Inserimento utente}
 \end{figure}
 \subsection{Creazione Report}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.8]{sequenza_creazionereport}
+	\caption{Diagrammi delle sequenze - Creazione report}
 \end{figure}
 \newpage
 \subsection{Modifica Servizio}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.5]{Sequenza_modifica}
+	\caption{Diagrammi delle sequenze - Modifica servizio}
 \end{figure}
 \newpage
 
 \section{Diagrammi delle attività}
-\noindent  I seguenti diagrammi delle attività sono solo una parte dei diagrammi, poiché molte delle attività prevedono una sequenza di azioni molto simili tra loro.
+  I seguenti diagrammi delle attività sono solo una parte dei diagrammi, poiché molte delle attività prevedono una sequenza di azioni molto simili tra loro.
 {\center
 \subsection{Inserimento Operatore}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.75]{attività_inserimentooperatore}
+	\caption{Diagrammi delle attività - Inserimento operatore}
 \end{figure}
 \newpage
 \subsection{Modifica Operatore}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.75]{attività_modificaoperatore}
+	\caption{Diagrammi delle attività - Modifica operatore}
 \end{figure}
 \newpage
 \subsection{Creazione Report}
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.75]{attività_report}
+	\caption{Diagrammi delle attività - Creazione report}
 \end{figure}
 \newpage
 }
@@ -1049,21 +1110,27 @@ I diagrammi delle sequenze vengono riportati solo in parte, in quanto molte dell
 \section{Schema Database}
 Viene riportato lo schema ER del DataBase, dove vengono mostrate le entità che comporrano il DB e i loro attribuiti.
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.75]{schema_db4}
+	\caption{Schema ER database}
 \end{figure}
 
 \newpage
 \section{WireFrame}
 Per l'ideazione della parte grafica del programma, in prima fase si sono progettati i WireFrame che saranno la base di partenza per l'implementazione dell'interfaccia grafica.
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.95]{wireframe}
+	\caption{Wireframe}
 \end{figure}
 
 \newpage
 \section{Mockup}
 Partendo dalla base dei WireFrame si sono sviluppati i Mockup per pensare l'obiettivo che si vuole raggiungere al momento della implementazione della interfaccia grafica.
 \begin{figure}[H]
+	\centering
 	\includegraphics[scale=0.68]{mockup}
+	\caption{Mockup}
 \end{figure}
 
 \end{document}
