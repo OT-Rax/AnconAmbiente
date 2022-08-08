@@ -6,11 +6,12 @@ descrizione TEXT
 );
 
 CREATE TABLE Operatori(
-id TEXT PRIMARY KEY,
+id INTEGER PRIMARY KEY,
 nome TEXT NOT NULL,
 cognome TEXT NOT NULL,
 data_nascita TEXT NOT NULL,
 cf TEXT NOT NULL,
+data_fine_contratto TEXT,
 stato INT NOT NULL CHECK(stato>=0 & stato<=2)
 );
 
@@ -23,7 +24,7 @@ PRIMARY KEY(livello_patente, id_operatore)
 );
 
 CREATE TABLE Mezzi(
-id TEXT PRIMARY KEY,
+id INTEGER PRIMARY KEY,
 targa TEXT NOT NULL,
 livello_richiesto TEXT NOT NULL,
 tipo TEXT NOT NULL,
@@ -32,7 +33,7 @@ stato INT NOT NULL CHECK(stato>=0 & stato<=2)
 );
 
 CREATE TABLE Turni(
-id TEXT PRIMARY KEY,
+id INTEGER PRIMARY KEY,
 inizio_turno TEXT NOT NULL,
 fine_turno TEXT NOT NULL
 );
@@ -54,7 +55,7 @@ PRIMARY KEY(id_turno, id_mezzo)
 );
 
 CREATE TABLE Clienti(
-id TEXT PRIMARY KEY,
+id INTEGER PRIMARY KEY,
 nome TEXT NOT NULL,
 cognome TEXT NOT NULL,
 data_nascita TEXT,
@@ -66,7 +67,7 @@ telefono TEXT
 );
 
 CREATE TABLE Servizi(
-id TEXT PRIMARY KEY,
+id INTEGER PRIMARY KEY,
 id_cliente TEXT NOT NULL,
 tipo TEXT NOT NULL,
 periodicita TEXT,
@@ -82,7 +83,7 @@ PRIMARY KEY(id_turno, id_servizio)
 );
 
 CREATE TABLE Utenti(
-id TEXT PRIMARY KEY,
+id INTEGER PRIMARY KEY,
 username TEXT NOT NULL,
 password_hash TEXT NOT NULL,
 accesso_operatori INT NOT NULL CHECK(accesso_operatori>=0 & accesso_operatori<=2),

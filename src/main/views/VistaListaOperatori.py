@@ -42,7 +42,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         text = self.search_field.text()
         if text is not None:
             self.tabella_operatori.setRowCount(0)
-            self.inserisci_tabella(self.controller.ricerca_operatori(self.search_field.text()))
+            self.inserisci_tabella(self.controller.ricerca_operatori(text))
 
     def inserisci_tabella(self, operatori):
         rows = self.tabella_operatori.rowCount()
