@@ -12,6 +12,8 @@ if __name__ == '__main__':
     #                           ('Franco', 'Battiato', '1984-09-23', 'FRANCOMACFROIRFR', NULL, 1),
     #                           ('Gordon', 'Sbordon', '2022-11-11', '0123456789123456', NULL, 0)
     # ''')
+
+    # Popolazione Operatori
     for i in range(10):
         operatore = [fake.first_name(), fake.last_name(), fake.date_of_birth(),
                fake.ssn(), fake.future_date(), fake.random_int(min=0, max=2)]
@@ -20,6 +22,7 @@ if __name__ == '__main__':
                 VALUES (?, ?, ?, ?, ?, ?); \
                 ', operatore)
 
+    # Popolazione Mezzi
     for i in range(10):
         patenti = ["B", "B1", "C"]
         tipo = ["Auto", "Autoarticolato", "Camion", "Camioncino"]
@@ -29,6 +32,14 @@ if __name__ == '__main__':
                     INSERT INTO Mezzi (targa, livello_richiesto, tipo, iscrizione_albo, stato) \
                     VALUES (?, ?, ?, ?, ?); \
                     ', mezzo)
+    # Popolazione turni
+    for i in range(10):
+        turno = [fake.past_date(), fake.past_date()]
+        cur.execute(' \
+                            INSERT INTO Turni (inizio_turno, fine_turno) \
+                            VALUES (?, ?); \
+                            ', turno)
+
     con.commit()
     con.close()
 
