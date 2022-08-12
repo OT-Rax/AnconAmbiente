@@ -13,6 +13,9 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         uic.loadUi('gui/inserimento_operatore.ui', self)  # Load the .ui file
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
+        self.cf_field.setInputMask("AAAAAA00A00A000A")
+        name_validator=
+        self.nome_field.setValidator()
 
     def inserisci(self):
         #Inserisci controllo validita caratteri, lunghezza e coerenza
@@ -26,7 +29,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             print("Qualcosa non va")
         else:
             #try:
-                self.controller.insert_operatore(nome, cognome, data_nascita, cf, None , 0)
+                self.controller.insert_operatore(nome, cognome, str(data_nascita), cf, None , 0)
                 #finestra pop up a buon fine
                 self.close
             #except:
