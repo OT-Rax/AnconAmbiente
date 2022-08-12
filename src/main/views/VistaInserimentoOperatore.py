@@ -23,12 +23,12 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         cf=self.cf_field.text()
         data_nascita=self.nascita_datepicker.date()
         patenti=[]
-        data_fine_contratto = self.finecontratto_datepicker.date()
+        data_fine_contratto = self.finecontratto_datepicker.date().toString()
         if  nome is None or cognome is None or len(cf)!=16 or data_nascita >= date.today():
             print("Qualcosa non va")
         else:
             #try:
-                self.controller.insert_operatore(nome, cognome, str(data_nascita), cf, None , 0)
+                self.controller.insert_operatore(nome, cognome, data_nascita.toString("yyyy-MM-dd"), cf, None , 0)
                 #finestra pop up a buon fine
                 self.close
             #except:
