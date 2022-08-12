@@ -14,7 +14,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         self.cf_field.setInputMask("AAAAAA00A00A000A")
-        self.nome_field.setValidator()
+        #self.nome_field.setValidator()
 
     def inserisci(self):
         #Inserisci controllo validita caratteri, lunghezza e coerenza
@@ -34,6 +34,3 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             #except:
                 #finestra pop up qualcosa e andato storto;
                 #print("Qualcosa non va nell'inserimento")
-                
-
-

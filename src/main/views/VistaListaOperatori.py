@@ -36,7 +36,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         for casella in caselle_selezionate:
             righe_selezionate.append(casella.row())
         for riga in set(righe_selezionate):
-            operatore=self.controller.get_operatore(self.tabella_operatori.item(riga, 0).text())
+            operatore=self.controller.get_operatore(int(self.tabella_operatori.item(riga, 0).text()))
             self.vista_operatore = VistaOperatore(operatore)
             self.vista_operatore.show()
 
@@ -53,7 +53,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
     def inserisci_tabella(self, operatori):
         rows = self.tabella_operatori.rowCount()
         for operatore in operatori:
-            print(operatore.get_stato())
+            print(operatore.get_id())
             self.tabella_operatori.insertRow(rows)
             self.tabella_operatori.setItem(rows, 0, QtWidgets.QTableWidgetItem(str(operatore.get_id())))
             self.tabella_operatori.setItem(rows, 1, QtWidgets.QTableWidgetItem(operatore.get_nome()))

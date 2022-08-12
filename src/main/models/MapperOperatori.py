@@ -19,7 +19,8 @@ class MapperOperatori:
     def get_operatore(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        for row in cur.execute("SELECT * FROM Operatori WHERE id=?", (id)):
+        #Non ho usato bindings perche rotti
+        for row in cur.execute("SELECT * FROM Operatori WHERE id="+str(id)):
             operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
             return operatore
         con.close()
