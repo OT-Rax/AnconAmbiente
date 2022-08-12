@@ -16,8 +16,8 @@ if __name__ == '__main__':
                fake.ssn(), fake.future_date(), fake.random_int(min=0, max=1)]
         cur.execute(' \
                 INSERT INTO Operatori (nome, cognome, data_nascita, cf, data_fine_contratto, stato) \
-                VALUES ("%s", "%s", "%s", %s, "%s", "%s", "%i"); \
-                ' % (row[0], row[1], row[2], row[3], row[4], row[5]))
+                VALUES (?, ?, ?, ?, ?, ?); \
+                ', row)
 
     con.commit()
     con.close()

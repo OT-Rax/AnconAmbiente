@@ -14,7 +14,6 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         self.cf_field.setInputMask("AAAAAA00A00A000A")
-        name_validator=
         self.nome_field.setValidator()
 
     def inserisci(self):
