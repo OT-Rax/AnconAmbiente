@@ -17,7 +17,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)
-        self.indietr_button.clicked.connect(self.close)
+        self.indietro_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
         print(os.getcwd())
         self.update()
@@ -31,8 +31,14 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.vista_modificaoperatore.show()
 
     def go_visualizza(self):
-        self.vista_operatore = VistaOperatore()
-        self.vista_operatore.show()
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        righe_selezionate=[]
+        for casella in caselle_selezionate:
+            righe_selezionate.append(casella.row())
+        for riga in set(righe_selezionate):
+            operatore=self.controller.get_operatore(self.tabella_operatori.item(riga, 0).text())
+            self.vista_operatore = VistaOperatore(operatore)
+            self.vista_operatore.show()
 
     def update(self):
         self.tabella_operatori.setRowCount(0)
@@ -47,11 +53,12 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
     def inserisci_tabella(self, operatori):
         rows = self.tabella_operatori.rowCount()
         for operatore in operatori:
+            print(operatore.get_stato())
             self.tabella_operatori.insertRow(rows)
-            self.tabella_operatori.setItem(rows, 0, QtWidgets.QTableWidgetItem(operatore.get_id()))
+            self.tabella_operatori.setItem(rows, 0, QtWidgets.QTableWidgetItem(str(operatore.get_id())))
             self.tabella_operatori.setItem(rows, 1, QtWidgets.QTableWidgetItem(operatore.get_nome()))
             self.tabella_operatori.setItem(rows, 2, QtWidgets.QTableWidgetItem(operatore.get_cognome()))
-            self.tabella_operatori.setItem(rows, 3, QtWidgets.QTableWidgetItem(operatore.get_stato()))
+            self.tabella_operatori.setItem(rows, 3, QtWidgets.QTableWidgetItem(str(operatore.get_stato())))
             rows+=1
 
 

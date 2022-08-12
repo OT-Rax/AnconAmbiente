@@ -11,7 +11,7 @@ class MapperOperatori:
         cur = con.cursor()
         operatori  = []
         for row in cur.execute("SELECT * FROM Operatori"):
-            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[4], row[5])   
+            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
             operatori.append(operatore)
         con.close()
         return operatori
@@ -20,7 +20,7 @@ class MapperOperatori:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         for row in cur.execute("SELECT * FROM Operatori WHERE id=?", (id)):
-            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[4], row[5])   
+            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
             return operatore
         con.close()
         return None
@@ -30,15 +30,15 @@ class MapperOperatori:
         cur = con.cursor()
         operatori  = []
         for row in cur.execute('SELECT * FROM Operatori WHERE id LIKE ? OR nome LIKE ? OR cognome LIKE ?', ("%"+text+"%", "%"+text+"%","%"+text+"%")):
-            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[4], row[5])   
+            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
             operatori.append(operatore)
         con.close()
         return operatori
 
-    def insert_operatore(self, nome, cognome, cf, data_nascita, patenti, data_fine_contratto):
+    def insert_operatore(self, nome, cognome, data_nascita, cf, patenti, data_fine_contratto):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("INSERT INTO Operatori VALUES(?, ?, ?, ?, ?, ?)", ("ciaopa", nome, cognome, "datadinascitaformattata", cf, 0))
+        cur.execute("INSERT INTO Operatori (nome, cognome, data_nascita, cf, data_fine_contratto, stato) VALUES (?, ?, ?, ?, ?, ?)", (nome, cognome, "datadinascitaformattata", cf, data_fine_contratto, 0))
         con.commit()
         con.close()
 

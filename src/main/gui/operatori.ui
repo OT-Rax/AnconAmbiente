@@ -184,7 +184,7 @@ font:  bold 11px
      </property>
     </column>
    </widget>
-   <widget class="QPushButton" name="indietr_button">
+   <widget class="QPushButton" name="indietro_button">
     <property name="geometry">
      <rect>
       <x>540</x>

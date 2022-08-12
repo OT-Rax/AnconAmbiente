@@ -1,12 +1,12 @@
 class Operatore:
-    def __init__(self, id, nome, cognome, cf, datanascita, stato, patenti):
+    def __init__(self, id, nome, cognome, datanascita, cf, datacontratto, stato):
         self.id = id
         self.nome = nome
         self.cognome = cognome
-        self.cf = cf
         self.datanascita = datanascita
+        self.cf = cf
+        self.datacontratto = datacontratto
         self.stato = stato
-        self.patenti = patenti
 
     #Metodi get
 
@@ -28,8 +28,8 @@ class Operatore:
     def get_stato(self):
         return self.stato
 
-    def get_patenti(self):
-        return self.patenti
+    def get_datacontratto(self):
+        return self.datacontratto
 
     #Metodi set
 
@@ -51,5 +51,5 @@ class Operatore:
     def set_stato(self, stato):
         self.stato = stato
 
-    def set_patenti(self, patenti):
-        self.patenti = patenti
+    def set_datacontratto(self, datacontratto):
+        self.datacontratto = datacontratto

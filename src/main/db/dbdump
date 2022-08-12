@@ -1,10 +1,12 @@
 CREATE DATABASE AAdb;
 
+DROP TABLE Patenti;
 CREATE TABLE Patenti(
 livello TEXT PRIMARY KEY,
 descrizione TEXT
 );
 
+DROP TABLE Operatori;
 CREATE TABLE Operatori(
 id INTEGER PRIMARY KEY,
 nome TEXT NOT NULL,
@@ -15,14 +17,16 @@ data_fine_contratto TEXT,
 stato INT NOT NULL CHECK(stato>=0 & stato<=2)
 );
 
+DROP TABLE Abilitazioni;
 CREATE TABLE Abilitazioni(
 livello_patente TEXT, 
-id_operatore TEXT,
+id_operatore INTEGER,
 FOREIGN KEY(livello_patente) REFERENCES Patenti(livello),
 FOREIGN KEY(id_operatore) REFERENCES Operatori(id),
 PRIMARY KEY(livello_patente, id_operatore)
 );
 
+DROP TABLE Mezzi;
 CREATE TABLE Mezzi(
 id INTEGER PRIMARY KEY,
 targa TEXT NOT NULL,
@@ -32,28 +36,31 @@ iscrizione_albo TEXT,
 stato INT NOT NULL CHECK(stato>=0 & stato<=2)
 );
 
+DROP TABLE Turni;
 CREATE TABLE Turni(
 id INTEGER PRIMARY KEY,
 inizio_turno TEXT NOT NULL,
 fine_turno TEXT NOT NULL
 );
 
+DROP TABLE Impieghi;
 CREATE TABLE Impieghi(
-id_turno TEXT,
-id_operatore TEXT,
+id_turno INTEGER,
+id_operatore INTEGER,
 FOREIGN KEY(id_turno) REFERENCES Turni(id),
 FOREIGN KEY(id_operatore) REFERENCES Operatori(id),
 PRIMARY KEY(id_turno, id_operatore)
 );
 
+DROP TABLE Assegnamenti;
 CREATE TABLE Assegnamenti(
-id_turno TEXT,
-id_mezzo TEXT,
+id_turno INTEGER,
+id_mezzo INTEGER,
 FOREIGN KEY(id_turno) REFERENCES Turni(id),
 FOREIGN KEY(id_mezzo) REFERENCES Mezzi(id),
-PRIMARY KEY(id_turno, id_mezzo)
-);
+PRIMARY KEY(id_turno, id_mezzo));
 
+DROP TABLE Clienti;
 CREATE TABLE Clienti(
 id INTEGER PRIMARY KEY,
 nome TEXT NOT NULL,
@@ -66,22 +73,25 @@ email TEXT,
 telefono TEXT
 );
 
+DROP TABLE Servizi;
 CREATE TABLE Servizi(
 id INTEGER PRIMARY KEY,
-id_cliente TEXT NOT NULL,
+id_cliente INTEGER NOT NULL,
 tipo TEXT NOT NULL,
 periodicita TEXT,
 FOREIGN KEY(id_cliente) REFERENCES Clienti(id)
 );
 
+DROP TABLE Lavori;
 CREATE TABLE Lavori(
-id_turno TEXT,
-id_servizio TEXT,
+id_turno INTEGER,
+id_servizio INTEGER,
 FOREIGN KEY(id_turno) REFERENCES Turni(id),
 FOREIGN KEY(id_servizio) REFERENCES Servizi(id),
 PRIMARY KEY(id_turno, id_servizio)
 );
 
+DROP TABLE Utenti;
 CREATE TABLE Utenti(
 id INTEGER PRIMARY KEY,
 username TEXT NOT NULL,

@@ -26,7 +26,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             print("Qualcosa non va")
         else:
             #try:
-                self.controller.insert_operatore(nome, cognome, cf, data_nascita, None , None)
+                self.controller.insert_operatore(nome, cognome, data_nascita, cf, None , 0)
                 #finestra pop up a buon fine
                 self.close
             #except:
