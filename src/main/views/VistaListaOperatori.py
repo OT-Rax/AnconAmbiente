@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtCore
 import os
 import sys
 import xz_rc
@@ -51,14 +51,19 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             self.inserisci_tabella(self.controller.ricerca_operatori(text))
 
     def inserisci_tabella(self, operatori):
-        rows = self.tabella_operatori.rowCount()
+        row = self.tabella_operatori.rowCount()
         for operatore in operatori:
-            print(operatore.get_id())
-            self.tabella_operatori.insertRow(rows)
-            self.tabella_operatori.setItem(rows, 0, QtWidgets.QTableWidgetItem(str(operatore.get_id())))
-            self.tabella_operatori.setItem(rows, 1, QtWidgets.QTableWidgetItem(operatore.get_nome()))
-            self.tabella_operatori.setItem(rows, 2, QtWidgets.QTableWidgetItem(operatore.get_cognome()))
-            self.tabella_operatori.setItem(rows, 3, QtWidgets.QTableWidgetItem(str(operatore.get_stato())))
-            rows+=1
+            items = []
+            items.append(QtWidgets.QTableWidgetItem(str(operatore.get_id())))
+            items.append(QtWidgets.QTableWidgetItem(operatore.get_nome()))
+            items.append(QtWidgets.QTableWidgetItem(operatore.get_cognome()))
+            items.append(QtWidgets.QTableWidgetItem(str(operatore.get_stato())))
+            self.tabella_operatori.insertRow(row)
+            column=0
+            for item in items:
+                item.setFlags(item.flags() &~ QtCore.Qt.ItemFlag.ItemIsEditable)
+                self.tabella_operatori.setItem(row, column, item) 
+                column+=1
+            row+=1
 
 
