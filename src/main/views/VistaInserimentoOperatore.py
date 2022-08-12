@@ -8,12 +8,13 @@ from controllers.ControlloreOperatori import ControlloreOperatori
 class VistaInserimentoOperatore(QtWidgets.QMainWindow):
     controller = ControlloreOperatori()
 
-    def __init__(self):
-        super(VistaInserimentoOperatore, self).__init__()  # Call the inherited classes __init__ method
+    def __init__(self, parent):
+        super(VistaInserimentoOperatore, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_operatore.ui', self)  # Load the .ui file
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         self.cf_field.setInputMask("AAAAAA00A00A000A")
+        print(self.parent().children())
         #self.nome_field.setValidator()
 
     def inserisci(self):
@@ -31,6 +32,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
                 self.controller.insert_operatore(nome, cognome, data_nascita.toString("yyyy-MM-dd"), cf, None , 0)
                 #finestra pop up a buon fine
                 self.close
+                self.parent().update()
             #except:
                 #finestra pop up qualcosa e andato storto;
                 #print("Qualcosa non va nell'inserimento")

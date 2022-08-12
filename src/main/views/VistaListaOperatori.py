@@ -23,7 +23,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.update()
 
     def go_inserisci(self):
-        self.vista_inserimentooperatore = VistaInserimentoOperatore()
+        self.vista_inserimentooperatore = VistaInserimentoOperatore(self)
         self.vista_inserimentooperatore.show()
 
     def go_modifica(self):
