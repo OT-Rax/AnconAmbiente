@@ -63,9 +63,6 @@ if __name__ == '__main__':
     #                                         ', id_turni, id_mezzi)
 
     # Popolazione Impieghi
-    # id_turni = cur.execute(' \
-    #                         SELECT id FROM Turni \
-    #                         ')
     # id_operatori = cur.execute(' \
     #                             SELECT id FROM Operatori \
     #                             ')
