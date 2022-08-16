@@ -49,6 +49,19 @@ if __name__ == '__main__':
                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?); \
                                     ', cliente)
 
+    # Popolazione Assegnamenti
+    # id_turni = cur.execute(' \
+    #                         SELECT id FROM Turni \
+    #                         ')
+    # id_mezzi = cur.execute(' \
+    #                             SELECT id FROM Mezzi \
+    #                             ')
+    # for i in range(10):
+    #     cur.execute(' \
+    #                                         INSERT INTO Assegnamenti (id_turno, id_mezzo) \
+    #                                         VALUES (?, ?); \
+    #                                         ', id_turni, id_mezzi)
+
     con.commit()
     con.close()
 
