@@ -62,6 +62,19 @@ if __name__ == '__main__':
     #                                         VALUES (?, ?); \
     #                                         ', id_turni, id_mezzi)
 
+    # Popolazione Impieghi
+    # id_turni = cur.execute(' \
+    #                         SELECT id FROM Turni \
+    #                         ')
+    # id_operatori = cur.execute(' \
+    #                             SELECT id FROM Operatori \
+    #                             ')
+    # for i in range(10):
+    #     cur.execute(' \
+    #                                         INSERT INTO Impieghi (id_turno, id_operatore) \
+    #                                         VALUES (?, ?); \
+    #                                         ', id_turni, id_mezzi)
+
     con.commit()
     con.close()
 
