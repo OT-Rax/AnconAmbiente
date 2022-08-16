@@ -19,6 +19,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.visualizza_button.clicked.connect(self.go_visualizza)
         self.indietro_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
+        self.elimina_button.clicked.connect(self.elimina)
         print(os.getcwd())
         self.update()
 
@@ -50,6 +51,10 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             self.tabella_operatori.setRowCount(0)
             self.inserisci_tabella(self.controller.ricerca_operatori(text))
 
+    def elimina(self):
+        popup=QtWidgets.QDialog()
+        popup.exec()
+
     def inserisci_tabella(self, operatori):
         row = self.tabella_operatori.rowCount()
         for operatore in operatori:
@@ -65,5 +70,3 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
                 self.tabella_operatori.setItem(row, column, item) 
                 column+=1
             row+=1
-
-
