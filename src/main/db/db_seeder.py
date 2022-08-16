@@ -40,6 +40,15 @@ if __name__ == '__main__':
                             VALUES (?, ?); \
                             ', turno)
 
+    # Popolazione Clienti
+    for i in range(10):
+        cliente = [fake.first_name(), fake.last_name(), fake.date_of_birth(), fake.ssn(),
+                   fake.company_vat(), fake.address(), fake.ascii_email(), fake.phone_number()]
+        cur.execute(' \
+                                    INSERT INTO Clienti (nome, cognome, data_nascita, cf, partita_iva, indirizzo, email, telefono) \
+                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?); \
+                                    ', cliente)
+
     con.commit()
     con.close()
 
