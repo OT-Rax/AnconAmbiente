@@ -80,8 +80,11 @@ if __name__ == '__main__':
                                                 INSERT INTO Assegnamenti (id_turno, id_mezzo) \
                                                 VALUES (?, ?); \
                                                 ', (turno_random, mezzo_random))
-        except:
+        except sqlite3.IntegrityError:
             print("Assegnamento numero ",i," gia presente")
+        except Exception as e:
+            print(e)
+
     print("-------------------------")
 
     # Popolazione Impieghi
@@ -98,8 +101,10 @@ if __name__ == '__main__':
                                                 INSERT INTO Impieghi (id_turno, id_operatore) \
                                                 VALUES (?, ?); \
                                                 ', (turno_random, operatore_random))
-        except:
+        except sqlite3.IntegrityError:
             print("Impiego numero ",i," gia presente")
+        except Exception as e:
+            print(e)
 
     print("-------------------------")
 
@@ -112,9 +117,11 @@ if __name__ == '__main__':
             cur.execute(' \
                                                     INSERT INTO Patenti (livello, descrizione) \
                                                     VALUES (?, ?); \
-                                                    ', (turno_random, operatore_random))
-        except:
+                                                    ', patente)
+        except sqlite3.IntegrityError:
             print("Patente numero ", i, " gia presente")
+        except Exception as e:
+            print(e)
 
     print("-------------------------")
 
@@ -123,19 +130,23 @@ if __name__ == '__main__':
     id_clienti = cur.execute(' \
                                 SELECT id FROM Clienti \
                                 ').fetchall()  # Prendo tutti i clienti
+    tipo = ['Pulizia strada', 'Raccolta rifiuti', 'Pulizia straordinaria', 'Raccolta a domicilio']
+    periodicita = ['Giornaliero', 'Mensile', 'Annuale', 'Bimestrale', 'Trimestrale', 'Settimanale']
     for i in range(10):
         try:
             cliente_random = id_clienti[fake.random_int(min=0, max=len(id_clienti) - 1)][0]
-            tipo = ['Pulizia strada', 'Raccolta rifiuti', 'Pulizia straordinaria', 'Raccolta a domicilio']
-            periodicita = ['Giornaliero', 'Mensile', 'Annuale', 'Bimestrale', 'Trimestrale', 'Settimanale']
+            tipo_random=tipo[fake.random_int(min=0, max=len(tipo) - 1)]
+            periodicita_random=periodicita[fake.random_int(min=0, max=len(periodicita) - 1)]
             print("Inserimento servizio numero", i)
-            servizio = [cliente_random, tipo, periodicita]
+            servizio = [cliente_random, tipo_random, periodicita_random]
             cur.execute(' \
                                                         INSERT INTO Servizi (id_cliente, tipo, periodicita) \
                                                         VALUES (?, ?, ?); \
                                                         ', servizio)
-        except:
+        except sqlite3.IntegrityError:
             print("Servizio numero ", i, " gia presente")
+        except Exception as e:
+            print(e)
 
     print("-------------------------")
 
@@ -151,11 +162,13 @@ if __name__ == '__main__':
             turno_random = id_turni[fake.random_int(min=0, max=len(id_turni) - 1)][0]
             servizio_random = id_servizi[fake.random_int(min=0, max=len(id_servizi) - 1)][0]
             cur.execute(' \
-                                                           INSERT INTO lavoro (id_turno, id_servizio) \
+                                                           INSERT INTO Lavori (id_turno, id_servizio) \
                                                            VALUES (?, ?); \
                                                            ', (turno_random, servizio_random))
-        except:
+        except sqlite3.IntegrityError:
             print("Lavoro numero ", i, " gia presente")
+        except Exception as e:
+            print(e)
 
     print("-------------------------")
 
