@@ -27,9 +27,9 @@ if __name__ == '__main__':
 
     # Popolazione Mezzi
     print("Popolazione Mezzi")
+    patenti = ["B", "B1", "C"]
     for i in range(10):
-        print("Inserimento mezzo numero", i) 
-        patenti = ["B", "B1", "C"]
+        print("Inserimento mezzo numero", i)
         tipo = ["Auto", "Autoarticolato", "Camion", "Camioncino"]
         mezzo = [fake.license_plate(), random.choice(patenti), random.choice(tipo),
                  fake.past_date(), fake.random_int(min=0, max=2)]
@@ -81,10 +81,10 @@ if __name__ == '__main__':
                                                 VALUES (?, ?); \
                                                 ', (turno_random, mezzo_random))
         except:
-            print("Impiego numero ",i," gia presente")
+            print("Assegnamento numero ",i," gia presente")
     print("-------------------------")
 
-    #Popolazione Impieghi
+    # Popolazione Impieghi
     print("Popolazione Impieghi")
     id_operatori = cur.execute(' \
                                 SELECT id FROM Operatori \
@@ -100,6 +100,21 @@ if __name__ == '__main__':
                                                 ', (turno_random, operatore_random))
         except:
             print("Impiego numero ",i," gia presente")
+
+    print("-------------------------")
+
+    # Popolazione Patenti
+    print("Popolazione Patenti")
+    for i in range(10):
+        try:
+            print("Inserimento patente numero", i)
+            patente = [random.choice(patenti), 'Patente']
+            cur.execute(' \
+                                                    INSERT INTO Patenti (livello, descrizione) \
+                                                    VALUES (?, ?); \
+                                                    ', (turno_random, operatore_random))
+        except:
+            print("Patente numero ", i, " gia presente")
 
     print("-------------------------")
 
