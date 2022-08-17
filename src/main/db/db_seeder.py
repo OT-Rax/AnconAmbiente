@@ -118,6 +118,27 @@ if __name__ == '__main__':
 
     print("-------------------------")
 
+    # Popolazione Servizi
+    print("Popolazione Servizi")
+    id_clienti = cur.execute(' \
+                                SELECT id FROM Clienti \
+                                ').fetchall()  # Prendo tutti i clienti
+    for i in range(10):
+        try:
+            cliente_random = id_clienti[fake.random_int(min=0, max=len(id_clienti) - 1)][0]
+            tipo = ['Pulizia strada', 'Raccolta rifiuti', 'Pulizia straordinaria', 'Raccolta a domicilio']
+            periodicita = ['Giornaliero', 'Mensile', 'Annuale', 'Bimestrale', 'Trimestrale', 'Settimanale']
+            print("Inserimento servizio numero", i)
+            servizio = [cliente_random, tipo, periodicita]
+            cur.execute(' \
+                                                        INSERT INTO Servizi (id_cliente, tipo, periodicita) \
+                                                        VALUES (?, ?, ?); \
+                                                        ', servizio)
+        except:
+            print("Servizio numero ", i, " gia presente")
+
+    print("-------------------------")
+
     con.commit()
     con.close()
 
