@@ -139,6 +139,26 @@ if __name__ == '__main__':
 
     print("-------------------------")
 
+    # Popolazione Lavori
+    print("Popolazione Lavori")
+
+    for i in range(10):
+        id_servizi = cur.execute(' \
+                                        SELECT id FROM Servizi \
+                                        ').fetchall()  # Prendo tutti i clienti
+        try:
+            print("Inserimento lavoro numero", i)
+            turno_random = id_turni[fake.random_int(min=0, max=len(id_turni) - 1)][0]
+            servizio_random = id_servizi[fake.random_int(min=0, max=len(id_servizi) - 1)][0]
+            cur.execute(' \
+                                                           INSERT INTO lavoro (id_turno, id_servizio) \
+                                                           VALUES (?, ?); \
+                                                           ', (turno_random, servizio_random))
+        except:
+            print("Lavoro numero ", i, " gia presente")
+
+    print("-------------------------")
+
     con.commit()
     con.close()
 
