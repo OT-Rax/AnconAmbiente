@@ -39,7 +39,7 @@ if __name__ == '__main__':
                     ', mezzo)
     print("-------------------------")
 
-    # Popolazione turni
+    # Popolazione Turni
     print("Popolazione Turni")
     for i in range(10):
         print("Inserimento turno numero", i) 
