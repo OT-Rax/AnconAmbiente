@@ -39,7 +39,7 @@ if __name__ == '__main__':
                     ', mezzo)
     print("-------------------------")
 
-    # Popolazione turni
+    # Popolazione Turni
     print("Popolazione Turni")
     for i in range(10):
         print("Inserimento turno numero", i) 
@@ -167,6 +167,26 @@ if __name__ == '__main__':
                                                            ', (turno_random, servizio_random))
         except sqlite3.IntegrityError:
             print("Lavoro numero ", i, " gia presente")
+        except Exception as e:
+            print(e)
+
+    print("-------------------------")
+
+    # Popolazione Abilitazioni
+    print("Popolazione Abilitazioni")
+
+    for i in range(10):
+
+        try:
+            print("Inserimento abilitazione numero", i)
+            patente_random = random.choice(patenti)
+            operatore_random = id_operatori[fake.random_int(min=0, max=len(id_operatori) - 1)][0]
+            cur.execute(' \
+                                                              INSERT INTO Abilitazioni (livello_patente, id_operatore) \
+                                                              VALUES (?, ?); \
+                                                              ', (patente_random, operatore_random))
+        except sqlite3.IntegrityError:
+            print("Abilitazione numero ", i, " gia presente")
         except Exception as e:
             print(e)
 
