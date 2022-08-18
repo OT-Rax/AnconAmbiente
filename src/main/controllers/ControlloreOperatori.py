@@ -16,3 +16,6 @@ class ControlloreOperatori:
 
     def ricerca_operatori(self, text):
         return self.mapper.ricerca_operatori(text)
+
+    def elimina_operatori(self, operatori):
+        return self.mapper.elimina_operatori(operatori)

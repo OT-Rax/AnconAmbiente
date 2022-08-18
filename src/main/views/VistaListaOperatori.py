@@ -19,7 +19,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.visualizza_button.clicked.connect(self.go_visualizza)
         self.indietro_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
-        self.elimina_button.clicked.connect(self.elimina)
+        self.elimina_button.clicked.connect(self.go_elimina)
         print(os.getcwd())
         self.update()
 
@@ -51,9 +51,34 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             self.tabella_operatori.setRowCount(0)
             self.inserisci_tabella(self.controller.ricerca_operatori(text))
 
-    def elimina(self):
+    def go_elimina(self):
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        righe_selezionate=[]
+        operatori=[]
+        for casella in caselle_selezionate:
+            righe_selezionate.append(casella.row())
+        for riga in set(righe_selezionate):
+            operatore=self.controller.get_operatore(int(self.tabella_operatori.item(riga, 0).text()))
+            operatori.append(operatore)
         popup=QtWidgets.QDialog()
+        uic.loadUi('gui/dialog_elimina.ui', popup)
+        popup.label_3.setText(str(len(operatori)))
+        popup.buttonBox.accepted.connect(self.elimina)
         popup.exec()
+        self.update()
+
+    def elimina(self):
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        righe_selezionate=[]
+        operatori=[]
+        for casella in caselle_selezionate:
+            righe_selezionate.append(casella.row())
+        for riga in set(righe_selezionate):
+            operatore=self.controller.get_operatore(int(self.tabella_operatori.item(riga, 0).text()))
+            operatori.append(operatore)
+        self.controller.elimina_operatori(operatori)
+
+        
 
     def inserisci_tabella(self, operatori):
         row = self.tabella_operatori.rowCount()
