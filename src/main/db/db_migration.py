@@ -48,7 +48,7 @@ if __name__ == '__main__':
         CREATE TABLE Mezzi(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         targa TEXT NOT NULL,
-        livello_richiesto TEXT NOT NULL,
+        patente TEXT NOT NULL,
         tipo TEXT NOT NULL,
         iscrizione_albo TEXT,
         stato INT NOT NULL CHECK(stato>=0 & stato<=2)

@@ -180,7 +180,7 @@ font:  bold 11px
      <string>Data fine contratto:</string>
     </property>
    </widget>
-   <widget class="QDateEdit" name="nascita_datepicker">
+   <widget class="QDateEdit" name="datanascita_datepicker">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -188,6 +188,9 @@ font:  bold 11px
       <width>220</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="displayFormat">
+     <string>MM/dd/yyyy</string>
     </property>
    </widget>
    <widget class="QDateEdit" name="finecontratto_datepicker">
@@ -198,6 +201,9 @@ font:  bold 11px
       <width>220</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="displayFormat">
+     <string>MM/dd/yyyy</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="nome_field">

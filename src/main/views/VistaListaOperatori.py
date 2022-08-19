@@ -28,8 +28,14 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.vista_inserimentooperatore.show()
 
     def go_modifica(self):
-        self.vista_modificaoperatore = VistaModificaOperatore()
-        self.vista_modificaoperatore.show()
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        righe_selezionate=[]
+        for casella in caselle_selezionate:
+            righe_selezionate.append(casella.row())
+        for riga in set(righe_selezionate):
+            operatore=self.controller.get_operatore(int(self.tabella_operatori.item(riga, 0).text()))
+            self.vista_modificaoperatore = VistaModificaOperatore(operatore)
+            self.vista_modificaoperatore.show()
 
     def go_visualizza(self):
         caselle_selezionate=self.tabella_operatori.selectedItems()
@@ -62,7 +68,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             operatori.append(operatore)
         popup=QtWidgets.QDialog()
         uic.loadUi('gui/dialog_elimina.ui', popup)
-        popup.label_3.setText(str(len(operatori)))
+        popup.label_3.setText("Vuoi davvero eliminare " + str(len(operatori)) + " operatori?")
         popup.buttonBox.accepted.connect(self.elimina)
         popup.exec()
         self.update()
@@ -77,8 +83,6 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             operatore=self.controller.get_operatore(int(self.tabella_operatori.item(riga, 0).text()))
             operatori.append(operatore)
         self.controller.elimina_operatori(operatori)
-
-        
 
     def inserisci_tabella(self, operatori):
         row = self.tabella_operatori.rowCount()
