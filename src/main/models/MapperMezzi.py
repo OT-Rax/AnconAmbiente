@@ -26,10 +26,10 @@ class MapperMezzi:
         con.close()
         return mezzo
 
-    def insert_operatore(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
+    def insert_operatore(self, targa, patente, tipo, allestimento, iscrizione_albo, stato):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("INSERT INTO Mezzi (targa, tipo, allestimento, iscrizione_albo, patente, stato) VALUES (?, ?, ?, ?, ?, ?)", (targa, tipo, allestimento, iscrizione_albo, stato))
+        cur.execute("INSERT INTO Mezzi (targa, patente, tipo, allestimento, iscrizione_albo, stato) VALUES (?, ?, ?, ?, ?, ?)", (targa, patente, tipo, allestimento, iscrizione_albo, stato))
         con.commit()
         con.close()
 
