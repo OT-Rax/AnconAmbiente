@@ -50,6 +50,7 @@ if __name__ == '__main__':
         targa TEXT NOT NULL,
         patente TEXT NOT NULL,
         tipo TEXT NOT NULL,
+        allestimento TEXT NOT NULL,
         iscrizione_albo TEXT,
         stato INT NOT NULL CHECK(stato>=0 & stato<=2)
         );

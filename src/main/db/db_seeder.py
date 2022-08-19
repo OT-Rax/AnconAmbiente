@@ -31,11 +31,12 @@ if __name__ == '__main__':
     for i in range(10):
         print("Inserimento mezzo numero", i)
         tipo = ["Auto", "Autoarticolato", "Camion", "Camioncino"]
+        allestimento = ["Spazzamento", "Raccoglimento", "Trasporto"]
         mezzo = [fake.license_plate(), random.choice(patenti), random.choice(tipo),
-                 fake.past_date(), fake.random_int(min=0, max=2)]
+                 random.choice(allestimento), fake.past_date(), fake.random_int(min=0, max=2)]
         cur.execute(' \
-                    INSERT INTO Mezzi (targa, patente, tipo, iscrizione_albo, stato) \
-                    VALUES (?, ?, ?, ?, ?); \
+                    INSERT INTO Mezzi (targa, patente, tipo, allestimento, iscrizione_albo, stato) \
+                    VALUES (?, ?, ?, ?, ?, ?); \
                     ', mezzo)
     print("-------------------------")
 
