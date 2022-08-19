@@ -64,8 +64,8 @@
     <rect>
      <x>120</x>
      <y>60</y>
-     <width>200</width>
-     <height>13</height>
+     <width>241</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
@@ -77,8 +77,8 @@
     <rect>
      <x>120</x>
      <y>80</y>
-     <width>200</width>
-     <height>13</height>
+     <width>241</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">

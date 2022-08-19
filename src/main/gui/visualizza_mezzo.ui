@@ -221,7 +221,7 @@ font:  bold 11px
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="datanascita_label">
+   <widget class="QLabel" name="iscrizione_label">
     <property name="geometry">
      <rect>
       <x>170</x>
