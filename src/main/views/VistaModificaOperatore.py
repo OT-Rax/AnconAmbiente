@@ -13,4 +13,4 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
         self.datanascita_datepicker.setCalendarPopup(True)
         print(operatore.get_datanascita())
         self.datanascita_datepicker.setDateTime(QtCore.QDateTime.fromString(operatore.get_datanascita(),"yyyy-mm-dd"))
-        self.stato_combo.setIndex(operatore.get_stato())
+        self.stato_combo.setCurrentIndex(operatore.get_stato())

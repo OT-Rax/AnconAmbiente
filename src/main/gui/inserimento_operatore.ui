@@ -883,6 +883,19 @@ font:  bold 11px
      <string/>
     </property>
    </widget>
+   <widget class="QCheckBox" name="indeterminato_checkbox">
+    <property name="geometry">
+     <rect>
+      <x>141</x>
+      <y>305</y>
+      <width>151</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Indeterminato</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

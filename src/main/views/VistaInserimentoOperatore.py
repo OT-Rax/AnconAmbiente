@@ -14,6 +14,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         self.cf_field.setInputMask("AAAAAA00A00A000A")
+        self.indeterminato_checkbox.stateChanged.connect(self.indeterminato_changed)
         print(self.parent().children())
         #self.nome_field.setValidator()
 
@@ -36,3 +37,6 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             #except:
                 #finestra pop up qualcosa e andato storto;
                 #print("Qualcosa non va nell'inserimento")
+
+    def indeterminato_changed(self):
+        self.finecontratto_datepicker.isEnabled(not self.indeterminato_checkbox.isEnabled())
