@@ -12,5 +12,5 @@ class ControlloreMezzo:
     def get_mezzi(self):
         return self.mapper.get_mezzi()
     
-    def insert_mezzo(self, targa, tipo, allestimento, data_iscrizione, patente, stato):
-        return self.mapper.insert_operatore(targa, tipo, allestimento, data_iscrizione, patente, stato)
+    def insert_mezzo(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
+        return self.mapper.insert_operatore(targa, patente, tipo, allestimento, iscrizione_albo, stato)

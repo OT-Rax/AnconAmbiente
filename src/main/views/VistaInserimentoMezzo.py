@@ -21,8 +21,8 @@ class VistaInserimentoMezzo(QtWidgets.QMainWindow):
         modello=self.modello_field.text()
         funzione=self.funzione_field.text()
         data_iscrizione=self.iscrizione_datepicker.date()
-        patenti=[]
-        self.controller.insert_mezzo(targa, modello, funzione, data_iscrizione.toString("yyyy-MM-dd"), None , 0)
+        patente=self.patente_combo.currentText()
+        self.controller.insert_mezzo(targa, modello, funzione, data_iscrizione.toString("yyyy-MM-dd"), patente , 0)
         #finestra pop up a buon fine
         self.close
         self.parent().update()
