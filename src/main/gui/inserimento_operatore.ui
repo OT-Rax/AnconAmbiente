@@ -138,6 +138,9 @@
     <property name="displayFormat">
      <string>M/d/yyyy</string>
     </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
     <property name="date">
      <date>
       <year>1999</year>
@@ -157,6 +160,9 @@
     </property>
     <property name="displayFormat">
      <string>M/d/yyyy</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QComboBox" name="patente_combo">
