@@ -34,7 +34,7 @@ if __name__ == '__main__':
         mezzo = [fake.license_plate(), random.choice(patenti), random.choice(tipo),
                  fake.past_date(), fake.random_int(min=0, max=2)]
         cur.execute(' \
-                    INSERT INTO Mezzi (targa, livello_richiesto, tipo, iscrizione_albo, stato) \
+                    INSERT INTO Mezzi (targa, patente, tipo, iscrizione_albo, stato) \
                     VALUES (?, ?, ?, ?, ?); \
                     ', mezzo)
     print("-------------------------")

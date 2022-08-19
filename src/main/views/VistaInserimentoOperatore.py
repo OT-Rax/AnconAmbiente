@@ -31,7 +31,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             #try:
                 self.controller.insert_operatore(nome, cognome, data_nascita.toString("yyyy-MM-dd"), cf, None , 0)
                 #finestra pop up a buon fine
-                self.close
+                self.close()
                 self.parent().update()
             #except:
                 #finestra pop up qualcosa e andato storto;
