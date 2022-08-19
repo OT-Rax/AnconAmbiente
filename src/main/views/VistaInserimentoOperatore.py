@@ -22,15 +22,15 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         #Inserisci controllo validita caratteri, lunghezza e coerenza
         nome=self.nome_field.text()
         cognome=self.cognome_field.text()
-        cf=self.cf_field.text()
+        cf=self.cf_field.text().toString("yyyy-MM-dd")
         data_nascita=self.nascita_datepicker.date()
         patenti=[]
-        data_fine_contratto = self.finecontratto_datepicker.date().toString()
+        data_finecontratto = None if self.indeterminato_checkbox.isChecked() else self.finecontratto_datepicker.date().toString("yyyy-MM-dd")
         if  nome is None or cognome is None or len(cf)!=16 or data_nascita >= date.today():
             print("Qualcosa non va")
         else:
             #try:
-                self.controller.insert_operatore(nome, cognome, data_nascita.toString("yyyy-MM-dd"), cf, None , 0)
+                self.controller.insert_operatore(nome, cognome, data_nascita, cf, data_finecontratto , 0)
                 #finestra pop up a buon fine
                 self.close()
                 self.parent().update()
@@ -39,4 +39,4 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
                 #print("Qualcosa non va nell'inserimento")
 
     def indeterminato_changed(self):
-        self.finecontratto_datepicker.isEnabled(not self.indeterminato_checkbox.isEnabled())
+        self.finecontratto_datepicker.setEnabled(not self.finecontratto_datepicker.isEnabled())
