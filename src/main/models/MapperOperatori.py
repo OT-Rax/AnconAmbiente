@@ -45,7 +45,12 @@ class MapperOperatori:
 
 
     def update_operatore(self, id, operatore):
-        operatore=id
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        cur.execute("UPDATE Operatori SET nome=?, cognome=?, data_nascita=?, cf=?, data_fine_contratto=?, stato=? WHERE id=?",
+                (operatore.get_nome(), operatore.get_cognome(), operatore.get_datanascita(), operatore.get_cf(), operatore.get_datacontratto(), operatore.get_stato(), id))
+        con.commit()
+        con.close()
 
     def elimina_operatori(self, operatori):
         con = sqlite3.connect(self.db_directory)

@@ -19,3 +19,6 @@ class ControlloreOperatori:
 
     def elimina_operatori(self, operatori):
         return self.mapper.elimina_operatori(operatori)
+
+    def modifica_operatore(self, operatore):
+        return self.mapper.update_operatore(operatore.get_id(), operatore)

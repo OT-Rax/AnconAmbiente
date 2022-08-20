@@ -3,11 +3,13 @@ import sys
 import xz_rc
 
 from models.Operatore import Operatore
+from views.VistaModificaOperatore import VistaModificaOperatore
 
 class VistaOperatore(QtWidgets.QMainWindow):
     def __init__(self, operatore):
         super(VistaOperatore, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_operatore.ui', self)  # Load the .ui file
+        self.operatore=operatore
         self.id_label.setText(str(operatore.get_id()))
         self.nome_label.setText(operatore.get_nome())
         self.cognome_label.setText(operatore.get_cognome())
@@ -26,3 +28,8 @@ class VistaOperatore(QtWidgets.QMainWindow):
             stato = "In Ferie"
         self.stato_label.setText(stato)
         self.annulla_button.clicked.connect(self.close)
+        self.modifica_button.clicked.connect(self.go_modifica)
+
+    def go_modifica(self):
+        self.vista_modificaoperatore = VistaModificaOperatore(self.operatore)
+        self.vista_modificaoperatore.show()

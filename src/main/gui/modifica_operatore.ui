@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>380</width>
-    <height>355</height>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>300</y>
+      <y>340</y>
       <width>161</width>
       <height>23</height>
      </rect>
@@ -140,8 +140,8 @@ font:  bold 11px
    <widget class="QPushButton" name="annulla_button">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>300</y>
+      <x>190</x>
+      <y>340</y>
       <width>160</width>
       <height>23</height>
      </rect>
@@ -294,6 +294,19 @@ font:  bold 11px
     </property>
     <property name="text">
      <string>Stato:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="indeterminato_checkbox">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>300</y>
+      <width>221</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Indeterminato</string>
     </property>
    </widget>
   </widget>
