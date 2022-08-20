@@ -16,15 +16,17 @@ class MapperUtenti:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         c = cur.execute("SELECT password_hash FROM Utenti WHERE username = ?", (username,))
-        if c.rowcount == 0:
+        print(c.arraysize)
+        if c.arraysize == 0:
             return False
         else:
             stored_pw = ""
             for row in c:
                 stored_pw = row[0]
             parameters = stored_pw.split('$')
-            hashed_passw = hashlib.scrypt(login_pw, salt=parameters[1], n=parameters[2], r=parameters[3], p=parameters[4], dklen=parameters[5]) 
-            if hashed_passw == parameters[0]:
+            print(parameters[1])
+            hashed_passw = hashlib.scrypt(login_pw.encode(), salt=bytes.fromhex(parameters[1]), n=int(parameters[2]), r=int(parameters[3]), p=int(parameters[4]), dklen=int(parameters[5])) 
+            if hashed_passw.hex() == parameters[0]:
                 return True
             else:
                 return False
@@ -48,5 +50,5 @@ class MapperUtenti:
     def encrypt_password(self, password):
         salt = os.urandom(10)
         hash = hashlib.scrypt(password.encode(), salt=salt, n=self.n, r=self.r, p=self.p, dklen=self.dklen)
-        encrypted_password = f"{hash}${salt}${self.n}${self.r}${self.p}${self.dklen}"
+        encrypted_password = f"{hash.hex()}${salt.hex()}${self.n}${self.r}${self.p}${self.dklen}"
         return encrypted_password

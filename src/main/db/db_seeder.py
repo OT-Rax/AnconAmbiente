@@ -1,17 +1,27 @@
 import sqlite3
 import random
+import os
+import hashlib
 from faker import Faker
 
 if __name__ == '__main__':
     fake = Faker('it_IT')
     con=sqlite3.connect('AAdb')
     cur=con.cursor()
-    # cur.execute('''
-    #     INSERT INTO Operatori (nome, cognome, data_nascita, cf, data_fine_contratto, stato)
-    #                    VALUES ('Mario', 'Rossi', '1980-10-14', 'MARIOROSSI123456', NULL, 0),
-    #                           ('Franco', 'Battiato', '1984-09-23', 'FRANCOMACFROIRFR', NULL, 1),
-    #                           ('Gordon', 'Sbordon', '2022-11-11', '0123456789123456', NULL, 0)
-    # ''')
+    # Inserimento Utenti default
+    print("-----Inserimento Utenti-----")
+    n=2
+    r=16
+    p=1
+    dklen=64
+    salt = os.urandom(10)
+    hash = hashlib.scrypt("admin".encode(), salt=salt, n=n, r=r, p=p, dklen=dklen)
+    encrypted_password = f"{hash.hex()}${salt.hex()}${n}${r}${p}${dklen}"
+    cur.execute(' \
+            INSERT INTO Utenti (username, password_hash, accesso_operatori, accesso_mezzi, accesso_servizi, accesso_turni, accesso_clienti, accesso_utenti) \
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?); \
+            ', ("admin", encrypted_password , 1, 1, 1, 1, 1, 1))
+    print("-------------------------")
 
     # Popolazione Operatori
     print("-----Popolazione Operatori-----")
@@ -196,4 +206,4 @@ if __name__ == '__main__':
     con.commit()
     con.close()
 
-
+    
