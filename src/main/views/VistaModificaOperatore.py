@@ -17,7 +17,6 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
         self.cognome_field.setText(operatore.get_cognome())
         self.cf_field.setText(operatore.get_cf())
         #self.datanascita_datepicker.setCalendarPopup(True) ---- Not needed anymore, put it into ui file
-        print(operatore.get_datanascita())
         self.datanascita_datepicker.setDateTime(QtCore.QDateTime.fromString(operatore.get_datanascita(),"yyyy-mm-dd"))
         self.stato_combo.setCurrentIndex(operatore.get_stato())
 

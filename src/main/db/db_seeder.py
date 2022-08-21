@@ -17,10 +17,15 @@ if __name__ == '__main__':
     salt = os.urandom(10)
     hash = hashlib.scrypt("admin".encode(), salt=salt, n=n, r=r, p=p, dklen=dklen)
     encrypted_password = f"{hash.hex()}${salt.hex()}${n}${r}${p}${dklen}"
-    cur.execute(' \
-            INSERT INTO Utenti (username, password_hash, accesso_operatori, accesso_mezzi, accesso_servizi, accesso_turni, accesso_clienti, accesso_utenti) \
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?); \
-            ', ("admin", encrypted_password , 1, 1, 1, 1, 1, 1))
+    try:
+        cur.execute(' \
+                INSERT INTO Utenti (username, password_hash, accesso_operatori, accesso_mezzi, accesso_servizi, accesso_turni, accesso_clienti, accesso_utenti) \
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?); \
+                ', ("admin", encrypted_password , 1, 1, 1, 1, 1, 1))
+    except sqlite3.IntegrityError:
+        print("Utente admin già presente")
+    except Exception as e:
+        print(e)
     print("-------------------------")
 
     # Popolazione Operatori
