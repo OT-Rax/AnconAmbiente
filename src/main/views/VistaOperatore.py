@@ -28,7 +28,7 @@ class VistaOperatore(QtWidgets.QMainWindow):
         else:
             stato = "In Ferie"
         self.stato_label.setText(stato)
-        self.annulla_button.clicked.connect(self.close)
+        self.indietro_button.clicked.connect(self.close)
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):

@@ -18,6 +18,9 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         print(self.parent().children())
         self.finecontratto_datepicker.setMinimumDate(QtCore.QDate.currentDate())
         self.nascita_datepicker.setMaximumDate(QtCore.QDate.currentDate())
+        self.nome_field.editingFinished.connect(self.check_nome)
+        self.cognome_field.editingFinished.connect(self.check_cognome)
+        self.cf_field.textChanged.connect(self.check_cf)
         #self.nome_field.setValidator()
 
     def inserisci(self):
@@ -29,9 +32,10 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         patenti=[]
         data_finecontratto = None if self.indeterminato_checkbox.isChecked() else self.finecontratto_datepicker.date().toString("yyyy-MM-dd")
         print(data_finecontratto)
-        if  nome is None or cognome is None or len(cf)!=16 or data_nascita >= date.today():
-            print("Qualcosa non va")
-        else:
+        nome_validity = self.check_nome()
+        cognome_validity = self.check_cognome()
+        cf_validity = self.check_cf()
+        if nome_validity and cognome_validity and cf_validity:
             #try:
             self.controller.insert_operatore(nome, cognome, data_nascita.toString("yyyy-MM-dd"), cf, 0, data_finecontratto)
             #finestra pop up a buon fine
@@ -43,3 +47,27 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
 
     def indeterminato_changed(self):
         self.finecontratto_datepicker.setEnabled(not self.finecontratto_datepicker.isEnabled())
+
+    def check_nome(self):
+        if len(self.nome_field.text()) == 0:
+            self.nome_error.setText("Inserire nome dell'operatore")
+            return False
+        else:
+            self.nome_error.setText("")
+            return True
+
+    def check_cognome(self):
+        if len(self.cognome_field.text()) == 0:
+            self.cognome_error.setText("Inserire cognome dell'operatore")
+            return False
+        else:
+            self.cognome_error.setText("")
+            return True
+
+    def check_cf(self):
+        if len(self.cf_field.text())!=16:
+            self.cf_error.setText("Il codice fiscale deve essere lungo 16 caratteri")
+            return False
+        else:
+            self.cf_error.setText("")
+            return True
