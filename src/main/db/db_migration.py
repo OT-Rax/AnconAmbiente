@@ -48,10 +48,10 @@ if __name__ == '__main__':
         CREATE TABLE Mezzi(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         targa TEXT NOT NULL,
-        patente TEXT NOT NULL,
         tipo TEXT NOT NULL,
         allestimento TEXT NOT NULL,
         iscrizione_albo TEXT,
+        patente TEXT NOT NULL,
         stato INT NOT NULL CHECK(stato>=0 & stato<=2)
         );
     ''')

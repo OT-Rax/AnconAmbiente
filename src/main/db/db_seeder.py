@@ -50,7 +50,7 @@ if __name__ == '__main__':
         mezzo = [fake.license_plate(), random.choice(patenti), random.choice(tipo),
                  random.choice(allestimento), fake.past_date(), fake.random_int(min=0, max=2)]
         cur.execute(' \
-                    INSERT INTO Mezzi (targa, patente, tipo, allestimento, iscrizione_albo, stato) \
+                    INSERT INTO Mezzi (targa, tipo, allestimento, iscrizione_albo, patente, stato) \
                     VALUES (?, ?, ?, ?, ?, ?); \
                     ', mezzo)
     print("-------------------------")
