@@ -13,4 +13,10 @@ class ControlloreMezzo:
         return self.mapper.get_mezzi()
     
     def insert_mezzo(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
-        return self.mapper.insert_operatore(targa, patente, tipo, allestimento, iscrizione_albo, stato)
+        return self.mapper.insert_operatore(targa, tipo, allestimento, iscrizione_albo, patente, stato)
+
+    def elimina_mezzi(self, mezzi):
+        return self.mapper.elimina_mezzi(mezzi)    
+
+    def modifica_mezzo(self, mezzo):
+        return self.mapper.update_mezzo(mezzo.get_id_mezzo(), mezzo)

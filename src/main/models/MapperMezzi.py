@@ -26,10 +26,26 @@ class MapperMezzi:
         con.close()
         return mezzo
 
-    def insert_operatore(self, targa, patente, tipo, allestimento, iscrizione_albo, stato):
+    def insert_operatore(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("INSERT INTO Mezzi (targa, patente, tipo, allestimento, iscrizione_albo, stato) VALUES (?, ?, ?, ?, ?, ?)", (targa, patente, tipo, allestimento, iscrizione_albo, stato))
+        cur.execute("INSERT INTO Mezzi (targa, tipo, allestimento, iscrizione_albo, patente, stato) VALUES (?, ?, ?, ?, ?, ?)", (targa, tipo, allestimento, iscrizione_albo, patente, stato))
         con.commit()
         con.close()
 
+    def update_mezzo(self, id, mezzo):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        cur.execute("UPDATE Mezzi SET targa=?, tipo=?, allestimento=?, iscrizione_albo=?, patente=?, stato=? WHERE id=?",
+                (mezzo.get_targa_mezzo(), mezzo.get_tipo_mezzo(), mezzo.get_allestimento_mezzo(), mezzo.get_iscrizione_mezzo(), mezzo.get_patente_mezzo(), mezzo.get_stato_mezzo(), id))
+        con.commit()
+        con.close()
+
+    def elimina_mezzi(self, mezzi):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        for mezzo in mezzi:
+            print(str(mezzo.get_id_mezzo()))
+            cur.execute("DELETE FROM Mezzi WHERE id="+str(mezzo.get_id_mezzo()))
+        con.commit()
+        con.close()
