@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>380</width>
-    <height>356</height>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>300</y>
+      <y>430</y>
       <width>161</width>
       <height>23</height>
      </rect>
@@ -48,57 +48,11 @@ font:  bold 11px
      <string>INSERISCI</string>
     </property>
    </widget>
-   <widget class="QDateEdit" name="nascita_datepicker">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>140</y>
-      <width>220</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>145</y>
-      <width>80</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Data di Nascita:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="cognome_field">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>60</y>
-      <width>220</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>105</y>
-      <width>80</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Codice Fiscale:</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="annulla_button">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>300</y>
+      <y>430</y>
       <width>160</width>
       <height>23</height>
      </rect>
@@ -124,22 +78,233 @@ font:  bold 11px
      <string>ANNULLA</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cf_field">
+   <widget class="QLabel" name="cf_error">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>100</y>
-      <width>220</width>
-      <height>20</height>
+      <y>160</y>
+      <width>235</width>
+      <height>17</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>385</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Telefono:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="nome_error">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>235</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>25</y>
-      <width>47</width>
+      <y>35</y>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -147,35 +312,78 @@ font:  bold 11px
      <string>Nome:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="nome_field">
+   <widget class="QLineEdit" name="indirizzo_field">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>20</y>
+      <y>280</y>
       <width>220</width>
       <height>20</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>65</y>
-      <width>47</width>
+      <y>185</y>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
-     <string>Cognome:</string>
+     <string>Codice Fiscale:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="email_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>330</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>235</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Partita IVA:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="partitaiva_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>230</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="nascita_datepicker">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>130</y>
+      <width>220</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>185</y>
-      <width>80</width>
+      <y>285</y>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -183,11 +391,44 @@ font:  bold 11px
      <string>Indirizzo:</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="telefono_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>380</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>135</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Data di Nascita:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nome_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>220</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>225</y>
+      <y>335</y>
       <width>100</width>
       <height>13</height>
      </rect>
@@ -196,20 +437,7 @@ font:  bold 11px
      <string>E-mail:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>265</y>
-      <width>100</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Numero:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="indirizzo_field">
+   <widget class="QLineEdit" name="cf_field">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -219,21 +447,128 @@ font:  bold 11px
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="email_field">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>220</y>
-      <width>220</width>
-      <height>20</height>
+      <x>20</x>
+      <y>85</y>
+      <width>100</width>
+      <height>13</height>
      </rect>
     </property>
+    <property name="text">
+     <string>Cognome:</string>
+    </property>
    </widget>
-   <widget class="QLineEdit" name="numero_field">
+   <widget class="QLabel" name="cognome_error">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>260</y>
+      <y>60</y>
+      <width>235</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cognome_field">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>80</y>
       <width>220</width>
       <height>20</height>
      </rect>

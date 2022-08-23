@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>listaclienti_window</class>
- <widget class="QMainWindow" name="listaclienti_window">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
+    <width>705</width>
     <height>525</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>705</width>
+    <height>525</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>705</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Gestione Clienti</string>
@@ -17,50 +35,10 @@
    <iconset resource="xz.qrc">
     <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <widget class="QWidget" name="listaclienti_widget">
-   <widget class="QPushButton" name="visualizza_button">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>20</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-background-color:rgb(24, 105, 68);
-color: white;
-border-style: outset;
-font:  bold 11px
-
-
-}
-
-QPushButton:hover{
-background-color:rgb(170, 203, 108);
-color: white;
-border-style: outset;
-font:  bold 11px
-}</string>
-    </property>
-    <property name="text">
-     <string>VISUALIZZA</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>20</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/images/images/loupe (1) (1).png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="modifica_button">
     <property name="geometry">
      <rect>
@@ -91,55 +69,35 @@ font:  bold 11px
      <string>MODIFICA</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tabella_clienti">
+   <widget class="QPushButton" name="visualizza_button">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>611</width>
-      <height>421</height>
+      <x>90</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
-    <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>150</number>
-    </attribute>
-    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="horizontalHeaderStretchLastSection">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderCascadingSectionResizes">
-     <bool>false</bool>
-    </attribute>
-    <row>
-     <property name="text">
-      <string>DADADAD</string>
-     </property>
-    </row>
-    <column>
-     <property name="text">
-      <string>ID</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Nome</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Cognome</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Stato</string>
-     </property>
-    </column>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+    </property>
+    <property name="text">
+     <string>VISUALIZZA</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="inserisci_button">
     <property name="geometry">
@@ -171,14 +129,221 @@ font:  bold 11px
      <string>INSERISCI</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLineEdit" name="search_field">
     <property name="geometry">
      <rect>
-      <x>13</x>
-      <y>60</y>
+      <x>410</x>
+      <y>20</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tabella_clienti">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>681</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>false</bool>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>150</number>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>170</number>
+    </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>true</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nome</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Cognome</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Partita IVA</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="indietro_button">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+    </property>
+    <property name="text">
+     <string>INDIETRO</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>20</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/images/images/loupe (1) (1).png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="warning_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
       <width>601</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="text">
      <string/>
@@ -214,44 +379,72 @@ font:  bold 11px
      <string>ELIMINA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="indietr_button">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>20</y>
-      <width>75</width>
+      <x>10</x>
+      <y>60</y>
+      <width>71</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ordina per:</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="id_radio">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>60</y>
+      <width>92</width>
       <height>23</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-background-color:rgb(24, 105, 68);
-color: white;
-border-style: outset;
-font:  bold 11px
-
-
-}
-
-QPushButton:hover{
-background-color:rgb(170, 203, 108);
-color: white;
-border-style: outset;
-font:  bold 11px
-}</string>
-    </property>
     <property name="text">
-     <string>INDIETRO</string>
+     <string>ID</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="search_field">
+   <widget class="QRadioButton" name="nome_radio">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>20</y>
-      <width>161</width>
-      <height>21</height>
+      <x>150</x>
+      <y>60</y>
+      <width>92</width>
+      <height>23</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Nome</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="cognome_radio">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>60</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cognome</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="partitaiva_radio">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>60</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Partita IVA</string>
     </property>
    </widget>
   </widget>

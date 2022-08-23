@@ -33,6 +33,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
             self.operatore.set_nome(self.nome_field.text())
             self.operatore.set_cognome(self.cognome_field.text())
             self.operatore.set_datanascita(self.nascita_datepicker.date().toString("yyyy-MM-dd"))
+            self.operatore.set_cf(self.cf_field.text())
             self.operatore.set_datacontratto(None if self.indeterminato_checkbox.isChecked() else self.finecontratto_datepicker.date().toString("yyyy-MM-dd"))
             self.operatore.set_stato(self.stato_combo.currentIndex())
             self.controller.modifica_operatore(self.operatore)

@@ -1,4 +1,3 @@
-from models.Operatore import Operatore
 from models.MapperOperatori import MapperOperatori
 
 class ControlloreOperatori:
