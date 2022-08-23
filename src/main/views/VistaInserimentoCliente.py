@@ -14,7 +14,6 @@ class VistaInserimentoCliente(QtWidgets.QMainWindow):
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         self.cf_field.setInputMask("AAAAAA00A00A000A")
-        print(self.parent().children())
         self.nascita_datepicker.setMaximumDate(QtCore.QDate.currentDate())
         self.nome_field.editingFinished.connect(self.check_nome)
         self.cognome_field.editingFinished.connect(self.check_cognome)

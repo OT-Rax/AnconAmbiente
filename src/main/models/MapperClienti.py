@@ -56,7 +56,6 @@ class MapperClienti:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         for cliente in clienti:
-            print(str(cliente.get_id()))
             cur.execute("DELETE FROM Clienti WHERE id="+str(cliente.get_id()))
         con.commit()
         con.close()

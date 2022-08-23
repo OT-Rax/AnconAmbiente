@@ -4,6 +4,9 @@ class Utente:
         self.id = id
         self.username = username
         self.password = password
+        #Permessi è un array che contiene 6 flag, ognuno dei quali specifica se l'utente è abilitato alla gestione di un dato aspetto, nel seguente ordine:
+        #Operatori, Mezzi, Servizi, Turni, Clienti, Utenti
+        #Al momento in realtà sono int a 3 valore: 0 - no accesso, 1 - permesso di lettura, 2 - permesso di lettura e scrittura
         self.permessi = permessi
 
     def get_id(self):

@@ -238,6 +238,12 @@ font:  bold 11px
       <height>22</height>
      </rect>
     </property>
+    <property name="displayFormat">
+     <string>M/d/yyyy</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="partitaiva_field">
     <property name="geometry">
