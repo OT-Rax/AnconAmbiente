@@ -26,6 +26,16 @@ class MapperMezzi:
         con.close()
         return mezzo
 
+    def ricerca_mezzi(self, text):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        mezzi  = []
+        for row in cur.execute('SELECT * FROM Mezzi WHERE id LIKE ? OR tipo LIKE ? OR allestimento LIKE ?', ("%"+text+"%", "%"+text+"%","%"+text+"%")):
+            mezzo = Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
+            mezzi.append(mezzo)
+        con.close()
+        return mezzi
+
     def insert_operatore(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

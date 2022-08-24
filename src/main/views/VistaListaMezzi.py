@@ -46,7 +46,7 @@ class VistaListaMezzi(QtWidgets.QMainWindow):
             righe_selezionate.append(casella.row())
         for riga in set(righe_selezionate):
             mezzo=self.controller.get_mezzo(int(self.tabella_mezzi.item(riga, 0).text()))
-            self.vista_mezzo = VistaMezzo(mezzo)
+            self.vista_mezzo = VistaMezzo(self.parent,mezzo)
             self.vista_mezzo.show()
 
     def update(self):

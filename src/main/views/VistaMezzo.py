@@ -3,11 +3,14 @@ import sys
 import xz_rc
 
 from models.Mezzo import Mezzo
+from views.VistaModificaMezzo import VistaModificaMezzo
 
 class VistaMezzo(QtWidgets.QMainWindow):
-    def __init__(self, mezzo):
+    def __init__(self, parent, mezzo):
         super(VistaMezzo, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_mezzo.ui', self)  # Load the .ui file
+        self.mezzo = mezzo
+        self.parent = parent
         self.id_label.setText(str(mezzo.get_id_mezzo()))
         self.targa_label.setText(mezzo.get_targa_mezzo())
         self.modello_label.setText(mezzo.get_tipo_mezzo())
@@ -20,9 +23,10 @@ class VistaMezzo(QtWidgets.QMainWindow):
         else:
             stato = "Non Disponibile"
         self.stato_label.setText(stato)
-        #self.indietro_button.clicked.connect(self.close)
+        self.indietro_button.clicked.connect(self.close)
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
-        self.vista_modificamezzo = VistaModificaMezzo(self, self.mezzo)
-        self.vista_modificamezzo.show()      
+        self.vista_modificamezzo = VistaModificaMezzo(self.parent, self.mezzo)
+        self.vista_modificamezzo.show()   
+        self.close()   
