@@ -34,3 +34,4 @@ class VistaOperatore(QtWidgets.QMainWindow):
     def go_modifica(self):
         self.vista_modificaoperatore = VistaModificaOperatore(self.parent, self.operatore)
         self.vista_modificaoperatore.show()
+        self.close()

@@ -17,6 +17,11 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
         self.cognome_field.setText(operatore.get_cognome())
         self.cf_field.setText(operatore.get_cf())
         self.nascita_datepicker.setDateTime(QtCore.QDateTime.fromString(operatore.get_datanascita(),"yyyy-mm-dd"))
+        if operatore.get_datacontratto() is None:
+            self.indeterminato_checkbox.setChecked(True)
+            self.finecontratto_datepicker.setEnabled(False)
+        else:
+            self.finecontratto_datepicker.setDateTime(QtCore.QDateTime.fromString(operatore.get_datacontratto(),"yyyy-mm-dd"))
         self.stato_combo.setCurrentIndex(operatore.get_stato())
         self.nome_field.editingFinished.connect(self.check_nome)
         self.cognome_field.editingFinished.connect(self.check_cognome)
@@ -24,6 +29,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
         self.cf_field.setInputMask("AAAAAA00A00A000A")
         self.finecontratto_datepicker.setMinimumDate(QtCore.QDate.currentDate())
         self.nascita_datepicker.setMaximumDate(QtCore.QDate.currentDate())
+        self.indeterminato_checkbox.stateChanged.connect(self.indeterminato_changed)
 
     def modifica(self):
         nome_validity = self.check_nome()
@@ -33,6 +39,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
             self.operatore.set_nome(self.nome_field.text())
             self.operatore.set_cognome(self.cognome_field.text())
             self.operatore.set_datanascita(self.nascita_datepicker.date().toString("yyyy-MM-dd"))
+            self.operatore.set_cf(self.cf_field.text())
             self.operatore.set_datacontratto(None if self.indeterminato_checkbox.isChecked() else self.finecontratto_datepicker.date().toString("yyyy-MM-dd"))
             self.operatore.set_stato(self.stato_combo.currentIndex())
             self.controller.modifica_operatore(self.operatore)
@@ -63,3 +70,6 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
         else:
             self.cf_error.setText("")
             return True
+
+    def indeterminato_changed(self):
+        self.finecontratto_datepicker.setEnabled(not self.finecontratto_datepicker.isEnabled())

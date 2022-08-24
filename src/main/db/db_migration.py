@@ -141,7 +141,7 @@ if __name__ == '__main__':
     cur.execute('''
         CREATE TABLE Utenti(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT NOT NULL,
+        username TEXT NOT NULL UNIQUE,
         password_hash TEXT NOT NULL,
         accesso_operatori INT NOT NULL CHECK(accesso_operatori>=0 & accesso_operatori<=2),
         accesso_mezzi INT NOT NULL CHECK(accesso_mezzi>=0 & accesso_mezzi<=2),

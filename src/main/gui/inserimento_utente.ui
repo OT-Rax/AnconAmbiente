@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>373</width>
-    <height>273</height>
+    <width>386</width>
+    <height>295</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>220</y>
+      <y>250</y>
       <width>161</width>
       <height>23</height>
      </rect>
@@ -52,7 +52,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>131</y>
+      <y>161</y>
       <width>80</width>
       <height>13</height>
      </rect>
@@ -65,17 +65,20 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>60</y>
+      <y>90</y>
       <width>220</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>100</y>
+      <y>130</y>
       <width>80</width>
       <height>13</height>
      </rect>
@@ -88,7 +91,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>220</y>
+      <y>250</y>
       <width>160</width>
       <height>23</height>
      </rect>
@@ -118,7 +121,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>25</y>
+      <y>35</y>
       <width>55</width>
       <height>13</height>
      </rect>
@@ -131,7 +134,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>20</y>
+      <y>30</y>
       <width>220</width>
       <height>20</height>
      </rect>
@@ -141,7 +144,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>65</y>
+      <y>95</y>
       <width>55</width>
       <height>13</height>
      </rect>
@@ -154,7 +157,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>161</y>
+      <y>191</y>
       <width>80</width>
       <height>13</height>
      </rect>
@@ -167,7 +170,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>191</y>
+      <y>221</y>
       <width>100</width>
       <height>13</height>
      </rect>
@@ -180,7 +183,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>130</y>
+      <y>160</y>
       <width>16</width>
       <height>17</height>
      </rect>
@@ -193,7 +196,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>160</y>
+      <y>190</y>
       <width>16</width>
       <height>17</height>
      </rect>
@@ -206,7 +209,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>190</y>
+      <y>220</y>
       <width>16</width>
       <height>17</height>
      </rect>
@@ -219,7 +222,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>160</y>
+      <y>190</y>
       <width>80</width>
       <height>13</height>
      </rect>
@@ -232,7 +235,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>189</y>
+      <y>219</y>
       <width>16</width>
       <height>17</height>
      </rect>
@@ -245,7 +248,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>190</y>
+      <y>220</y>
       <width>60</width>
       <height>13</height>
      </rect>
@@ -258,7 +261,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>129</y>
+      <y>159</y>
       <width>16</width>
       <height>17</height>
      </rect>
@@ -271,7 +274,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>159</y>
+      <y>189</y>
       <width>16</width>
       <height>17</height>
      </rect>
@@ -284,13 +287,39 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>130</y>
+      <y>160</y>
       <width>60</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
      <string>Mezzi</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="username_error">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>230</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="password_error">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>70</y>
+      <width>230</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

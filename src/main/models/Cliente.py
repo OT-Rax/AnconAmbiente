@@ -1,10 +1,11 @@
 class Cliente:
-    def __init__(self, id, nome, cognome, cf, indirizzo, email, telefono, datanascita ):
+    def __init__(self, id, nome, cognome, datanascita, cf, partitaiva, indirizzo, email, telefono):
         super(Cliente, self).__init__()
         self.id = id
         self.nome = nome
         self.cognome = cognome
         self.cf = cf
+        self.partitaiva = partitaiva
         self.indirizzo = indirizzo
         self.email = email
         self.telefono = telefono
@@ -36,6 +37,9 @@ class Cliente:
     def get_datanascita(self):
         return self.datanascita
 
+    def get_partitaiva(self):
+        return self.partitaiva
+
     def set_id(self, id):
         self.id = id
 
@@ -59,3 +63,6 @@ class Cliente:
 
     def set_datanascita(self, datanascita):
         self.datanascita = datanascita
+
+    def set_partitaiva(self, partitaiva):
+        self.partitaiva = partitaiva

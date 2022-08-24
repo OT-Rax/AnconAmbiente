@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>380</width>
-    <height>395</height>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
      <rect>
       <x>170</x>
       <y>25</y>
-      <width>100</width>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -35,8 +35,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>185</y>
-      <width>80</width>
+      <y>140</y>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -49,7 +49,7 @@
      <rect>
       <x>20</x>
       <y>65</y>
-      <width>47</width>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -61,8 +61,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>145</y>
-      <width>80</width>
+      <y>180</y>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -75,7 +75,7 @@
      <rect>
       <x>20</x>
       <y>105</y>
-      <width>47</width>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -83,11 +83,11 @@
      <string>Cognome:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="annulla_button">
+   <widget class="QPushButton" name="indietro_button">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>340</y>
+      <y>420</y>
       <width>160</width>
       <height>23</height>
      </rect>
@@ -117,8 +117,8 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>145</y>
-      <width>100</width>
+      <y>180</y>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -130,20 +130,20 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>305</y>
+      <y>340</y>
       <width>100</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
-     <string>Numero:</string>
+     <string>Telefono:</string>
     </property>
    </widget>
    <widget class="QPushButton" name="modifica_button">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>340</y>
+      <y>420</y>
       <width>161</width>
       <height>23</height>
      </rect>
@@ -174,7 +174,7 @@ font:  bold 11px
      <rect>
       <x>20</x>
       <y>25</y>
-      <width>47</width>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -186,8 +186,8 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>185</y>
-      <width>100</width>
+      <y>140</y>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -195,12 +195,12 @@ font:  bold 11px
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="numero_Label">
+   <widget class="QLabel" name="telefono_label">
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>305</y>
-      <width>100</width>
+      <y>340</y>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -213,7 +213,7 @@ font:  bold 11px
      <rect>
       <x>170</x>
       <y>65</y>
-      <width>100</width>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -225,8 +225,8 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>265</y>
-      <width>100</width>
+      <y>300</y>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -238,7 +238,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>265</y>
+      <y>300</y>
       <width>100</width>
       <height>13</height>
      </rect>
@@ -251,8 +251,8 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>225</y>
-      <width>80</width>
+      <y>260</y>
+      <width>100</width>
       <height>13</height>
      </rect>
     </property>
@@ -264,8 +264,8 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>225</y>
-      <width>100</width>
+      <y>260</y>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
@@ -278,12 +278,38 @@ font:  bold 11px
      <rect>
       <x>170</x>
       <y>105</y>
-      <width>100</width>
+      <width>200</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="partitaiva_label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>220</y>
+      <width>200</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>220</y>
+      <width>100</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Partita IVA:</string>
     </property>
    </widget>
   </widget>

@@ -56,7 +56,6 @@ class MapperOperatori:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         for operatore in operatori:
-            print(str(operatore.get_id()))
             cur.execute("DELETE FROM Operatori WHERE id="+str(operatore.get_id()))
         con.commit()
         con.close()
