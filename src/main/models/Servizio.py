@@ -7,30 +7,30 @@ class Servizio:
 
     # Metodi getters and setters
 
-def get_id_cliente(self):
-    return self.id_cliente
+    def get_id_cliente(self):
+        return self.id_cliente
 
-def get_tipo(self):
-    return self.tipo
+    def get_tipo(self):
+        return self.tipo
 
-def get_periodicita(self):
-    return self.periodicita
+    def get_periodicita(self):
+        return self.periodicita
 
-def set_stato(self, stato):
-    self.stato = stato
-
-
-def set_periodicita(self, periodicita):
-    self.periodicita = periodicita
+    def set_stato(self, stato):
+        self.stato = stato
 
 
-def set_id(self, id):
-    self.id = id
+    def set_periodicita(self, periodicita):
+        self.periodicita = periodicita
 
 
-def set_id_cliente(self, cliente):
-    self.id_cliente = cliente
+    def set_id(self, id):
+        self.id = id
 
 
-def set_tipo(self, tipo):
-    self.tipo = tipo
+    def set_id_cliente(self, cliente):
+        self.id_cliente = cliente
+
+
+    def set_tipo(self, tipo):
+        self.tipo = tipo
