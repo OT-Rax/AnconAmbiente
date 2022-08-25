@@ -25,3 +25,19 @@ class VistaListaServizi(QtWidgets.QMainWindow):
     def go_visualizza(self):
         self.vista_servizio = VistaServizio()
         self.vista_servizio.show()
+
+    def inserisci_tabella(self, servizi):
+        row = self.tabella_servizi.rowCount()
+        for servizio in servizi:
+            items = []
+            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_mezzo())))
+            items.append(QtWidgets.QTableWidgetItem(mezzo.get_targa_mezzo()))
+            items.append(QtWidgets.QTableWidgetItem(mezzo.get_tipo_mezzo()))
+            items.append(QtWidgets.QTableWidgetItem(stato))
+            self.tabella_mezzi.insertRow(row)
+            column=0
+            for item in items:
+                item.setFlags(item.flags() &~ QtCore.Qt.ItemFlag.ItemIsEditable)
+                self.tabella_mezzi.setItem(row, column, item)
+                column+=1
+            row+=1
