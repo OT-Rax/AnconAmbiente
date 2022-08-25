@@ -15,6 +15,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)
+        self.update()
 
     def go_inserisci(self):
         self.vista_inserimentoservizio = VistaInserimentoServizio()
@@ -38,7 +39,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             items = []
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id())))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_tipo()))
-            items.append(QtWidgets.QTableWidgetItem(servizio.get_id_cliente()))
+            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_cliente())))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_periodicita()))
             self.tabella_servizi.insertRow(row)
             column = 0

@@ -1,6 +1,11 @@
+from models.MapperServizi import MapperServizi
 class ControlloreServizio:
     def __init__(self, servizio):
         self.model = servizio
+        self.mapper = MapperServizi()
+
+    def get_servizi(self):
+        return self.mapper.get_servizi()
 
     def get_stato_servizio(self):
         return self.model.stato
