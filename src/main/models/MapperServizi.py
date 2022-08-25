@@ -2,7 +2,7 @@ import sqlite3
 
 from models.Servizio import Servizio
 
-class MapperMezzi:
+class MapperServizi:
     def __init__(self):
         self.db_directory="./db/AAdb"
 
