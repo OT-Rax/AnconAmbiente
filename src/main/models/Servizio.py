@@ -7,6 +7,8 @@ class Servizio:
 
     # Metodi getters and setters
 
+    def get_id(self):
+        return self.id
     def get_id_cliente(self):
         return self.id_cliente
 

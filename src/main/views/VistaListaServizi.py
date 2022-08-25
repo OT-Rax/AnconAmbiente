@@ -1,10 +1,12 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtCore
 import sys
 import xz_rc
 
 from views.VistaInserimentoServizio import VistaInserimentoServizio
 from views.VistaModificaServizio import VistaModificaServizio
 from views.VistaServizio import VistaServizio
+from controllers.ControlloreServizi import ControlloreServizio
+
 
 class VistaListaServizi(QtWidgets.QMainWindow):
     def __init__(self):
@@ -26,18 +28,22 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.vista_servizio = VistaServizio()
         self.vista_servizio.show()
 
+    def update(self):
+        self.tabella_servizi.setRowCount(0)
+        self.inserisci_tabella(self.controller.get_servizi())
+
     def inserisci_tabella(self, servizi):
         row = self.tabella_servizi.rowCount()
         for servizio in servizi:
             items = []
-            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_mezzo())))
-            items.append(QtWidgets.QTableWidgetItem(mezzo.get_targa_mezzo()))
-            items.append(QtWidgets.QTableWidgetItem(mezzo.get_tipo_mezzo()))
-            items.append(QtWidgets.QTableWidgetItem(stato))
-            self.tabella_mezzi.insertRow(row)
-            column=0
+            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id())))
+            items.append(QtWidgets.QTableWidgetItem(servizio.get_tipo()))
+            items.append(QtWidgets.QTableWidgetItem(servizio.get_id_cliente()))
+            items.append(QtWidgets.QTableWidgetItem(servizio.get_periodicita()))
+            self.tabella_servizi.insertRow(row)
+            column = 0
             for item in items:
-                item.setFlags(item.flags() &~ QtCore.Qt.ItemFlag.ItemIsEditable)
-                self.tabella_mezzi.setItem(row, column, item)
-                column+=1
-            row+=1
+                item.setFlags(item.flags() & ~ QtCore.Qt.ItemFlag.ItemIsEditable)
+                self.tabella_servizi.setItem(row, column, item)
+                column += 1
+            row += 1
