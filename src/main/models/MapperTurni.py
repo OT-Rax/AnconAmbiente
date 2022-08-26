@@ -6,7 +6,7 @@ class MapperTurno:
     def __init__(self):
         self.db_directory="./db/AAdb"
 
-    def get_Turni(self):
+    def get_turni(self):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         turni = []
