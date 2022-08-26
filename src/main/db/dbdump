@@ -30,17 +30,21 @@ DROP TABLE Mezzi;
 CREATE TABLE Mezzi(
 id INTEGER PRIMARY KEY,
 targa TEXT NOT NULL,
-livello_richiesto TEXT NOT NULL,
 tipo TEXT NOT NULL,
 iscrizione_albo TEXT,
+livello_richiesto TEXT NOT NULL,
 stato INT NOT NULL CHECK(stato>=0 & stato<=2)
 );
 
 DROP TABLE Turni;
 CREATE TABLE Turni(
 id INTEGER PRIMARY KEY,
-inizio_turno TEXT NOT NULL,
-fine_turno TEXT NOT NULL
+servizo TEXT NOT NULL,
+data_turno TEXT,
+ora_inizio TEXT NOT NULL,
+ora_fine TEXT NOT NULL,
+mezzo TEXT NOT NULL,
+operatore TEXT NOT NULL
 );
 
 DROP TABLE Impieghi;

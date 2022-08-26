@@ -16,7 +16,6 @@ class VistaInserimentoMezzo(QtWidgets.QMainWindow):
         #print(self.parent().children())
 
     def inserisci(self):
-        #Inserisci controllo validita caratteri, lunghezza e coerenza
         targa=self.targa_field.text()
         modello=self.modello_field.text()
         allestimento=self.allestimento_field.text()

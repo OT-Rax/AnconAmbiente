@@ -20,12 +20,6 @@ class VistaListaMezzi(QtWidgets.QMainWindow):
         self.indietr_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
         self.elimina_button.clicked.connect(self.go_elimina)
-        #self.id_radio.toggled.connect(self.ordina_tabella)
-        #self.targa_radio.toggled.connect(self.ordina_tabella)
-        #self.tipo_radio.toggled.connect(self.ordina_tabella)
-        #self.stato_radio.toggled.connect(self.ordina_tabella)
-        #self.tabella_mezzi.itemDoubleClicked.connect(self.go_visualizza)
-        #print(os.getcwd())
         self.update()
 
 
@@ -87,8 +81,8 @@ class VistaListaMezzi(QtWidgets.QMainWindow):
                 stato="Non disponibile"
             items = []
             items.append(QtWidgets.QTableWidgetItem(str(mezzo.get_id_mezzo())))
-            items.append(QtWidgets.QTableWidgetItem(mezzo.get_targa_mezzo()))
             items.append(QtWidgets.QTableWidgetItem(mezzo.get_tipo_mezzo()))
+            items.append(QtWidgets.QTableWidgetItem(mezzo.get_allestimento_mezzo()))
             items.append(QtWidgets.QTableWidgetItem(stato))
             self.tabella_mezzi.insertRow(row)
             column=0
@@ -97,17 +91,6 @@ class VistaListaMezzi(QtWidgets.QMainWindow):
                 self.tabella_mezzi.setItem(row, column, item) 
                 column+=1
             row+=1
-        #self.ordina_tabella()
-
-    #def ordina_tabella(self):
-        #if self.id_radio.isChecked():
-         #   self.tabella_mezzi.sortItems(0)
-        #elif self.nome_radio.isChecked():
-            #self.tabella_mezzi.sortItems(1)
-        #elif self.cognome_radio.isChecked():
-            #self.tabella_mezzi.sortItems(2)
-        #elif self.stato_radio.isChecked():
-            #self.tabella_mezzi.sortItems(3)
 
     def get_mezzi_selezionati(self):
         caselle_selezionate=self.tabella_mezzi.selectedItems()

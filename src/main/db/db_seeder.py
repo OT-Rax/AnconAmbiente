@@ -47,8 +47,8 @@ if __name__ == '__main__':
         print("Inserimento mezzo numero", i)
         tipo = ["Auto", "Autoarticolato", "Camion", "Camioncino"]
         allestimento = ["Spazzamento", "Raccoglimento", "Trasporto"]
-        mezzo = [fake.license_plate(), random.choice(patenti), random.choice(tipo),
-                 random.choice(allestimento), fake.past_date(), fake.random_int(min=0, max=2)]
+        mezzo = [fake.license_plate(), random.choice(tipo),
+                 random.choice(allestimento), fake.past_date(), random.choice(patenti), fake.random_int(min=0, max=2)]
         cur.execute(' \
                     INSERT INTO Mezzi (targa, tipo, allestimento, iscrizione_albo, patente, stato) \
                     VALUES (?, ?, ?, ?, ?, ?); \

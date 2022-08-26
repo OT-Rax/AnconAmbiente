@@ -20,7 +20,6 @@ class MapperMezzi:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         mezzo=None
-        #Non ho usato bindings perche rotti
         for row in cur.execute("SELECT * FROM Mezzi WHERE id="+str(id)):
             mezzo = Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
         con.close()
