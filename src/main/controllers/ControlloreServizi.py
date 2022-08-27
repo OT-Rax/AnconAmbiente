@@ -19,7 +19,7 @@ class ControlloreServizio:
         return self.mapper.cliente
 
     def get_tipo_servizio(self):
-        return self.mapper.tipo
+        return self.mapper
 
     def set_stato_servizio(self, stato):
         self.mapper.stato = stato

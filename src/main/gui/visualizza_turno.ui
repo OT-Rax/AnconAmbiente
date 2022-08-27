@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>311</width>
-    <height>244</height>
+    <width>327</width>
+    <height>276</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
    <widget class="QPushButton" name="annulla_button">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>190</y>
+      <x>220</x>
+      <y>220</y>
       <width>90</width>
       <height>23</height>
      </rect>
@@ -48,41 +48,11 @@ font:  bold 11px
      <string>INDIETRO</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="elimina_button">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>190</y>
-      <width>90</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-background-color:rgb(24, 105, 68);
-color: white;
-border-style: outset;
-font:  bold 11px
-
-
-}
-
-QPushButton:hover{
-background-color:rgb(170, 203, 108);
-color: white;
-border-style: outset;
-font:  bold 11px
-}</string>
-    </property>
-    <property name="text">
-     <string>ELIMINA</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="modifica_button">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>190</y>
+      <x>120</x>
+      <y>220</y>
       <width>90</width>
       <height>23</height>
      </rect>
@@ -113,12 +83,12 @@ font:  bold 11px
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>304</width>
-      <height>181</height>
+      <width>311</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="dati_tab_2">
      <attribute name="title">
@@ -128,46 +98,46 @@ font:  bold 11px
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
-        <width>81</width>
+        <y>70</y>
+        <width>111</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Inizio Turno:</string>
+       <string>Ora Inizio Turno:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>70</y>
-        <width>81</width>
+        <y>100</y>
+        <width>111</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Fine Turno:</string>
+       <string>Ora Fine Turno:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>100</y>
-        <width>47</width>
-        <height>13</height>
+        <y>130</y>
+        <width>81</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Servizio:</string>
+       <string>ID Servizio:</string>
       </property>
      </widget>
      <widget class="QLabel" name="ora_inizio_label">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>40</y>
+        <x>120</x>
+        <y>70</y>
         <width>100</width>
         <height>13</height>
        </rect>
@@ -179,8 +149,8 @@ font:  bold 11px
      <widget class="QLabel" name="ora_fine_label">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>70</y>
+        <x>120</x>
+        <y>100</y>
         <width>100</width>
         <height>13</height>
        </rect>
@@ -193,7 +163,7 @@ font:  bold 11px
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>100</y>
+        <y>130</y>
         <width>100</width>
         <height>13</height>
        </rect>
@@ -228,6 +198,32 @@ font:  bold 11px
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Data:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="data_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>40</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="mezzi_widget_2">
      <attribute name="title">
@@ -243,7 +239,7 @@ font:  bold 11px
        </rect>
       </property>
       <property name="text">
-       <string>Mezzo 1:</string>
+       <string>Mezzo:</string>
       </property>
      </widget>
      <widget class="QLabel" name="mezzo1_label">
@@ -251,8 +247,8 @@ font:  bold 11px
        <rect>
         <x>100</x>
         <y>15</y>
-        <width>100</width>
-        <height>13</height>
+        <width>191</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
@@ -274,7 +270,7 @@ font:  bold 11px
        </rect>
       </property>
       <property name="text">
-       <string>Operatore 1:</string>
+       <string>Operatore:</string>
       </property>
      </widget>
      <widget class="QLabel" name="operatore1_label">
@@ -282,8 +278,8 @@ font:  bold 11px
        <rect>
         <x>100</x>
         <y>15</y>
-        <width>100</width>
-        <height>13</height>
+        <width>191</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">

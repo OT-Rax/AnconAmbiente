@@ -39,7 +39,7 @@ class MapperTurno:
     def insert_turno(self, servizio, data, ora_inizio, ora_fine, mezzo, operatore):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("INSERT INTO Turni (servizio, data, ora_inizio, ora_fine, mezzo, operatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (servizio, data, ora_inizio, ora_fine, mezzo, operatore))
+        cur.execute("INSERT INTO Turni (servizio, data, ora_inizio, ora_fine, mezzo, operatore) VALUES (?, ?, ?, ?, ?, ?)", (servizio, data, ora_inizio, ora_fine, mezzo, operatore))
         con.commit()
         con.close()
 

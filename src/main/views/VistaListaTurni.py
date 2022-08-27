@@ -18,9 +18,11 @@ class VistaListaTurni(QtWidgets.QMainWindow):
         self.visualizza_button.clicked.connect(self.go_visualizza)
         self.elimina_button.clicked.connect(self.go_elimina)
         self.indietro_button.clicked.connect(self.close)
+        self.search_button.clicked.connect(self.ricerca)
+        self.update()
 
     def go_inserisci(self):
-        self.vista_inserimentoturno = VistaInserimentoTurno()
+        self.vista_inserimentoturno = VistaInserimentoTurno(self)
         self.vista_inserimentoturno.show()
 
     def go_modifica(self):
@@ -46,6 +48,19 @@ class VistaListaTurni(QtWidgets.QMainWindow):
             popup.exec()
             self.update()
 
+    def elimina(self):
+        turni=self.get_turni_selezionati()
+        self.controller.elimina_turni(turni)
+
+    def ricerca(self):
+        text = self.date_filter.date()
+        data_filtro = text.toString("yyyy-MM-dd")
+        if text is not None:
+            self.tabella_turni.setRowCount(0)
+            self.inserisci_tabella(self.controller.ricerca_turni(data_filtro))
+        else:
+            self.update()
+
     def get_turni_selezionati(self):
         caselle_selezionate=self.tabella_turni.selectedItems()
         turni=[]
@@ -68,18 +83,19 @@ class VistaListaTurni(QtWidgets.QMainWindow):
             items.append(QtWidgets.QTableWidgetItem(str(turno.get_id())))
             items.append(QtWidgets.QTableWidgetItem(turno.get_servizio()))
             items.append(QtWidgets.QTableWidgetItem(turno.get_data()))
-            mezzo = turno.get_mezzo()
-            items.append(QtWidgets.QTableWidgetItem(mezzo.get_id_mezzo))
-            operatore = turno.get_operatore()
-            items.append(QtWidgets.QTableWidgetItem(operatore.get_id()))
-            self.tabella_operatori.insertRow(row)
+            items.append(QtWidgets.QTableWidgetItem(str(turno.get_mezzo())))
+            items.append(QtWidgets.QTableWidgetItem(str(turno.get_operatore())))
+            self.tabella_turni.insertRow(row)
             column=0
             for item in items:
                 item.setFlags(item.flags() &~ QtCore.Qt.ItemFlag.ItemIsEditable)
                 self.tabella_turni.setItem(row, column, item) 
                 column+=1
             row+=1
-        self.ordina_tabella()
+        
+    def update(self):
+        self.tabella_turni.setRowCount(0)
+        self.inserisci_tabella(self.controller.get_turni())
 
 class DialogElimina(QtWidgets.QDialog):
     def __init__(self):

@@ -62,7 +62,7 @@ if __name__ == '__main__':
     cur.execute('''
         CREATE TABLE Turni(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        servizo TEXT NOT NULL,
+        servizio TEXT NOT NULL,
         data TEXT NOT NULL,
         ora_inizio TEXT NOT NULL,
         ora_fine TEXT NOT NULL,
