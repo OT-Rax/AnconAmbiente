@@ -3,9 +3,14 @@ import sys
 import xz_rc
 
 from controllers.ControlloreServizi import ControlloreServizio
-from models.Servizio import Servizio
+from controllers.ControlloreMezzi import ControlloreMezzo
+from controllers.ControlloreOperatori import ControlloreOperatori
+from controllers.ControlloreTurni import ControlloreTurni
 
-controller2 = ControlloreServizio(Servizio)
+controller = ControlloreTurni()
+controller2 = ControlloreServizio()
+controller_mezzi = ControlloreMezzo()
+controller_operatori = ControlloreOperatori()
 
 class VistaInserimentoTurno(QtWidgets.QMainWindow):
     def __init__(self):
@@ -18,10 +23,14 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
 
     def update(self):
         self.tabella_servizi.setRowCount(0)
-        self.inserisci_tabella(controller2.get_servizi())
+        self.tabella_mezzi.setRowCount(0)
+        self.tabella_operatori.setRowCount(0)
+        self.inserisci_tabella_servizi(controller2.get_servizi())
+        self.inserisci_tabella_mezzi(controller_mezzi.get_mezzi())
+        self.inserisci_tabella_operatori(controller_operatori.get_operatori())
+        
 
-
-    def inserisci_tabella(self, servizi):
+    def inserisci_tabella_servizi(self, servizi):
         row = self.tabella_servizi.rowCount()
         for servizio in servizi:
             items = []
@@ -37,15 +46,112 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
                 column += 1
             row += 1
 
+    def inserisci_tabella_mezzi(self, mezzi):
+        row = self.tabella_mezzi.rowCount()
+        for mezzo in mezzi:
+            if mezzo.get_stato_mezzo() == 0:
+                stato="Disponibile"
+            else:
+                stato="Non disponibile"
+            items = []
+            items.append(QtWidgets.QTableWidgetItem(str(mezzo.get_id_mezzo())))
+            items.append(QtWidgets.QTableWidgetItem(mezzo.get_tipo_mezzo()))
+            items.append(QtWidgets.QTableWidgetItem(mezzo.get_allestimento_mezzo()))
+            items.append(QtWidgets.QTableWidgetItem(stato))
+            self.tabella_mezzi.insertRow(row)
+            column=0
+            for item in items:
+                item.setFlags(item.flags() &~ QtCore.Qt.ItemFlag.ItemIsEditable)
+                self.tabella_mezzi.setItem(row, column, item) 
+                column+=1
+            row+=1
+
+    def inserisci_tabella_operatori(self, operatori):
+        row = self.tabella_operatori.rowCount()
+        for operatore in operatori:
+            if operatore.get_stato() == 0:
+                stato="Disponibile"
+            elif operatore.get_stato() == 1:
+                stato="In malattia"
+            else:   
+                stato="In ferie"
+            items = []
+            items.append(QtWidgets.QTableWidgetItem(str(operatore.get_id())))
+            items.append(QtWidgets.QTableWidgetItem(operatore.get_nome()))
+            items.append(QtWidgets.QTableWidgetItem(operatore.get_cognome()))
+            items.append(QtWidgets.QTableWidgetItem(stato))
+            self.tabella_operatori.insertRow(row)
+            column=0
+            for item in items:
+                item.setFlags(item.flags() &~ QtCore.Qt.ItemFlag.ItemIsEditable)
+                self.tabella_operatori.setItem(row, column, item) 
+                column+=1
+            row+=1
+
+
     def inserisci(self):
         #Inserisci controllo validita caratteri, lunghezza e coerenza
         servizio = self.tabella_servizi.itemDoubleClicked
-        data = self.date_field.data()
+        data_turno = self.date_field.date()
         ora_inizio = self.time_start_field.time()
         ora_fine = self.time_end_field.time()
-        mezzo = self.mezzo1_combo.currentText()
-        operatore = self.operatore1_combo.currentText()
-        self.controller.insert_operatore(servizio, data, ora_inizio, ora_fine, mezzo, operatore)       
+        mezzo = self.get_mezzi_selezionati()
+        operatore = self.get_operatori_selezionati()
+        controller.insert_turno(servizio, data_turno, ora_inizio, ora_fine, mezzo, operatore)       
         self.close()
         self.parent().update()
 
+    def get_servizio_selezionati(self):
+        caselle_selezionate=self.tabella_servizi.selectedItems()
+        servizi=[]
+        if len(caselle_selezionate) == 0:
+            self.warning_label.setText("Seleziona almeno un servizio.")
+        else: 
+            if len(caselle_selezionate) > 1:
+                self.warning_label.setText("Seleziona solo un servizio")
+            else:
+                self.warning_label.setText("")
+                righe_selezionate=[]
+                for casella in caselle_selezionate:
+                    righe_selezionate.append(casella.row())
+                for riga in set(righe_selezionate):
+                    servizio=controller2.get_servizio(int(self.tabella_servizi.item(riga, 0).text()))
+                    servizi.append(servizio)
+            return servizi
+
+
+    def get_operatori_selezionati(self):
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        operatori=[]
+        if len(caselle_selezionate) == 0:
+            self.warning_label3.setText("Seleziona almeno un operatore.")
+        else: 
+            if len(caselle_selezionate) > 1:
+                self.warning_label3.setText("Seleziona solo un operatore")
+            else:
+                self.warning_label3.setText("")
+                righe_selezionate=[]
+                for casella in caselle_selezionate:
+                    righe_selezionate.append(casella.row())
+                for riga in set(righe_selezionate):
+                    operatore=controller_operatori.get_operatore(int(self.tabella_operatori.item(riga, 0).text()))
+                    operatori.append(operatore)
+            return operatori
+
+    def get_mezzi_selezionati(self):
+        caselle_selezionate=self.tabella_mezzi.selectedItems()
+        mezzi=[]
+        if len(caselle_selezionate) == 0:
+            self.warning_label2.setText("Seleziona almeno un mezzo.")
+        else:
+            if len(caselle_selezionate) > 1:
+                self.warning_label2.setText("Seleziona solo un mezzo.")
+            else:
+                self.warning_label2.setText("")
+                righe_selezionate=[]
+                for casella in caselle_selezionate:
+                    righe_selezionate.append(casella.row())
+                for riga in set(righe_selezionate):
+                    mezzo=controller_mezzi.get_mezzo(int(self.tabella_mezzi.item(riga, 0).text()))
+                    mezzi.append(mezzo)
+        return mezzi
