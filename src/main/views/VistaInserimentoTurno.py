@@ -7,25 +7,22 @@ from controllers.ControlloreMezzi import ControlloreMezzo
 from controllers.ControlloreOperatori import ControlloreOperatori
 from controllers.ControlloreTurni import ControlloreTurni
 
-controller = ControlloreTurni()
-controller2 = ControlloreServizio()
-controller_mezzi = ControlloreMezzo()
-controller_operatori = ControlloreOperatori()
 
 class VistaInserimentoTurno(QtWidgets.QMainWindow):
     def __init__(self,parent):
         super(VistaInserimentoTurno, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_turno.ui', self)  # Load the .ui file
+        self.controller = ControlloreTurni()
+        self.controller2 = ControlloreServizio()
+        self.controller_mezzi = ControlloreMezzo()
+        self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         self.date_field.setMinimumDate(QtCore.QDate.currentDate())
         self.tabella_servizi.setRowCount(0)
         self.tabella_mezzi.setRowCount(0)
         self.tabella_operatori.setRowCount(0)
-        self.inserisci_tabella_servizi(controller2.get_servizi())
-        #aggiungere il get_tipo servizio per la ricerca dei mezzi
-        self.inserisci_tabella_mezzi(controller_mezzi.get_mezzi())
-        self.inserisci_tabella_operatori(controller_operatori.get_operatori())
+        self.update()
         
     def inserisci_tabella_servizi(self, servizi):
         row = self.tabella_servizi.rowCount()
@@ -90,35 +87,11 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         data_turno = self.date_field.date()
         ora_inizio = self.time_start_field.time()
         ora_fine = self.time_end_field.time()
-        mezzo = self.get_mezzo_selezionato
-        operatore = self.get_operatore_selezionato
-        mezzo_validity = self.check_mezzo()
-        operatore_validity = self.check_operatore()
-        if mezzo_validity and operatore_validity:
-            #try:
-            controller.insert_turno(servizio, data_turno.toString("yyyy-MM-dd"), ora_inizio.toString(), ora_fine.toString(), str(mezzo), str(operatore))
-            #finestra pop up a buon fine
-            self.close()
-            self.parent().update()
-            #except:
-                #finestra pop up qualcosa e andato storto;
-                #print("Qualcosa non va nell'inserimento")
-    
-    def check_mezzo(self):
-        if self.get_mezzo_selezionato == 0:
-            self.warning_label2.setText("Seleziona almeno un mezzo.")
-            return False
-        else:
-            self.warning_label2.setText("")
-            return True    
-
-    def check_operatore(self):
-        if  self.get_operatore_selezionato == 0:
-            self.warning_label3.setText("Seleziona almeno un operatore.")
-            return False
-        else:
-            self.warning_label3.setText("")
-            return True    
+        mezzo = self.combo_mezzi.currentText()
+        operatore = self.combo_operatori.currentText()
+        self.controller.insert_turno(servizio, data_turno.toString("yyyy-MM-dd"), ora_inizio.toString(), ora_fine.toString(), str(mezzo), str(operatore))
+        self.close()
+        self.parent().update()
 
     def get_mezzo_selezionato(self):
         casella = self.tabella_mezzi.selectedItems()
@@ -129,6 +102,26 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
     def get_operatore_selezionato(self):
         casella = self.tabella_operatori.selectedItems()
         id_operatore = None
-        operatore = controller_operatori.get_operatore(int(self.tabella_mezzi.item(casella, 0).text()))
+        operatore = self.controller_operatori.get_operatore(int(self.tabella_mezzi.item(casella, 0).text()))
         id_operatore = operatore.get_cognome
         return id_operatore
+    
+    def update(self):
+        #riembimento combo box mezzi
+        mezzi = self.controller_mezzi.get_mezzi()
+        id_mezzi = []
+        for mezzo in mezzi:
+            id = mezzo.get_id_mezzo()
+            id_mezzi.append(str(id))
+        self.combo_mezzi.addItems(id_mezzi)
+        #riempimento combo box operatori
+        operatori = self.controller_operatori.get_operatori()
+        id_operatori = []
+        for operatore in operatori:
+            id = operatore.get_id()
+            id_operatori.append(str(id))
+        self.combo_operatori.addItems(id_operatori)
+        self.inserisci_tabella_servizi(self.controller2.get_servizi())
+        #aggiungere il get_tipo servizio per la ricerca dei mezzi
+        self.inserisci_tabella_mezzi(self.controller_mezzi.get_mezzi())
+        self.inserisci_tabella_operatori(self.controller_operatori.get_operatori())

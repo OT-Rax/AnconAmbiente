@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="dati_tab">
      <attribute name="title">
@@ -289,8 +289,8 @@
        <rect>
         <x>20</x>
         <y>40</y>
-        <width>65</width>
-        <height>13</height>
+        <width>91</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
@@ -300,10 +300,10 @@
      <widget class="QTableWidget" name="tabella_mezzi">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>110</x>
         <y>40</y>
-        <width>611</width>
-        <height>291</height>
+        <width>591</width>
+        <height>231</height>
        </rect>
       </property>
       <property name="selectionBehavior">
@@ -454,6 +454,29 @@
        <string/>
       </property>
      </widget>
+     <widget class="QComboBox" name="combo_mezzi">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>280</y>
+        <width>161</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>280</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Selezionare ID:</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="operatori_tab">
      <attribute name="title">
@@ -475,10 +498,10 @@
      <widget class="QTableWidget" name="tabella_operatori">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>110</x>
         <y>40</y>
-        <width>641</width>
-        <height>311</height>
+        <width>621</width>
+        <height>191</height>
        </rect>
       </property>
       <property name="selectionBehavior">
@@ -637,6 +660,29 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_operatori">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>240</y>
+        <width>161</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>240</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Selezionare ID:</string>
       </property>
      </widget>
     </widget>

@@ -46,7 +46,8 @@ class MapperTurno:
     def update_turno(self, id, turno):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("UPDATE Turni SET servizio=?, data=?, ora_inizio=?, ora_fine=?, mezzo=?, operatore=? WHERE id=?", (turno.get_servizio, turno.get_data, turno.get_ora_inizio, turno.get_ora_fine, turno.get_mezzo, turno.get_operatore, id))
+        cur.execute("UPDATE Turni SET servizio=?, data=?, ora_inizio=?, ora_fine=?, mezzo=?, operatore=? WHERE id=?", 
+                (turno.get_servizio, turno.get_data, turno.get_ora_inizio, turno.get_ora_fine, turno.get_mezzo, turno.get_operatore, id))
         con.commit()
         con.close()
 

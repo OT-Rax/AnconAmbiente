@@ -88,7 +88,7 @@ font:  bold 11px
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="dati_tab_2">
      <attribute name="title">
@@ -162,7 +162,7 @@ font:  bold 11px
      <widget class="QLabel" name="servizio_label">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>120</x>
         <y>130</y>
         <width>100</width>
         <height>13</height>
@@ -188,10 +188,10 @@ font:  bold 11px
      <widget class="QLabel" name="id_label">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>120</x>
         <y>10</y>
-        <width>100</width>
-        <height>13</height>
+        <width>101</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
@@ -239,7 +239,7 @@ font:  bold 11px
        </rect>
       </property>
       <property name="text">
-       <string>Mezzo:</string>
+       <string>ID Mezzo:</string>
       </property>
      </widget>
      <widget class="QLabel" name="mezzo1_label">
@@ -265,12 +265,12 @@ font:  bold 11px
        <rect>
         <x>10</x>
         <y>15</y>
-        <width>81</width>
+        <width>91</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Operatore:</string>
+       <string>ID Operatore:</string>
       </property>
      </widget>
      <widget class="QLabel" name="operatore1_label">

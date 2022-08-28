@@ -15,13 +15,13 @@ class VistaTurno(QtWidgets.QMainWindow):
         self.ora_inizio_label.setText(turno.get_ora_inizio())
         self.ora_fine_label.setText(turno.get_ora_fine())
         self.servizio_label.setText(turno.get_servizio())
-        self.mezzo1_label.setText(str(turno.get_mezzo))
+        self.mezzo1_label.setText(str(turno.get_mezzo()))
         self.operatore1_label.setText(str(turno.get_operatore()))
         self.modifica_button.clicked.connect(self.go_modifica)
         self.annulla_button.clicked.connect(self.close)
 
     def go_modifica(self):
-        self.modifica = VistaModificaTurno()
+        self.modifica = VistaModificaTurno(self, self.turno)
         self.modifica.show()
         self.close()
 

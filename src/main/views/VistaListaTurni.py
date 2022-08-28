@@ -26,8 +26,10 @@ class VistaListaTurni(QtWidgets.QMainWindow):
         self.vista_inserimentoturno.show()
 
     def go_modifica(self):
-        self.vista_modificaturno = VistaModificaTurno()
-        self.vista_modificaturno.show()
+        turni = self.get_turni_selezionati()
+        for turno in turni:
+            self.vista_modificaturno = VistaModificaTurno(self, turno)
+            self.vista_modificaturno.show()
 
     def go_visualizza(self):
         turni = self.get_turni_selezionati()
@@ -55,7 +57,7 @@ class VistaListaTurni(QtWidgets.QMainWindow):
     def ricerca(self):
         text = self.date_filter.date()
         data_filtro = text.toString("yyyy-MM-dd")
-        if text is not None:
+        if data_filtro is not None:
             self.tabella_turni.setRowCount(0)
             self.inserisci_tabella(self.controller.ricerca_turni(data_filtro))
         else:

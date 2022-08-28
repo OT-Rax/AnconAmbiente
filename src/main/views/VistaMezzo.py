@@ -27,6 +27,6 @@ class VistaMezzo(QtWidgets.QMainWindow):
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
-        self.vista_modificamezzo = VistaModificaMezzo(self.parent, self.mezzo)
+        self.vista_modificamezzo = VistaModificaMezzo(self, self.mezzo)
         self.vista_modificamezzo.show()   
         self.close()   
