@@ -7,12 +7,12 @@ from views.VistaModificaServizio import VistaModificaServizio
 from views.VistaServizio import VistaServizio
 from controllers.ControlloreServizi import ControlloreServizio
 
-controller = ControlloreServizio()
 
 class VistaListaServizi(QtWidgets.QMainWindow):
     def __init__(self):
         super(VistaListaServizi, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/servizi.ui', self)  # Load the .ui file
+        self.controller = ControlloreServizio()
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)
@@ -38,7 +38,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
 
     def update(self):
         self.tabella_servizi.setRowCount(0)
-        self.inserisci_tabella(controller.get_servizi())
+        self.inserisci_tabella(self.controller.get_servizi())
 
     def ricerca(self):
         text = self.search_field.text()
