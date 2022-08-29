@@ -171,7 +171,7 @@ font:  bold 11px
      <string>INSERISCI</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="warning_label">
     <property name="geometry">
      <rect>
       <x>13</x>
@@ -214,7 +214,7 @@ font:  bold 11px
      <string>ELIMINA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="indietr_button">
+   <widget class="QPushButton" name="indietro_button">
     <property name="geometry">
      <rect>
       <x>540</x>

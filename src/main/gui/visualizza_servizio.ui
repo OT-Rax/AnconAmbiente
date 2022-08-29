@@ -83,7 +83,7 @@
      <string>Cliente:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="annulla_button">
+   <widget class="QPushButton" name="indietro_button">
     <property name="geometry">
      <rect>
       <x>200</x>

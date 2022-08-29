@@ -18,7 +18,7 @@
     <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
   </property>
   <widget class="QWidget" name="modificaservizio_widget">
-   <widget class="QLineEdit" name="luogo_field_2">
+   <widget class="QLineEdit" name="luogo_field">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -28,7 +28,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="annulla_button">
     <property name="geometry">
      <rect>
       <x>190</x>
@@ -97,7 +97,7 @@ font:  bold 11px
      <string>Cliente:</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="mer_check_2">
+   <widget class="QCheckBox" name="mer_check">
     <property name="geometry">
      <rect>
       <x>217</x>
@@ -123,7 +123,7 @@ font:  bold 11px
      <string>M</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="mar_check_2">
+   <widget class="QCheckBox" name="mar_check">
     <property name="geometry">
      <rect>
       <x>197</x>
@@ -192,7 +192,7 @@ font:  bold 11px
      <string>SALVA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="nuovocliente_button_2">
+   <widget class="QPushButton" name="nuovocliente_button">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -222,7 +222,7 @@ font:  bold 8px
      <string>NUOVO CLIENTE</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="lun_check_2">
+   <widget class="QCheckBox" name="lun_check">
     <property name="geometry">
      <rect>
       <x>177</x>
@@ -235,7 +235,7 @@ font:  bold 8px
      <string/>
     </property>
    </widget>
-   <widget class="QCheckBox" name="ven_check_2">
+   <widget class="QCheckBox" name="ven_check">
     <property name="geometry">
      <rect>
       <x>257</x>
@@ -248,7 +248,7 @@ font:  bold 8px
      <string/>
     </property>
    </widget>
-   <widget class="QCheckBox" name="gio_check_2">
+   <widget class="QCheckBox" name="gio_check">
     <property name="geometry">
      <rect>
       <x>237</x>
@@ -261,7 +261,7 @@ font:  bold 8px
      <string/>
     </property>
    </widget>
-   <widget class="QComboBox" name="cliente_combo_2">
+   <widget class="QComboBox" name="cliente_combo">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -323,7 +323,7 @@ font:  bold 8px
      <string>Periodicità:</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="sab_check_2">
+   <widget class="QCheckBox" name="sab_check">
     <property name="geometry">
      <rect>
       <x>277</x>
@@ -349,7 +349,7 @@ font:  bold 8px
      <string>Luogo:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="tipo_field_2">
+   <widget class="QLineEdit" name="tipo_field">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -359,7 +359,7 @@ font:  bold 8px
      </rect>
     </property>
    </widget>
-   <widget class="QCheckBox" name="dom_check_2">
+   <widget class="QCheckBox" name="dom_check">
     <property name="geometry">
      <rect>
       <x>297</x>

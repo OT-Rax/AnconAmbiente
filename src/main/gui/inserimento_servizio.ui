@@ -18,7 +18,7 @@
     <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
   </property>
   <widget class="QWidget" name="inserimentoservizio_widget">
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="annulla_button">
     <property name="geometry">
      <rect>
       <x>200</x>
