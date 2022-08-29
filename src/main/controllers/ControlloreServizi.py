@@ -6,6 +6,9 @@ class ControlloreServizio:
     def get_servizi(self):
         return self.mapper.get_servizi()
 
+    def ricerca_servizi(self, text):
+        return self.mapper.ricerca_servizi(text)
+
     def get_stato_servizio(self):
         return self.mapper.stato
 

@@ -34,6 +34,14 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.tabella_servizi.setRowCount(0)
         self.inserisci_tabella(controller.get_servizi())
 
+    def ricerca(self):
+        text = self.search_field.text()
+        if text is not None:
+            self.tabella_servizi.setRowCount(0)
+            self.inserisci_tabella(self.controller.ricerca_servizi(text))
+        else:
+            self.update()
+
     def inserisci_tabella(self, servizi):
         row = self.tabella_servizi.rowCount()
         for servizio in servizi:
