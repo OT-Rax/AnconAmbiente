@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
 
-from src.main.views.VistaModificaServizio import VistaModificaServizio
+from views.VistaModificaServizio import VistaModificaServizio
 
 
 class VistaServizio(QtWidgets.QMainWindow):
