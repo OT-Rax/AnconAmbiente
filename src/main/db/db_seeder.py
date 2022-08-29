@@ -55,16 +55,16 @@ if __name__ == '__main__':
                     ', mezzo)
     print("-------------------------")
 
-    # Popolazione Turni
-    print("Popolazione Turni")
-    for i in range(10):
-        print("Inserimento turno numero", i) 
-        turno = [fake.past_date(), fake.past_date()]
-        cur.execute(' \
-                            INSERT INTO Turni (inizio_turno, fine_turno) \
-                            VALUES (?, ?); \
-                            ', turno)
-    print("-------------------------")
+    # # Popolazione Turni
+    # print("Popolazione Turni")
+    # for i in range(10):
+    #     print("Inserimento turno numero", i)
+    #     turno = [fake.past_date(), fake.past_date()]
+    #     cur.execute(' \
+    #                         INSERT INTO Turni (inizio_turno, fine_turno) \
+    #                         VALUES (?, ?); \
+    #                         ', turno)
+    # print("-------------------------")
 
     # Popolazione Clienti
     print("Popolazione Clenti")

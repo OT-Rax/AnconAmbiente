@@ -19,7 +19,7 @@ class MapperServizi:
     def get_servizio(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        servizio=None
+        servizio = None
         #Non ho usato bindings perche rotti
         for row in cur.execute("SELECT * FROM Servizi WHERE id="+str(id)):
             servizio = Servizio(row[0], row[1], row[2], row[3])
