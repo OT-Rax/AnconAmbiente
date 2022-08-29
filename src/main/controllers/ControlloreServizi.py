@@ -3,6 +3,9 @@ class ControlloreServizio:
     def __init__(self):
         self.mapper = MapperServizi()
 
+    def elimina_servizi(self, servizi):
+        return self.mapper.elimina_servizi(servizi)
+
     def get_servizi(self):
         return self.mapper.get_servizi()
 
