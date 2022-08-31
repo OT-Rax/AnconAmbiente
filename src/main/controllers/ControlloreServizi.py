@@ -44,3 +44,6 @@ class ControlloreServizio:
 
     def set_tipo_servizio(self, tipo):
         self.mapper.tipo = tipo
+
+    def insert_cliente(self, id_cliente,):
+        return self.mapper.insert_mezzo()

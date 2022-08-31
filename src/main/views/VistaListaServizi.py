@@ -22,7 +22,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.update()
 
     def go_inserisci(self):
-        self.vista_inserimentoservizio = VistaInserimentoServizio()
+        self.vista_inserimentoservizio = VistaInserimentoServizio(self)
         self.vista_inserimentoservizio.show()
 
     def go_modifica(self):

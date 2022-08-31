@@ -10,6 +10,9 @@ class ControlloreClienti:
     def get_clienti(self):
         return self.mapper.get_clienti()
 
+    def get_idclienti(self):
+        return self.mapper.get_idclienti()
+
     #id, nome, cognome, datanascita, cf, partitaiva, indirizzo, email, telefono):
     def insert_cliente(self, nome, cognome, datanascita, cf, partitaiva, indirizzo, email, telefono):
         return self.mapper.insert_cliente(nome, cognome, datanascita, cf, partitaiva, indirizzo, email, telefono)

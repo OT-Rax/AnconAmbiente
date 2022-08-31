@@ -17,6 +17,16 @@ class MapperClienti:
         con.close()
         return clienti
 
+    def get_idclienti(self):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        id = []
+        for row in cur.execute("SELECT id FROM Clienti"):
+            #Cliente(id, nome, cognome, datanascita, cf, partitaiva, indirizzo, email, telefono):
+            id.append(row)
+        con.close()
+        return id
+
     def get_cliente(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
