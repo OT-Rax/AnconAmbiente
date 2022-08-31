@@ -16,6 +16,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)
+        self.indietro_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
         self.elimina_button.clicked.connect(self.go_elimina)
         self.update()
