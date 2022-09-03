@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>769</width>
-    <height>470</height>
+    <height>496</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,11 +24,11 @@
       <x>10</x>
       <y>10</y>
       <width>741</width>
-      <height>391</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="dati_tab">
      <attribute name="title">
@@ -38,7 +38,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>240</y>
+        <y>300</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -51,7 +51,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>280</y>
+        <y>340</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -77,7 +77,7 @@
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>280</y>
+        <y>340</y>
         <width>191</width>
         <height>28</height>
        </rect>
@@ -87,7 +87,7 @@
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>240</y>
+        <y>300</y>
         <width>191</width>
         <height>28</height>
        </rect>
@@ -97,7 +97,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>205</y>
+        <y>265</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -110,7 +110,7 @@
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>200</y>
+        <y>260</y>
         <width>191</width>
         <height>28</height>
        </rect>
@@ -279,6 +279,29 @@
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>200</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Selezionare ID Servizio:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_servizi">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>200</y>
+        <width>161</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="mezzi_widget">
      <attribute name="title">
@@ -302,7 +325,7 @@
        <rect>
         <x>110</x>
         <y>40</y>
-        <width>591</width>
+        <width>611</width>
         <height>231</height>
        </rect>
       </property>
@@ -457,8 +480,8 @@
      <widget class="QComboBox" name="combo_mezzi">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>280</y>
+        <x>160</x>
+        <y>290</y>
         <width>161</width>
         <height>27</height>
        </rect>
@@ -468,13 +491,13 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>280</y>
-        <width>91</width>
-        <height>21</height>
+        <y>290</y>
+        <width>141</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Selezionare ID:</string>
+       <string>Selezionare ID Mezzo:</string>
       </property>
      </widget>
     </widget>
@@ -501,7 +524,7 @@
         <x>110</x>
         <y>40</y>
         <width>621</width>
-        <height>191</height>
+        <height>211</height>
        </rect>
       </property>
       <property name="selectionBehavior">
@@ -665,8 +688,8 @@
      <widget class="QComboBox" name="combo_operatori">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>240</y>
+        <x>170</x>
+        <y>290</y>
         <width>161</width>
         <height>27</height>
        </rect>
@@ -676,13 +699,13 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>240</y>
-        <width>91</width>
-        <height>21</height>
+        <y>290</y>
+        <width>161</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Selezionare ID:</string>
+       <string>Selezionare ID Operatore:</string>
       </property>
      </widget>
     </widget>
@@ -691,7 +714,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>410</y>
+      <y>440</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -721,7 +744,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>410</y>
+      <y>440</y>
       <width>141</width>
       <height>23</height>
      </rect>

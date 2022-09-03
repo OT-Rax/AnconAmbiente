@@ -20,6 +20,11 @@ class VistaListaMezzi(QtWidgets.QMainWindow):
         self.indietr_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
         self.elimina_button.clicked.connect(self.go_elimina)
+        self.id_radio.toggled.connect(self.ordina_tabella)
+        self.modello_radio.toggled.connect(self.ordina_tabella)
+        self.allestimento_radio.toggled.connect(self.ordina_tabella)
+        self.stato_radio.toggled.connect(self.ordina_tabella)
+        self.tabella_mezzi.itemDoubleClicked.connect(self.go_visualizza)
         self.update()
 
 
@@ -107,3 +112,12 @@ class VistaListaMezzi(QtWidgets.QMainWindow):
                 mezzi.append(mezzo)
         return mezzi
 
+    def ordina_tabella(self):
+        if self.id_radio.isChecked():
+            self.tabella_mezzi.sortItems(0)
+        elif self.modello_radio.isChecked():
+            self.tabella_mezzi.sortItems(1)
+        elif self.allestimento_radio.isChecked():
+            self.tabella_mezzi.sortItems(2)
+        elif self.stato_radio.isChecked():
+            self.tabella_mezzi.sortItems(3)

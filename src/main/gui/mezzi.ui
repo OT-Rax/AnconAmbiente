@@ -95,9 +95,9 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>120</y>
       <width>611</width>
-      <height>421</height>
+      <height>391</height>
      </rect>
     </property>
     <property name="selectionBehavior">
@@ -261,7 +261,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>100</y>
       <width>601</width>
       <height>16</height>
      </rect>
@@ -359,6 +359,74 @@ font:  bold 11px
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="id_radio">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>60</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ID</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="stato_radio">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>60</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stato</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ordina per:</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="allestimento_radio">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>60</y>
+      <width>101</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Allestimento</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="modello_radio">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>60</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Modello</string>
     </property>
    </widget>
   </widget>
