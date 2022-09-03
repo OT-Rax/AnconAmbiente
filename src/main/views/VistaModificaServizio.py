@@ -2,10 +2,10 @@ from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
 
-from controllers.ControlloreServizi import ControlloreServizio
+from controllers.ControlloreServizi import ControlloreServizi
 
 class VistaModificaServizio(QtWidgets.QMainWindow):
-    controller = ControlloreServizio() 
+    controller = ControlloreServizi() 
 
     def __init__(self, servizio):
         super(VistaModificaServizio, self).__init__()  # Call the inherited classes __init__ method

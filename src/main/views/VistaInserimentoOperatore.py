@@ -15,7 +15,6 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         self.inserisci_button.clicked.connect(self.inserisci)
         self.cf_field.setInputMask("AAAAAA00A00A000A")
         self.indeterminato_checkbox.stateChanged.connect(self.indeterminato_changed)
-        print(self.parent().children())
         self.finecontratto_datepicker.setMinimumDate(QtCore.QDate.currentDate())
         self.nascita_datepicker.setMaximumDate(QtCore.QDate.currentDate())
         self.nome_field.editingFinished.connect(self.check_nome)

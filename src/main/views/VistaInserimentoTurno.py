@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, uic, QtCore
 import sys
 import xz_rc
 
-from controllers.ControlloreServizi import ControlloreServizio
+from controllers.ControlloreServizi import ControlloreServizi
 from controllers.ControlloreMezzi import ControlloreMezzo
 from controllers.ControlloreOperatori import ControlloreOperatori
 from controllers.ControlloreTurni import ControlloreTurni
@@ -13,7 +13,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         super(VistaInserimentoTurno, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_turno.ui', self)  # Load the .ui file
         self.controller = ControlloreTurni()
-        self.controller2 = ControlloreServizio()
+        self.controller2 = ControlloreServizi()
         self.controller_mezzi = ControlloreMezzo()
         self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)

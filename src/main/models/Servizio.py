@@ -10,6 +10,7 @@ class Servizio:
 
     def get_id(self):
         return self.id
+
     def get_id_cliente(self):
         return self.id_cliente
 
@@ -22,17 +23,11 @@ class Servizio:
     def get_luogo(self):
         return self.luogo
 
-    def set_stato(self, stato):
-        self.stato = stato
-
-
     def set_periodicita(self, periodicita):
         self.periodicita = periodicita
 
-
     def set_id(self, id):
         self.id = id
-
 
     def set_id_cliente(self, cliente):
         self.id_cliente = cliente

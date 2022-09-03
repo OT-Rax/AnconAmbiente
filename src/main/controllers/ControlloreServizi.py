@@ -1,5 +1,6 @@
 from models.MapperServizi import MapperServizi
-class ControlloreServizio:
+
+class ControlloreServizi:
     def __init__(self):
         self.mapper = MapperServizi()
 
@@ -45,5 +46,5 @@ class ControlloreServizio:
     def set_tipo_servizio(self, tipo):
         self.mapper.tipo = tipo
 
-    def insert_cliente(self, id_cliente,):
-        return self.mapper.insert_mezzo()
+    def insert_servizio(self, tipo, id_cliente, luogo):
+        return self.mapper.insert_servizio()

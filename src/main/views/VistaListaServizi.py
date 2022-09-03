@@ -5,14 +5,14 @@ import xz_rc
 from views.VistaInserimentoServizio import VistaInserimentoServizio
 from views.VistaModificaServizio import VistaModificaServizio
 from views.VistaServizio import VistaServizio
-from controllers.ControlloreServizi import ControlloreServizio
+from controllers.ControlloreServizi import ControlloreServizi
 
 
 class VistaListaServizi(QtWidgets.QMainWindow):
     def __init__(self):
         super(VistaListaServizi, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/servizi.ui', self)  # Load the .ui file
-        self.controller = ControlloreServizio()
+        self.controller = ControlloreServizi()
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)

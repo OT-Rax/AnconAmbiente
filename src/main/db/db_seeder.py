@@ -151,13 +151,14 @@ if __name__ == '__main__':
     for i in range(10):
         try:
             cliente_random = id_clienti[fake.random_int(min=0, max=len(id_clienti) - 1)][0]
-            tipo_random=tipo[fake.random_int(min=0, max=len(tipo) - 1)]
+            tipo_random = tipo[fake.random_int(min=0, max=len(tipo) - 1)]
+            luogo_random = fake.address()
             periodicita_random=periodicita[fake.random_int(min=0, max=len(periodicita) - 1)]
             print("Inserimento servizio numero", i)
-            servizio = [cliente_random, tipo_random, periodicita_random]
+            servizio = [cliente_random, tipo_random, luogo_random, periodicita_random]
             cur.execute(' \
-                                                        INSERT INTO Servizi (id_cliente, tipo, periodicita) \
-                                                        VALUES (?, ?, ?); \
+                                                        INSERT INTO Servizi (id_cliente, tipo, luogo, periodicita) \
+                                                        VALUES (?, ?, ?, ?); \
                                                         ', servizio)
         except sqlite3.IntegrityError:
             print("Servizio numero ", i, " gia presente")
@@ -170,6 +171,9 @@ if __name__ == '__main__':
     print("Popolazione Lavori")
 
     for i in range(10):
+        id_turni = cur.execute(' \
+                                SELECT id FROM Turni \
+                                ').fetchall() #Prendo tutti i turni
         id_servizi = cur.execute(' \
                                         SELECT id FROM Servizi \
                                         ').fetchall()  # Prendo tutti i clienti
