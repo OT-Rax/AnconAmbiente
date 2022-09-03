@@ -567,7 +567,7 @@ font:  bold 11px
      <string/>
     </property>
    </widget>
-   <widget class="QSpinBox" name="ripetizioni_box">
+   <widget class="QSpinBox" name="ripetizione_box">
     <property name="geometry">
      <rect>
       <x>110</x>

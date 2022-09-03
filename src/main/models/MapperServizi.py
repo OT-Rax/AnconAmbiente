@@ -39,7 +39,7 @@ class MapperServizi:
     def insert_servizio(self, id_cliente, tipo, luogo, data_inizo, data_fine, ripetizione, periodicita):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("INSERT INTO Servizi (id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita) VALUES (?, ?, ?, ?, ?, ?);", (id_cliente, tipo, luogo, data_inizo, data_fine, ripetizione, periodicita))
+        cur.execute("INSERT INTO Servizi (id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita) VALUES (?, ?, ?, ?, ?, ?, ?);", (id_cliente, tipo, luogo, data_inizo, data_fine, ripetizione, periodicita))
         con.commit()
         con.close()
 

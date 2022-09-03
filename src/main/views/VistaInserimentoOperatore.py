@@ -30,7 +30,6 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         data_nascita=self.nascita_datepicker.date()
         patenti=[]
         data_finecontratto = None if self.indeterminato_checkbox.isChecked() else self.finecontratto_datepicker.date().toString("yyyy-MM-dd")
-        print(data_finecontratto)
         nome_validity = self.check_nome()
         cognome_validity = self.check_cognome()
         cf_validity = self.check_cf()
