@@ -13,8 +13,9 @@ class VistaServizio(QtWidgets.QMainWindow):
         self.parent = parent
         self.id_label.setText(str(servizio.get_id()))
         self.tipo_label.setText(servizio.get_tipo())
-        self.luogo_label.setText(str(servizio.get_id_cliente()))
-        self.periodicita_label.setText(servizio.get_periodicita())
+        self.cliente_label.setText(str(servizio.get_id_cliente()))
+        self.luogo_label.setText(str(servizio.get_luogo())) 
+        self.periodicita_label.setText("Non periodico" if servizio.get_periodicita() is None else str(servizio.get_ripetizione())+" volte "+servizio.get_periodicita())
         self.indietro_button.clicked.connect(self.close)
         self.modifica_button.clicked.connect(self.go_modifica)
 

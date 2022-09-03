@@ -30,7 +30,7 @@ class MapperServizi:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         servizi  = []
-        for row in cur.execute('SELECT * FROM Servizi WHERE id LIKE ? OR tipo LIKE ? OR periodicita LIKE ? OR id_cliente LIKE ?', ("%"+text+"%", "%"+text+"%","%"+text+"%", "%"+text+"%")):
+        for row in cur.execute('SELECT * FROM Servizi WHERE id LIKE ? OR tipo LIKE ? OP luogo LIKE? OR periodicita LIKE ? OR id_cliente LIKE ?', ("%"+text+"%", "%"+text+"%", "%"+text+"%","%"+text+"%", "%"+text+"%")):
             servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
             servizi.append(servizio)
         con.close()

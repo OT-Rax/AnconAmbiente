@@ -16,35 +16,5 @@ class ControlloreServizi:
     def ricerca_servizi(self, text):
         return self.mapper.ricerca_servizi(text)
 
-    def get_stato_servizio(self):
-        return self.mapper.stato
-
-    def get_periodicita_servizio(self):
-        return self.mapper.periodicita
-
-    def get_id_servizio(self):
-        return self.mapper.id
-
-    def get_cliente_servizio(self):
-        return self.mapper.cliente
-
-    def get_tipo_servizio(self):
-        return self.mapper
-
-    def set_stato_servizio(self, stato):
-        self.mapper.stato = stato
-
-    def set_periodicita_servizio(self, periodicita):
-        self.mapper.periodicita = periodicita
-
-    def set_id_servizio(self, id):
-        self.mapper.id = id
-
-    def set_cliente_servizio(self, cliente):
-        self.mapper.cliente = cliente
-
-    def set_tipo_servizio(self, tipo):
-        self.mapper.tipo = tipo
-
-    def insert_servizio(self, tipo, id_cliente, luogo):
-        return self.mapper.insert_servizio()
+    def insert_servizio(self, id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita):
+        return self.mapper.insert_servizio(id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita)
