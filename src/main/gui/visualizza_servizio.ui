@@ -23,8 +23,8 @@
      <rect>
       <x>170</x>
       <y>20</y>
-      <width>100</width>
-      <height>13</height>
+      <width>191</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -37,7 +37,7 @@
       <x>20</x>
       <y>180</y>
       <width>80</width>
-      <height>13</height>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -63,7 +63,7 @@
       <x>20</x>
       <y>140</y>
       <width>80</width>
-      <height>13</height>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -118,8 +118,8 @@ font:  bold 11px
      <rect>
       <x>170</x>
       <y>140</y>
-      <width>100</width>
-      <height>13</height>
+      <width>181</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -174,8 +174,8 @@ font:  bold 11px
      <rect>
       <x>170</x>
       <y>180</y>
-      <width>100</width>
-      <height>13</height>
+      <width>191</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -187,25 +187,12 @@ font:  bold 11px
      <rect>
       <x>170</x>
       <y>60</y>
-      <width>100</width>
-      <height>13</height>
+      <width>191</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>220</y>
-      <width>80</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stato:</string>
     </property>
    </widget>
    <widget class="QLabel" name="stato_label">
@@ -226,8 +213,8 @@ font:  bold 11px
      <rect>
       <x>170</x>
       <y>100</y>
-      <width>100</width>
-      <height>13</height>
+      <width>191</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
