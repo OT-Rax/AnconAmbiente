@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Inserimento Servizio</string>
+   <string>Modifica Servizio</string>
   </property>
   <property name="windowIcon">
    <iconset resource="xz.qrc">
