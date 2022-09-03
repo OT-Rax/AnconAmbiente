@@ -1,8 +1,9 @@
 class Servizio:
-    def __init__(self, id, id_cliente, tipo, periodicita):
+    def __init__(self, id, id_cliente, tipo, luogo, periodicita):
         self.id = id
         self.id_cliente = id_cliente
         self.tipo = tipo
+        self.luogo = luogo
         self.periodicita = periodicita
 
     # Metodi getters and setters
@@ -17,6 +18,9 @@ class Servizio:
 
     def get_periodicita(self):
         return self.periodicita
+
+    def get_luogo(self):
+        return self.luogo
 
     def set_stato(self, stato):
         self.stato = stato
@@ -33,6 +37,8 @@ class Servizio:
     def set_id_cliente(self, cliente):
         self.id_cliente = cliente
 
+    def set_luogo_(self,luogo):
+        self.get_luogo = luogo
 
     def set_tipo(self, tipo):
         self.tipo = tipo

@@ -121,6 +121,7 @@ if __name__ == '__main__':
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_cliente INTEGER NOT NULL,
         tipo TEXT NOT NULL,
+        luogo TEXT NOT NULL,
         periodicita TEXT,
         FOREIGN KEY(id_cliente) REFERENCES Clienti(id)
         );

@@ -26,8 +26,11 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.vista_inserimentoservizio.show()
 
     def go_modifica(self):
-        self.vista_modificaservizio = VistaModificaServizio()
-        self.vista_modificaservizio.show()
+        servizi = self.get_servizi_selezionati()
+        for servizio in servizi:
+                self.vista_modificaservizio = VistaModificaServizio(servizio)
+                self.vista_modificaservizio.show()      
+        
 
     def go_visualizza(self):
         caselle_selezionate = self.tabella_servizi.selectedItems()
