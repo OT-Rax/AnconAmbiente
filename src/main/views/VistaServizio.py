@@ -22,6 +22,7 @@ class VistaServizio(QtWidgets.QMainWindow):
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
-        self.vista_modificaservizio = VistaModificaServizio(self, self.servizio)
+        self.vista_modificaservizio = VistaModificaServizio(self.servizio)
         self.vista_modificaservizio.show()
         self.close()
+    
