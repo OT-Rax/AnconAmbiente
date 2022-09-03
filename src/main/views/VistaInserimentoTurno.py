@@ -83,7 +83,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
             row+=1
 
     def inserisci(self):
-        servizio = 45
+        servizio = self.combo_servizi.currentText()
         data_turno = self.date_field.date()
         ora_inizio = self.time_start_field.time()
         ora_fine = self.time_end_field.time()
@@ -92,21 +92,15 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         self.controller.insert_turno(servizio, data_turno.toString("yyyy-MM-dd"), ora_inizio.toString(), ora_fine.toString(), str(mezzo), str(operatore))
         self.close()
         self.parent().update()
-
-    def get_mezzo_selezionato(self):
-        casella = self.tabella_mezzi.selectedItems()
-        id_mezzo = None
-        id_mezzo = int(self.tabella_mezzi.item(casella, 0).text())
-        return id_mezzo
-
-    def get_operatore_selezionato(self):
-        casella = self.tabella_operatori.selectedItems()
-        id_operatore = None
-        operatore = self.controller_operatori.get_operatore(int(self.tabella_mezzi.item(casella, 0).text()))
-        id_operatore = operatore.get_cognome
-        return id_operatore
     
     def update(self):
+        #riembimento combo box servizi
+        servizi = self.controller2.get_servizi()
+        id_servizi = []
+        for servizio in servizi:
+            id = servizio.get_id()
+            id_servizi.append(str(id))
+        self.combo_servizi.addItems(id_servizi)
         #riembimento combo box mezzi
         mezzi = self.controller_mezzi.get_mezzi()
         id_mezzi = []
