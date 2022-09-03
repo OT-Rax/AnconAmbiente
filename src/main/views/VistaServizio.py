@@ -7,7 +7,7 @@ from views.VistaModificaServizio import VistaModificaServizio
 
 class VistaServizio(QtWidgets.QMainWindow):
     def __init__(self, parent, servizio):
-        super(VistaServizio, self).__init__()  # Call the inherited classes __init__ method
+        super(VistaServizio, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_servizio.ui', self)  # Load the .ui file
         self.servizio = servizio
         self.parent = parent

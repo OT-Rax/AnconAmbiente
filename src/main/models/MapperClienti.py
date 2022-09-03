@@ -23,7 +23,7 @@ class MapperClienti:
         id = []
         for row in cur.execute("SELECT id FROM Clienti"):
             #Cliente(id, nome, cognome, datanascita, cf, partitaiva, indirizzo, email, telefono):
-            id.append(row)
+            id.append(row[0])
         con.close()
         return id
 

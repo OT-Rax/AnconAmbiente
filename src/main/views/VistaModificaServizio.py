@@ -14,7 +14,6 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
         self.tipo_field.setText(self.servizio.get_tipo())
         self.cliente_combo.setCurrentIndex(self.servizio.get_id_cliente())
         self.luogo_field.setText(self.servizio.get_luogo())
-        self.stato_combo.setCurrentIndex(self.servizio.get_stato())
         self.annulla_button.clicked.connect(self.close)
         self.salva_button.clicked.connect(self.modifica)
 

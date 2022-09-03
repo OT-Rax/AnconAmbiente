@@ -11,7 +11,7 @@ class MapperServizi:
         cur = con.cursor()
         servizi  = []
         for row in cur.execute("SELECT * FROM Servizi"):
-            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
             servizi.append(servizio)
         con.close()
         return servizi
@@ -22,7 +22,7 @@ class MapperServizi:
         servizio = None
         #Non ho usato bindings perche rotti
         for row in cur.execute("SELECT * FROM Servizi WHERE id="+str(id)):
-            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
         con.close()
         return servizio
 
@@ -30,23 +30,23 @@ class MapperServizi:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         servizi  = []
-        for row in cur.execute('SELECT * FROM Servizi WHERE id LIKE ? OR tipo LIKE ? OR peridiocita LIKE ? OR id_cliente LIKE ?', ("%"+text+"%", "%"+text+"%","%"+text+"%", "%"+text+"%")):
-            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+        for row in cur.execute('SELECT * FROM Servizi WHERE id LIKE ? OR tipo LIKE ? OR periodicita LIKE ? OR id_cliente LIKE ?', ("%"+text+"%", "%"+text+"%","%"+text+"%", "%"+text+"%")):
+            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
             servizi.append(servizio)
         con.close()
         return servizi
 
-    def insert_servizio(self, id_cliente, tipo, luogo, data_inizo, data_fine, periodicita):
+    def insert_servizio(self, id_cliente, tipo, luogo, data_inizo, data_fine, ripetizione, periodicita):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("INSERT INTO Servizi (id_cliente, tipo, luogo, periodicita) VALUES (?, ?, ?, ?, ?, ?);", (id_cliente, tipo, luogo, data_inizo, data_fine, periodicita))
+        cur.execute("INSERT INTO Servizi (id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita) VALUES (?, ?, ?, ?, ?, ?);", (id_cliente, tipo, luogo, data_inizo, data_fine, ripetizione, periodicita))
         con.commit()
         con.close()
 
     def update_servizio(self, id, servizio):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("UPDATE Servizi SET id_cliente=?, tipo=?, luogo=?, data_inizo=?, data_fine=?, peridiocita=? WHERE id=?",
+        cur.execute("UPDATE Servizi SET id_cliente=?, tipo=?, luogo=?, data_inizo=?, data_fine=?, ripetizione=?, peridiocita=? WHERE id=?",
                 (servizio.get_id_cliente(), servizio.get_tipo(), servizio.get_luogo(), servizio.get_periodicita(), id))
         con.commit()
         con.close()

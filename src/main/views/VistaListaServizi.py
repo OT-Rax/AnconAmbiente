@@ -21,6 +21,9 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.indietro_button.clicked.connect(self.close)
         self.search_field.textChanged.connect(self.ricerca)
         self.elimina_button.clicked.connect(self.go_elimina)
+        self.tabella_servizi.horizontalHeader().resizeSection(0, 50)
+        self.tabella_servizi.horizontalHeader().resizeSection(2, 70)
+        self.tabella_servizi.horizontalHeader().resizeSection(4, 220)
         self.update()
 
     def go_inserisci(self):
@@ -41,7 +44,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             righe_selezionate.append(casella.row())
         for riga in set(righe_selezionate):
             servizio = self.controller.get_servizio(int(self.tabella_servizi.item(riga, 0).text()))
-            self.vista_servizio = VistaServizio(self.parent, servizio)
+            self.vista_servizio = VistaServizio(self, servizio)
             self.vista_servizio.show()
 
     def update(self):

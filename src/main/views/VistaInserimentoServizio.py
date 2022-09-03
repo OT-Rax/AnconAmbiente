@@ -17,9 +17,9 @@ class VistaInserimentoServizio(QtWidgets.QMainWindow):
         self.inserisci_button.clicked.connect(self.inserisci)
         self.tipo_field.editingFinished.connect(self.check_tipo)
         self.luogo_field.editingFinished.connect(self.check_luogo)
-        id = self.controller.get_idclienti()
+        id = self.controllerClienti.get_idclienti()
         for i in range(len(id)):
-            self.cliente_combo.addItem(id[i])
+            self.cliente_combo.addItem(str(id[i]))
 
 
     def inserisci(self):
