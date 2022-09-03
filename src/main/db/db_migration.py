@@ -122,6 +122,9 @@ if __name__ == '__main__':
         id_cliente INTEGER NOT NULL,
         tipo TEXT NOT NULL,
         luogo TEXT NOT NULL,
+        data_inizio TEXT NOT NULL,
+        data_fine TEXT NOT NULL,
+        ripetizione INTEGER,
         periodicita TEXT,
         FOREIGN KEY(id_cliente) REFERENCES Clienti(id)
         );

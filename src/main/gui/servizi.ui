@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>560</height>
+    <width>866</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,7 +51,7 @@ font:  bold 11px
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>490</x>
       <y>20</y>
       <width>21</width>
       <height>21</height>
@@ -96,7 +96,7 @@ font:  bold 11px
      <rect>
       <x>10</x>
       <y>80</y>
-      <width>611</width>
+      <width>841</width>
       <height>421</height>
      </rect>
     </property>
@@ -128,6 +128,16 @@ font:  bold 11px
     <column>
      <property name="text">
       <string>Tipo</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ID Cliente</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nome Cliente</string>
      </property>
     </column>
     <column>
@@ -217,7 +227,7 @@ font:  bold 11px
    <widget class="QPushButton" name="indietro_button">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>780</x>
       <y>20</y>
       <width>75</width>
       <height>23</height>
@@ -247,9 +257,9 @@ font:  bold 11px
    <widget class="QLineEdit" name="search_field">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>510</x>
       <y>20</y>
-      <width>161</width>
+      <width>261</width>
       <height>21</height>
      </rect>
     </property>

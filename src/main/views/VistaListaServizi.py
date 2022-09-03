@@ -6,6 +6,7 @@ from views.VistaInserimentoServizio import VistaInserimentoServizio
 from views.VistaModificaServizio import VistaModificaServizio
 from views.VistaServizio import VistaServizio
 from controllers.ControlloreServizi import ControlloreServizi
+from controllers.ControlloreClienti import ControlloreClienti
 
 
 class VistaListaServizi(QtWidgets.QMainWindow):
@@ -13,6 +14,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         super(VistaListaServizi, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/servizi.ui', self)  # Load the .ui file
         self.controller = ControlloreServizi()
+        self.controller_clienti = ControlloreClienti()
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)
@@ -78,6 +80,8 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id())))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_tipo()))
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_cliente())))
+            items.append(QtWidgets.QTableWidgetItem(self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_nome()))
+            items.append(QtWidgets.QTableWidgetItem(servizio.get_luogo()))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_periodicita()))
             self.tabella_servizi.insertRow(row)
             column = 0

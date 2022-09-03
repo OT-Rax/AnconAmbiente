@@ -147,18 +147,21 @@ if __name__ == '__main__':
                                 SELECT id FROM Clienti \
                                 ').fetchall()  # Prendo tutti i clienti
     tipo = ['Pulizia strada', 'Raccolta rifiuti', 'Pulizia straordinaria', 'Raccolta a domicilio']
-    periodicita = ['Giornaliero', 'Mensile', 'Annuale', 'Bimestrale', 'Trimestrale', 'Settimanale']
+    periodicita = [None, 'Giornaliero', 'Settimanale', 'Mensile', 'Annuale']
     for i in range(10):
         try:
             cliente_random = id_clienti[fake.random_int(min=0, max=len(id_clienti) - 1)][0]
             tipo_random = tipo[fake.random_int(min=0, max=len(tipo) - 1)]
             luogo_random = fake.address()
+            data_inizio_random = fake.past_date()
+            data_fine_random = fake.future_date()
+            ripetizione_random = fake.random_int(min=1, max=5)
             periodicita_random=periodicita[fake.random_int(min=0, max=len(periodicita) - 1)]
             print("Inserimento servizio numero", i)
-            servizio = [cliente_random, tipo_random, luogo_random, periodicita_random]
+            servizio = [cliente_random, tipo_random, luogo_random, data_inizio_random, data_fine_random, ripetizione_random, periodicita_random]
             cur.execute(' \
-                                                        INSERT INTO Servizi (id_cliente, tipo, luogo, periodicita) \
-                                                        VALUES (?, ?, ?, ?); \
+                                                        INSERT INTO Servizi (id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita) \
+                                                        VALUES (?, ?, ?, ?, ?, ?, ?); \
                                                         ', servizio)
         except sqlite3.IntegrityError:
             print("Servizio numero ", i, " gia presente")
