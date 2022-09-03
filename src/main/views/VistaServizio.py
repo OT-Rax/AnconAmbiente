@@ -17,6 +17,8 @@ class VistaServizio(QtWidgets.QMainWindow):
         self.tipo_label.setText(servizio.get_tipo())
         self.cliente_label.setText(self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_nome()+" "+self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_cognome())
         self.luogo_label.setText(str(servizio.get_luogo()))
+        self.data_inizio_label.setText(str(servizio.get_datainizio()))
+        self.data_fine_label.setText(str(servizio.get_datafine()))
         ripetizione=servizio.get_ripetizione()
         if servizio.get_periodicita() is None:
             periodicita="Non periodico"
