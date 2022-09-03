@@ -86,7 +86,18 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_cliente())))
             items.append(QtWidgets.QTableWidgetItem(self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_nome()+" "+self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_cognome()))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_luogo()))
-            items.append(QtWidgets.QTableWidgetItem(servizio.get_periodicita()))
+            ripetizione=servizio.get_ripetizione()
+            if servizio.get_periodicita() is None:
+                periodicita="Non periodico"
+            elif servizio.get_periodicita() == "Giornaliero":
+                periodicita=str(ripetizione)+" volte al giorno"
+            elif servizio.get_periodicita() == "Settimanale":
+                periodicita=str(ripetizione)+" volte a settimana"
+            elif servizio.get_periodicita() == "Mensile":
+                periodicita=str(ripetizione)+" volte al mese"
+            elif servizio.get_periodicita() == "Annuale":
+                periodicita=str(ripetizione)+" volte all'anno"
+            items.append(QtWidgets.QTableWidgetItem(periodicita))
             self.tabella_servizi.insertRow(row)
             column = 0
             for item in items:
