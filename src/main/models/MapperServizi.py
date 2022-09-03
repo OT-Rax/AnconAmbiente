@@ -46,8 +46,15 @@ class MapperServizi:
     def update_servizio(self, id, servizio):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        cur.execute("UPDATE Servizi SET id_cliente=?, tipo=?, luogo=?, data_inizo=?, data_fine=?, ripetizione=?, peridiocita=? WHERE id=?",
-                (servizio.get_id_cliente(), servizio.get_tipo(), servizio.get_luogo(), servizio.get_periodicita(), id))
+        cur.execute("UPDATE Servizi SET id_cliente=?, tipo=?, luogo=?, data_inizio=?, data_fine=?, ripetizione=?, periodicita=? WHERE id=?",
+            (servizio.get_id_cliente(),
+            servizio.get_tipo(),
+            servizio.get_luogo(),
+            servizio.get_datainizio(),
+            servizio.get_datafine(),
+            servizio.get_ripetizione(),
+            servizio.get_periodicita(),
+            id))
         con.commit()
         con.close()
 
@@ -55,7 +62,6 @@ class MapperServizi:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         for servizio in servizi:
-            print(str(servizio.get_id()))
             cur.execute("DELETE FROM Servizi WHERE id="+str(servizio.get_id()))
         con.commit()
         con.close()

@@ -10,8 +10,8 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
     controller = ControlloreServizi() 
     controllerClienti = ControlloreClienti()
 
-    def __init__(self, servizio):
-        super(VistaModificaServizio, self).__init__()  # Call the inherited classes __init__ method
+    def __init__(self,parent, servizio):
+        super(VistaModificaServizio, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_servizio.ui', self)  # Load the .ui file
         self.servizio = servizio
         self.annulla_button.clicked.connect(self.close)
@@ -76,7 +76,14 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
         luogo_validity = self.check_luogo()
         cliente_validity = self.check_cliente()
         if tipo_validity and luogo_validity and cliente_validity:
-            self.controller.insert_servizio(id_cliente, tipo, luogo, data_inizio, data_fine, ripetizione, periodicita)
+            self.servizio.set_id_cliente(id_cliente)
+            self.servizio.set_tipo(tipo)
+            self.servizio.set_luogo(luogo)
+            self.servizio.set_datainizio(data_inizio)
+            self.servizio.set_datafine(data_fine)
+            self.servizio.set_ripetizione(ripetizione)
+            self.servizio.set_periodicita(periodicita)
+            self.controller.update_servizio(self.servizio)
             self.close()
             self.parent().update()
 

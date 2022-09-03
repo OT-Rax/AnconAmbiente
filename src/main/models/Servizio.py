@@ -41,8 +41,8 @@ class Servizio:
     def set_id_cliente(self, cliente):
         self.id_cliente = cliente
 
-    def set_luogo_(self,luogo):
-        self.get_luogo = luogo
+    def set_luogo(self,luogo):
+        self.luogo = luogo
 
     def set_tipo(self, tipo):
         self.tipo = tipo

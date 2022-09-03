@@ -34,7 +34,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
     def go_modifica(self):
         servizi = self.get_servizi_selezionati()
         for servizio in servizi:
-                self.vista_modificaservizio = VistaModificaServizio(servizio)
+                self.vista_modificaservizio = VistaModificaServizio(self, servizio)
                 self.vista_modificaservizio.show()      
         
 

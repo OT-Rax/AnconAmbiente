@@ -13,6 +13,9 @@ class ControlloreServizi:
     def get_servizio(self, id):
         return self.mapper.get_servizio(id)
 
+    def update_servizio(self, servizio):
+        return self.mapper.update_servizio(servizio.get_id(), servizio)
+
     def ricerca_servizi(self, text):
         return self.mapper.ricerca_servizi(text)
 
