@@ -34,37 +34,11 @@
      <attribute name="title">
       <string>Dati</string>
      </attribute>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>300</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Ora Inizio Turno:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>340</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Ora Fine Turno:</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>30</y>
+        <y>170</y>
         <width>47</width>
         <height>13</height>
        </rect>
@@ -73,60 +47,11 @@
        <string>Servizio:</string>
       </property>
      </widget>
-     <widget class="QTimeEdit" name="time_end_field">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>340</y>
-        <width>191</width>
-        <height>28</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QTimeEdit" name="time_start_field">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>300</y>
-        <width>191</width>
-        <height>28</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>265</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Data:</string>
-      </property>
-     </widget>
-     <widget class="QDateEdit" name="date_field">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>260</y>
-        <width>191</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="tabletTracking">
-       <bool>true</bool>
-      </property>
-      <property name="calendarPopup">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QTableWidget" name="tabella_servizi">
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>30</y>
+        <y>170</y>
         <width>601</width>
         <height>161</height>
        </rect>
@@ -179,7 +104,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>10</y>
+        <y>150</y>
         <width>601</width>
         <height>16</height>
        </rect>
@@ -283,7 +208,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>200</y>
+        <y>340</y>
         <width>151</width>
         <height>21</height>
        </rect>
@@ -296,9 +221,84 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>200</y>
+        <y>340</y>
         <width>161</width>
         <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>95</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ora Fine Turno:</string>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="date_field">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>15</y>
+        <width>191</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="tabletTracking">
+       <bool>true</bool>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>55</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ora Inizio Turno:</string>
+      </property>
+     </widget>
+     <widget class="QTimeEdit" name="time_start_field">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>55</y>
+        <width>191</width>
+        <height>28</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Data:</string>
+      </property>
+     </widget>
+     <widget class="QTimeEdit" name="time_end_field">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>95</y>
+        <width>191</width>
+        <height>28</height>
        </rect>
       </property>
      </widget>
