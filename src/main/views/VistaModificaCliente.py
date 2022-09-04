@@ -8,6 +8,9 @@ class VistaModificaCliente(QtWidgets.QMainWindow):
     controller = ControlloreClienti()
 
     def __init__(self, parent, cliente):
+        # Costruttore 'VistaModificaCliente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param cliente: Cliente che si vuole modificare
         super(VistaModificaCliente, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_cliente.ui', self)  # Load the .ui file
         self.cliente=cliente
@@ -28,6 +31,7 @@ class VistaModificaCliente(QtWidgets.QMainWindow):
         self.nascita_datepicker.setMaximumDate(QtCore.QDate.currentDate())
 
     def modifica(self):
+        # Metodo che salva i cambiamenti effettuati
         nome_validity = self.check_nome()
         cognome_validity = self.check_cognome()
         cf_validity = self.check_cf()
@@ -46,6 +50,7 @@ class VistaModificaCliente(QtWidgets.QMainWindow):
 
 
     def check_nome(self):
+        # Metodo per controllo campo 'nome'
         if len(self.nome_field.text()) == 0:
             self.nome_error.setText("Inserire nome dell'cliente")
             return False
@@ -54,6 +59,7 @@ class VistaModificaCliente(QtWidgets.QMainWindow):
             return True
 
     def check_cognome(self):
+        # Metodo per controllo campo 'cognome'
         if len(self.cognome_field.text()) == 0:
             self.cognome_error.setText("Inserire cognome dell'cliente")
             return False
@@ -62,6 +68,7 @@ class VistaModificaCliente(QtWidgets.QMainWindow):
             return True
 
     def check_cf(self):
+        # Metodo per controllo campo 'cf'
         if len(self.cf_field.text())!=16:
             self.cf_error.setText("Il codice fiscale deve essere lungo 16 caratteri")
             return False

@@ -11,6 +11,9 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
     controllerClienti = ControlloreClienti()
 
     def __init__(self,parent, servizio):
+        # Costruttore 'VistaModificaCliente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param servizio: Servizio che si vuole modificare
         super(VistaModificaServizio, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_servizio.ui', self)  # Load the .ui file
         self.servizio = servizio
@@ -47,13 +50,16 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
 
 
     def periodicita_changed(self):
+        # Metodo per abilitare periodicita
         self.ripetizione_box.setEnabled(not self.ripetizione_box.isEnabled())
         self.periodicita_combo.setEnabled(not self.periodicita_combo.isEnabled())
 
     def inizio_edited(self):
+        # Metodo per impostare la minima data di fine servizio in base a quella di inizio
         self.fine_datepicker.setMinimumDate(self.inizio_datepicker.date())
 
     def modifica(self):
+        # Metodo che salva i cambiamenti effettuati
         id_cliente = self.cliente_combo.currentText()
         tipo = self.tipo_field.text()
         luogo = self.luogo_field.text()
@@ -88,6 +94,7 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
             self.parent().update()
 
     def check_tipo(self):
+        # Metodo per controllo campo 'tipo'
         if len(self.tipo_field.text()) == 0:
             self.tipo_error.setText("Inserire tipo del servizio")
             return False
@@ -96,6 +103,7 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
             return True
 
     def check_luogo(self):
+        # Metodo per controllo campo 'luogo'
         if len(self.luogo_field.text()) == 0:
             self.luogo_error.setText("Inserire luogo del servizio")
             return False
@@ -104,6 +112,7 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
             return True
     
     def check_cliente(self):
+        # Metodo per controllo campo 'cliente'
         if self.cliente_combo.currentText() == "":
             self.cliente_error.setText("Inserire cliente del servizio")
             return False
@@ -112,6 +121,7 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
             return True
 
     def go_clienti(self):
+        # Metodo per visualizzare vista 'VistaListaClienti'
         self.vista_clienti = VistaListaClienti()
         self.vista_clienti.show()
 
