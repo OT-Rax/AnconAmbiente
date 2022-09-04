@@ -8,6 +8,9 @@ class VistaModificaUtente(QtWidgets.QMainWindow):
     controller = ControlloreUtenti()
 
     def __init__(self, parent, utente):
+        # Costruttore 'VistaModificaCliente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param utente: Utente che si vuole modificare
         super(VistaModificaUtente, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_utente.ui', self)  # Load the .ui file
         self.utente=utente
@@ -28,6 +31,7 @@ class VistaModificaUtente(QtWidgets.QMainWindow):
         self.password_flag=False
 
     def modifica(self):
+        # Metodo che salva i cambiamenti effettuati
         username_validity = self.check_username()
         password_validity = self.check_password()
         if username_validity and password_validity:
@@ -39,6 +43,7 @@ class VistaModificaUtente(QtWidgets.QMainWindow):
             self.close()
 
     def check_username(self):
+        # Metodo per controllo campo 'username'
         if len(self.username_field.text()) == 0:
             self.username_error.setText("Inserire username dell'utente")
             return False
@@ -50,6 +55,7 @@ class VistaModificaUtente(QtWidgets.QMainWindow):
             return True
 
     def check_password(self):
+        # Metodo per controllo campo 'password'
         if len(self.password_field.text()) == 0:
             self.password_error.setText("Inserire password dell'utente")
             return False
@@ -58,4 +64,5 @@ class VistaModificaUtente(QtWidgets.QMainWindow):
             return True
 
     def password_edited(self):
+        # Metodo per settare password_flag a true
         self.password_flag=True

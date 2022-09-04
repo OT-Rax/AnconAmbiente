@@ -7,6 +7,9 @@ from views.VistaModificaUtente import VistaModificaUtente
 
 class VistaUtente(QtWidgets.QMainWindow):
     def __init__(self, parent, utente):
+        # Costruttore 'VistaUtente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param utente: Utente dal quale visualizzare le informazioni
         super(VistaUtente, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_utente.ui', self)  # Load the .ui file
         self.utente=utente
@@ -24,6 +27,7 @@ class VistaUtente(QtWidgets.QMainWindow):
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
+        # Metodo per passare alla vista di modifica
         self.vista_modificautente = VistaModificaUtente(self.parent, self.utente)
         self.vista_modificautente.show()
         self.close()

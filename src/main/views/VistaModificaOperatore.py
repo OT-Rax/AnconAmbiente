@@ -8,6 +8,9 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
     controller = ControlloreOperatori()
 
     def __init__(self, parent, operatore):
+        # Costruttore 'VistaModificaCliente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param operatore: Operatore che si vuole modificare
         super(VistaModificaOperatore, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_operatore.ui', self)  # Load the .ui file
         self.operatore=operatore
@@ -32,6 +35,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
         self.indeterminato_checkbox.stateChanged.connect(self.indeterminato_changed)
 
     def modifica(self):
+        # Metodo che salva i cambiamenti effettuati
         nome_validity = self.check_nome()
         cognome_validity = self.check_cognome()
         cf_validity = self.check_cf()
@@ -48,6 +52,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
 
 
     def check_nome(self):
+        # Metodo per controllo campo 'nome'
         if len(self.nome_field.text()) == 0:
             self.nome_error.setText("Inserire nome dell'operatore")
             return False
@@ -56,6 +61,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
             return True
 
     def check_cognome(self):
+        # Metodo per controllo campo 'cognome'
         if len(self.cognome_field.text()) == 0:
             self.cognome_error.setText("Inserire cognome dell'operatore")
             return False
@@ -64,6 +70,7 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
             return True
 
     def check_cf(self):
+        # Metodo per controllo campo 'cf'
         if len(self.cf_field.text())!=16:
             self.cf_error.setText("Il codice fiscale deve essere lungo 16 caratteri")
             return False
@@ -72,4 +79,5 @@ class VistaModificaOperatore(QtWidgets.QMainWindow):
             return True
 
     def indeterminato_changed(self):
+        # Metodo per abilitare campo 'finecontratto'
         self.finecontratto_datepicker.setEnabled(not self.finecontratto_datepicker.isEnabled())

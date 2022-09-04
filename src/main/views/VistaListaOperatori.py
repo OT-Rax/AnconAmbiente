@@ -12,6 +12,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
     controller = ControlloreOperatori()
 
     def __init__(self):
+        # Costruttore 'VistaListaOperatori'
         super(VistaListaOperatori, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/operatori.ui', self)  # Load the .ui file
         self.inserisci_button.clicked.connect(self.go_inserisci)
@@ -29,27 +30,32 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.update()
 
     def go_inserisci(self):
+        # Metodo per richiamare la vista 'VistaInserimentoOperatore'
         self.warning_label.setText("")
         self.vista_inserimentooperatore = VistaInserimentoOperatore(self)
         self.vista_inserimentooperatore.show()
 
     def go_modifica(self):
+        # Metodo per richiamare la vista 'VistaModificaOperatore'
         operatori = self.get_operatori_selezionati()
         for operatore in operatori:
             self.vista_modificaoperatore = VistaModificaOperatore(self, operatore)
             self.vista_modificaoperatore.show()
 
     def go_visualizza(self):
+        # Metodo per richiamare la vista 'VistaOperatore'
         operatori = self.get_operatori_selezionati()
         for operatore in operatori:
             self.vista_operatore = VistaOperatore(self, operatore)
             self.vista_operatore.show()
 
     def update(self):
+        # Metodo per aggiornare la tabella che visualizza gli operatori
         self.tabella_operatori.setRowCount(0)
         self.inserisci_tabella(self.controller.get_operatori())
 
     def ricerca(self):
+        # Metodo per cercare nella tabella
         text = self.search_field.text()
         if text is not None:
             self.tabella_operatori.setRowCount(0)
@@ -58,6 +64,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             self.update()
 
     def go_elimina(self):
+        # Metodo per eliminare un operatore dalla tabella e dal database
         operatori=self.get_operatori_selezionati()
         if len(operatori) !=0:
             popup=QtWidgets.QDialog()
@@ -71,10 +78,13 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             self.update()
 
     def elimina(self):
+        # Metodo per eliminare un operatore dal database
         operatori=self.get_operatori_selezionati()
         self.controller.elimina_operatori(operatori)
 
     def inserisci_tabella(self, operatori):
+        # Metodo che popola la tabella per visualizzare gli operatori salvati nel database
+        # :param operatori: Oggetto contente i dati per popolare le colonne della tabella
         row = self.tabella_operatori.rowCount()
         for operatore in operatori:
             if operatore.get_stato() == 0:
@@ -98,6 +108,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
         self.ordina_tabella()
 
     def ordina_tabella(self):
+        # Metodo per ordinare la tabella in base alla selezione dell'utente
         if self.id_radio.isChecked():
             self.tabella_operatori.sortItems(0)
         elif self.nome_radio.isChecked():
@@ -108,6 +119,7 @@ class VistaListaOperatori(QtWidgets.QMainWindow):
             self.tabella_operatori.sortItems(3)
 
     def get_operatori_selezionati(self):
+        # Metodo per restiture gli operatori attualmente selezionati nela tabella
         caselle_selezionate=self.tabella_operatori.selectedItems()
         operatori=[]
         if len(caselle_selezionate) == 0:

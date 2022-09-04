@@ -8,6 +8,9 @@ class VistaModificaMezzo(QtWidgets.QMainWindow):
     controller = ControlloreMezzo()
 
     def __init__(self, parent, mezzo):
+        # Costruttore 'VistaModificaMezzo'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param cliente: Cliente che si vuole modificare
         super(VistaModificaMezzo, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_mezzo.ui', self)  # Load the .ui file
         self.mezzo=mezzo
@@ -24,6 +27,7 @@ class VistaModificaMezzo(QtWidgets.QMainWindow):
         self.iscrizione_datepicker.setMinimumDate(QtCore.QDate.currentDate())
 
     def modifica(self):
+        # Metodo che salva i cambiamenti effettuati
         targa_validity = self.check_targa()
         tipo_validity = self.check_tipo()
         allestimento_validity = self.check_allestimento()
@@ -39,6 +43,7 @@ class VistaModificaMezzo(QtWidgets.QMainWindow):
 
 
     def check_targa(self):
+        # Metodo per controllo campo 'targa'
         if len(self.targa_field.text()) == 0:
             self.targa_error.setText("Inserire targa del mezzo")
             return False
@@ -47,6 +52,7 @@ class VistaModificaMezzo(QtWidgets.QMainWindow):
             return True
 
     def check_tipo(self):
+        # Metodo per controllo campo 'tipo'
         if len(self.modello_field.text()) == 0:
             self.modello_error.setText("Inserire modello del mezzo")
             return False
@@ -55,6 +61,7 @@ class VistaModificaMezzo(QtWidgets.QMainWindow):
             return True
 
     def check_allestimento(self):
+        # Metodo per controllo campo 'allestimento'
         if len(self.allestimento_field.text()) == 0:
             self.allestimento_error.setText("Inserire l'allestimento del mezzo")
             return False

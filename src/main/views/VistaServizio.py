@@ -8,6 +8,9 @@ from controllers.ControlloreClienti import ControlloreClienti
 
 class VistaServizio(QtWidgets.QMainWindow):
     def __init__(self, parent, servizio):
+        # Costruttore 'VistaServizio'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param Servizio: Servizio dal quale visualizzare le informazioni
         super(VistaServizio, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_servizio.ui', self)  # Load the .ui file
         self.controller_clienti = ControlloreClienti()
@@ -35,6 +38,7 @@ class VistaServizio(QtWidgets.QMainWindow):
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
+        # Metodo per passare alla vista di modifica
         self.vista_modificaservizio = VistaModificaServizio(self.servizio)
         self.vista_modificaservizio.show()
         self.close()

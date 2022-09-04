@@ -7,6 +7,9 @@ from views.VistaModificaOperatore import VistaModificaOperatore
 
 class VistaOperatore(QtWidgets.QMainWindow):
     def __init__(self, parent, operatore):
+        # Costruttore 'VistaOperatore'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param operatore: Operatore dal quale visualizzare le informazioni
         super(VistaOperatore, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_operatore.ui', self)  # Load the .ui file
         self.operatore=operatore
@@ -32,6 +35,7 @@ class VistaOperatore(QtWidgets.QMainWindow):
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
+        # Metodo per passare alla vista di modifica
         self.vista_modificaoperatore = VistaModificaOperatore(self.parent, self.operatore)
         self.vista_modificaoperatore.show()
         self.close()

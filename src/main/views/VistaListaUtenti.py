@@ -12,6 +12,7 @@ class VistaListaUtenti(QtWidgets.QMainWindow):
     controller = ControlloreUtenti()
 
     def __init__(self):
+        # Costruttore 'VistaListaUtenti'
         super(VistaListaUtenti, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/utenti.ui', self)  # Load the .ui file
         self.inserisci_button.clicked.connect(self.go_inserisci)
@@ -26,27 +27,32 @@ class VistaListaUtenti(QtWidgets.QMainWindow):
         self.update()
 
     def go_inserisci(self):
+        # Metodo per richiamare la vista 'VistaInserimentoUtente'
         self.warning_label.setText("")
         self.vista_inserimentoutente = VistaInserimentoUtente(self)
         self.vista_inserimentoutente.show()
 
     def go_modifica(self):
+        # Metodo per richiamare la vista 'VistaModificaUtente'
         utenti = self.get_utenti_selezionati()
         for utente in utenti:
             self.vista_modificautente = VistaModificaUtente(self, utente)
             self.vista_modificautente.show()
 
     def go_visualizza(self):
+        # Metodo per richiamare la vista 'VistaUtente'
         utenti = self.get_utenti_selezionati()
         for utente in utenti:
             self.vista_utente = VistaUtente(self, utente)
             self.vista_utente.show()
 
     def update(self):
+        # Metodo per aggiornare la tabella che visualizza gli utenti
         self.tabella_utenti.setRowCount(0)
         self.inserisci_tabella(self.controller.get_utenti())
 
     def ricerca(self):
+        # Metodo per cercare nella tabella
         text = self.search_field.text()
         if text is not None:
             self.tabella_utenti.setRowCount(0)
@@ -55,6 +61,7 @@ class VistaListaUtenti(QtWidgets.QMainWindow):
             self.update()
 
     def go_elimina(self):
+        # Metodo per eliminare un utente dalla tabella e dal database
         utenti=self.get_utenti_selezionati()
         if len(utenti) !=0:
             popup=QtWidgets.QDialog()
@@ -68,10 +75,13 @@ class VistaListaUtenti(QtWidgets.QMainWindow):
             self.update()
 
     def elimina(self):
+        # Metodo per eliminare un utente dal database
         utenti=self.get_utenti_selezionati()
         self.controller.elimina_utenti(utenti)
 
     def inserisci_tabella(self, utenti):
+        # Metodo che popola la tabella per visualizzare gli utenti salvati nel database
+        # :param utenti: Oggetto contente i dati per popolare le colonne della tabella
         row = self.tabella_utenti.rowCount()
         for utente in utenti:
             items = []
@@ -94,12 +104,14 @@ class VistaListaUtenti(QtWidgets.QMainWindow):
         self.ordina_tabella()
 
     def ordina_tabella(self):
+        # Metodo per ordinare la tabella in base alla selezione dell'utente
         if self.id_radio.isChecked():
             self.tabella_utenti.sortItems(0)
         elif self.username_radio.isChecked():
             self.tabella_utenti.sortItems(1)
 
     def get_utenti_selezionati(self):
+        # Metodo per restiture gli utenti attualmente selezionati nela tabella
         caselle_selezionate=self.tabella_utenti.selectedItems()
         utenti=[]
         if len(caselle_selezionate) == 0:
