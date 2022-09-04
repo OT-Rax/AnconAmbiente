@@ -7,6 +7,9 @@ from views.VistaModificaMezzo import VistaModificaMezzo
 
 class VistaMezzo(QtWidgets.QMainWindow):
     def __init__(self, parent, mezzo):
+        # Costruttore 'VistaMezzo'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
+        # :param mezzo: mezzo dal quale visualizzare le informazioni
         super(VistaMezzo, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/visualizza_mezzo.ui', self)  # Load the .ui file
         self.mezzo = mezzo
@@ -27,6 +30,7 @@ class VistaMezzo(QtWidgets.QMainWindow):
         self.modifica_button.clicked.connect(self.go_modifica)
 
     def go_modifica(self):
+        # Metodo per passare alla vista di modifica
         self.vista_modificamezzo = VistaModificaMezzo(self, self.mezzo)
         self.vista_modificamezzo.show()   
         self.close()   
