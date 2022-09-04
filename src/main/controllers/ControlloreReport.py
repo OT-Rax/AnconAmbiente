@@ -12,7 +12,7 @@ class ControlloreReport:
         cur = con.cursor()
         righe = []
         for row in cur.execute("SELECT tipo, COUNT(id) FROM Mezzi GROUP BY tipo"):
-            righe.append(row[0] +' '+ row[1])
+            righe.append(row[0] +' '+ str(row[1]))
         con.close()
         return righe
 
@@ -22,7 +22,7 @@ class ControlloreReport:
         cur = con.cursor()
         righe = []
         for row in cur.execute("SELECT allestimento, COUNT(id) FROM Mezzi GROUP BY tipo"):
-            righe.append(row[0] +' '+ row[1])
+            righe.append(row[0] +' '+ str(row[1]))
         con.close()
         return righe
 
@@ -31,7 +31,7 @@ class ControlloreReport:
         cur = con.cursor()
         id = []
         for row in cur.execute("SELECT id FROM Operatori"):
-            id.append(row)
+            id.append(str(row[0]))
         con.close()
         return id
 
@@ -40,7 +40,7 @@ class ControlloreReport:
         cur = con.cursor()
         id = []
         for row in cur.execute("SELECT id FROM Mezzi"):
-            id.append(row)
+            id.append(str(row[0]))
         con.close()
         return id
 
