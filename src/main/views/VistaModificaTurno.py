@@ -3,37 +3,69 @@ import sys
 import xz_rc
 
 from controllers.ControlloreTurni import ControlloreTurni
+from controllers.ControlloreServizi import ControlloreServizi
 from controllers.ControlloreMezzi import ControlloreMezzo
 from controllers.ControlloreOperatori import ControlloreOperatori
 
+from views.VistaListaServizi import VistaListaServizi
+
 class VistaModificaTurno(QtWidgets.QMainWindow):
-    def __init__(self, parent, turno):
+    def __init__(self,parent,turno):
         super(VistaModificaTurno, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/modifica_turno.ui', self)  # Load the .ui file
         self.turno = turno
         self.controller = ControlloreTurni()
-        self.controllore_mezzo = ControlloreMezzo()
-        self.controllore_operatori = ControlloreOperatori()
+        self.controller_servizi = ControlloreServizi()
+        self.controller_mezzi = ControlloreMezzo()
+        self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)
         self.salva_button.clicked.connect(self.salva)
-        self.date_field.setDateTime(QtCore.QDateTime.fromString(turno.get_data(),"yyyy-mm-dd"))
-        self.time_start_field.setDateTime(QtCore.QDateTime.fromString(turno.get_ora_inizio()))
-        self.time_end_field.setDateTime(QtCore.QDateTime.fromString(turno.get_ora_fine()))
+        self.servizi_button.clicked.connect(self.go_listaservizi)
+        self.inizio_datetimepicker.setDateTime(QtCore.QDateTime.fromString(turno.get_data_inizio(), "yyyy-MM-dd hh:mm"))
+        self.fine_datetimepicker.setDateTime(QtCore.QDateTime.fromString(turno.get_data_fine(), "yyyy-MM-dd hh:mm"))
+        self.inizio_datetimepicker.editingFinished.connect(self.inizio_edited)
+        self.fine_datetimepicker.setMinimumDateTime(QtCore.QDateTime.currentDateTime())
+        self.tabella_servizi.setRowCount(0)
+        self.tabella_mezzi.setRowCount(0)
+        self.tabella_operatori.setRowCount(0)
+        self.update()
+        self.combo_servizi.setCurrentText(str(turno.get_servizio().get_id()))
+        for row in range(self.tabella_mezzi.rowCount()):
+            for mezzo in turno.get_mezzi():
+                if self.tabella_mezzi.item(row, 0).text() == str(mezzo.get_id_mezzo()):
+                    for i in range(4):
+                        self.tabella_mezzi.item(row,i).setSelected(True)
+        for row in range(self.tabella_operatori.rowCount()):
+            for operatore in turno.get_operatori():
+                if self.tabella_operatori.item(row, 0).text() == str(operatore.get_id()):
+                    for i in range(4):
+                        self.tabella_operatori.item(row,i).setSelected(True)
+        
+        
+    def go_listaservizi(self):
+        self.vista_listaservizi=VistaListaServizi()
+        self.vista_listaservizi.show()
+        
+    def inizio_edited(self):
+        self.fine_datetimepicker.setMinimumDateTime(self.inizio_datetimepicker.dateTime())
         self.update()
 
-    def salva(self):
-        self.turno.set_servizio(45)
-        self.turno.set_data(self.date_field.date().toString("yyyy-MM-dd"))
-        self.turno.set_ora_inizio(self.time_start_field.time().toString()) 
-        self.turno.set_ora_fine(self.time_end_field.time().toString())
-        self.turno.set_mezzo(self.combo_mezzi.currentText())
-        self.turno.set_operatore(self.combo_operatori.currentText())
-        self.controller.modifica_turno(self.turno)  
-        self.modifica_dialog=DialogModifica()
-        self.modifica_dialog.exec() 
-        self.close()
-        self.parent().update()
-        
+    def inserisci_tabella_servizi(self, servizi):
+        row = self.tabella_servizi.rowCount()
+        for servizio in servizi:
+            items = []
+            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id())))
+            items.append(QtWidgets.QTableWidgetItem(servizio.get_tipo()))
+            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_luogo())))
+            items.append(QtWidgets.QTableWidgetItem("Non periodico" if servizio.get_periodicita() is None else servizio.get_periodicita()))
+            self.tabella_servizi.insertRow(row)
+            column = 0
+            for item in items:
+                item.setFlags(item.flags() & ~ QtCore.Qt.ItemFlag.ItemIsEditable)
+                self.tabella_servizi.setItem(row, column, item)
+                column += 1
+            row += 1
+
     def inserisci_tabella_mezzi(self, mezzi):
         row = self.tabella_mezzi.rowCount()
         for mezzo in mezzi:
@@ -76,26 +108,81 @@ class VistaModificaTurno(QtWidgets.QMainWindow):
                 column+=1
             row+=1
 
+    def salva(self):
+        operatori_validity = self.check_operatori()
+        servizio_validity = self.check_servizio()
+        if  operatori_validity and servizio_validity:
+            id_servizio = self.combo_servizi.currentText()
+            data_inizio = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+            data_fine = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+            id_operatori = self.get_id_operatori_selezionati()
+            id_mezzi = self.get_id_mezzi_selezionati()
+            self.controller.insert_turno(id_servizio, data_inizio, data_fine, id_operatori, id_mezzi)
+            self.close()
+            self.parent().update()
+    
     def update(self):
-        mezzi = self.controllore_mezzo.get_mezzi()
-        id_mezzi = []
-        for mezzo in mezzi:
-            id = mezzo.get_id_mezzo()
-            id_mezzi.append(str(id))
-        self.combo_mezzi.addItems(id_mezzi)
-        operatori = self.controllore_operatori.get_operatori()
-        id_operatori = []
-        for operatore in operatori:
-            id = operatore.get_id()
-            id_operatori.append(str(id))
-        self.combo_operatori.addItems(id_operatori)
-        self.tabella_mezzi.setRowCount(0)
         self.tabella_operatori.setRowCount(0)
-        self.inserisci_tabella_mezzi(self.controllore_mezzo.get_mezzi())
-        self.inserisci_tabella_operatori(self.controllore_operatori.get_operatori())
-        
+        self.tabella_mezzi.setRowCount(0)
+        self.tabella_servizi.setRowCount(0)
+        self.combo_servizi.clear()
+        inizio_turno = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+        fine_turno = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+        #riempimento combo box servizi
+        servizi_da_inserire = self.controller_servizi.get_servizi_da_inserire(self.inizio_datetimepicker.dateTime())
+        servizi = self.controller_servizi.get_servizi_inseribili(self.inizio_datetimepicker.dateTime())
+        id_servizi = []
+        for servizio in servizi:
+            id = servizio.get_id()
+            id_servizi.append(str(id))
+        self.combo_servizi.addItems(id_servizi)
+        mezzi = self.controller_mezzi.get_mezzi_disponibili_modifica(inizio_turno, fine_turno, self.turno.get_id())
+        operatori = self.controller_operatori.get_operatori_disponibili_modifica(inizio_turno, fine_turno, self.turno.get_id())
+        self.inserisci_tabella_servizi(servizi_da_inserire)
+        #aggiungere il get_tipo servizio per la ricerca dei mezzi
+        self.inserisci_tabella_mezzi(mezzi)
+        self.inserisci_tabella_operatori(operatori)
 
-class DialogModifica(QtWidgets.QDialog):
-    def __init__(self):
-        super(DialogModifica, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/dialog_modifica.ui', self)  # Load the .ui file
+    def check_operatori(self):
+        if len(self.get_id_operatori_selezionati()) == 0:
+            self.operatori_error.setText("Seleziona almeno un operatore")
+            self.inserimento_error.setText("Controlla di aver inserito tutti i campi")
+            return False
+        else:
+            self.operatori_error.setText("")
+            return True
+
+
+    def check_servizio(self):
+        if self.combo_servizi.currentText() == "":
+            self.servizio_error.setText("Seleziona almeno un servizio.")
+            self.inserimento_error.setText("Controlla di aver inserito tutti i campi")
+            return False
+        else:
+            self.servizio_error.setText("")
+            return True
+    
+
+    def get_id_operatori_selezionati(self):
+        # Metodo per restiture gli operatori attualmente selezionati nela tabella
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        id_operatori=[]
+        if len(caselle_selezionate) != 0:
+            righe_selezionate=[]
+            for casella in caselle_selezionate:
+                righe_selezionate.append(casella.row())
+            for riga in set(righe_selezionate):
+                id_operatori.append(int(self.tabella_operatori.item(riga, 0).text()))
+        return id_operatori
+     
+    def get_id_mezzi_selezionati(self):
+        # Metodo per restiture i mezzi attualmente selezionati nela tabella
+        caselle_selezionate=self.tabella_mezzi.selectedItems()
+        id_mezzi=[]
+        if len(caselle_selezionate) != 0:
+            righe_selezionate=[]
+            for casella in caselle_selezionate:
+                righe_selezionate.append(casella.row())
+            for riga in set(righe_selezionate):
+                id_mezzi.append(int(self.tabella_mezzi.item(riga, 0).text()))
+        return id_mezzi

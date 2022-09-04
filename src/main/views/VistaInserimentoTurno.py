@@ -7,6 +7,8 @@ from controllers.ControlloreMezzi import ControlloreMezzo
 from controllers.ControlloreOperatori import ControlloreOperatori
 from controllers.ControlloreTurni import ControlloreTurni
 
+from views.VistaListaServizi import VistaListaServizi
+
 
 class VistaInserimentoTurno(QtWidgets.QMainWindow):
     def __init__(self,parent):
@@ -18,6 +20,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
+        self.servizi_button.clicked.connect(self.go_listaservizi)
         self.inizio_datetimepicker.setMinimumDateTime(QtCore.QDateTime.currentDateTime())
         self.inizio_datetimepicker.editingFinished.connect(self.inizio_edited)
         self.fine_datetimepicker.setMinimumDateTime(QtCore.QDateTime.currentDateTime())
@@ -25,6 +28,10 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         self.tabella_mezzi.setRowCount(0)
         self.tabella_operatori.setRowCount(0)
         self.update()
+        
+    def go_listaservizi(self):
+        self.vista_listaservizi=VistaListaServizi()
+        self.vista_listaservizi.show()
         
     def inizio_edited(self):
         self.fine_datetimepicker.setMinimumDateTime(self.inizio_datetimepicker.dateTime())
@@ -97,7 +104,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
             data_fine = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
             id_operatori = self.get_id_operatori_selezionati()
             id_mezzi = self.get_id_mezzi_selezionati()
-            self.controller.insert_turno(id_servizio, data_inizio, data_fine, id_operatori, id_mezzi)
+            self.controller.insert_turno(id_servizio, data_inizio, data_fine, id_mezzi, id_operatori)
             self.close()
             self.parent().update()
     

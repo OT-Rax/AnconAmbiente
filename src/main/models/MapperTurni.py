@@ -102,6 +102,9 @@ class MapperTurni:
         cur = con.cursor()
         for turno in turni:
             cur.execute("DELETE FROM Turni WHERE id="+str(turno.get_id()))
+            cur.execute("DELETE FROM Assegnamenti WHERE id_turno="+str(turno.get_id()))
+            cur.execute("DELETE FROM Impieghi WHERE id_turno="+str(turno.get_id()))
+            cur.execute("DELETE FROM Lavori WHERE id_turno="+str(turno.get_id()))
         con.commit()
         con.close()
 

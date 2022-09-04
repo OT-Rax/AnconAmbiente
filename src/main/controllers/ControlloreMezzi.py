@@ -13,8 +13,11 @@ class ControlloreMezzo:
     def get_mezzi_disponibili(self, data_inizio, data_fine):
         return self.mapper.get_mezzi_disponibili(data_inizio, data_fine)
 
+    def get_mezzi_disponibili_modifica(self, inizio_turno, fine_turno, id_turno):
+        return self.mapper.get_mezzi_disponibili_modifica(inizio_turno, fine_turno, id_turno)
+
     def insert_mezzo(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
-        return self.mapper.insert_operatore(targa, tipo, allestimento, iscrizione_albo, patente, stato)
+        return self.mapper.insert_mezzo(targa, tipo, allestimento, iscrizione_albo, patente, stato)
 
     def ricerca_mezzi(self, text):
         return self.mapper.ricerca_mezzi(text)
