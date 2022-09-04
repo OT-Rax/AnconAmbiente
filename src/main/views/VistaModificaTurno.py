@@ -112,12 +112,20 @@ class VistaModificaTurno(QtWidgets.QMainWindow):
         operatori_validity = self.check_operatori()
         servizio_validity = self.check_servizio()
         if  operatori_validity and servizio_validity:
-            id_servizio = self.combo_servizi.currentText()
-            data_inizio = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
-            data_fine = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+            self.turno.set_servizio(self.controller_servizi.get_servizio(int(self.combo_servizi.currentText())))
+            self.turno.set_data_inizio(self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm"))
+            self.turno.set_data_fine(self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm"))
             id_operatori = self.get_id_operatori_selezionati()
+            operatori=[]
+            for id in id_operatori:
+                operatori.append(self.controller_operatori.get_operatore(id))
+            self.turno.set_operatori(operatori)
             id_mezzi = self.get_id_mezzi_selezionati()
-            self.controller.insert_turno(id_servizio, data_inizio, data_fine, id_operatori, id_mezzi)
+            mezzi=[]
+            for id in id_mezzi:
+                mezzi.append(self.controller_mezzi.get_mezzo(id))
+            self.turno.set_mezzi(mezzi)
+            self.controller.modifica_turno(self.turno)
             self.close()
             self.parent().update()
     

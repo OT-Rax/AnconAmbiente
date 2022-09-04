@@ -86,14 +86,15 @@ class MapperTurni:
         for operatore in turno_old.get_operatori():
             cur.execute("DELETE FROM Impieghi WHERE id_turno="+str(id)+" AND id_operatore="+str(operatore.get_id()))
         for mezzo in turno_old.get_mezzi():
-            cur.execute("DELETE FROM Assegnamenti WHERE id_turno="+str(id)+" AND id_mezzo="+str(mezzo.get_id()))
-        cur.execute("DELETE FROM Lavori WHERE id_turno="+str(id)+" AND id_mezzo="+str(turno_old.get_servizio().get_id()))
+            cur.execute("DELETE FROM Assegnamenti WHERE id_turno="+str(id)+" AND id_mezzo="+str(mezzo.get_id_mezzo()))
+        cur.execute("DELETE FROM Lavori WHERE id_turno="+str(id)+" AND id_servizio="+str(turno_old.get_servizio().get_id()))
         cur.execute("UPDATE Turni SET data_inizio=?, data_fine=? WHERE id=?", 
-                (turno.get_data_inizio, turno.get_data_fine, id))
+                (turno.get_data_inizio(), turno.get_data_fine(), id))
         for mezzo in turno.get_mezzi():
-            cur.execute("INSERT INTO Assegnamenti (id_mezzo, id_turno) VALUES (?,?)", (mezzo.get_id(), id))
+            cur.execute("INSERT INTO Assegnamenti (id_mezzo, id_turno) VALUES (?,?)", (mezzo.get_id_mezzo(), id))
         for operatore in turno.get_operatori():
             cur.execute("INSERT INTO Impieghi (id_operatore, id_turno) VALUES (?,?)", (operatore.get_id(), id))
+        cur.execute("INSERT INTO Lavori (id_servizio, id_turno) VALUES (?,?)", (turno.get_servizio().get_id(), id))
         con.commit()
         con.close()
 
