@@ -105,11 +105,6 @@ font:  bold 11px
     <attribute name="verticalHeaderCascadingSectionResizes">
      <bool>false</bool>
     </attribute>
-    <row>
-     <property name="text">
-      <string>DADADAD</string>
-     </property>
-    </row>
     <column>
      <property name="text">
       <string>ID</string>
@@ -364,11 +359,11 @@ font:  bold 11px
      <string>Da:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="search_button">
+   <widget class="QPushButton" name="filtra_button">
     <property name="geometry">
      <rect>
-      <x>291</x>
-      <y>76</y>
+      <x>290</x>
+      <y>75</y>
       <width>81</width>
       <height>21</height>
      </rect>

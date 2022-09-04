@@ -5,7 +5,7 @@ from models.Mezzo import Mezzo
 from models.Operatore import Operatore
 from models.Servizio import Servizio
 
-class MapperTurno:
+class MapperTurni:
     def __init__(self):
         self.db_directory="./db/AAdb"
 
@@ -26,7 +26,6 @@ class MapperTurno:
                 mezzi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
             turni.append(Turno(riga[0], servizio, riga[1], riga[2], mezzi, operatori))
         con.close()
-        print(len(turni))
         return turni
 
     def get_turno(self, id):
@@ -47,21 +46,22 @@ class MapperTurno:
         return turno
     
     #per la ricerca turni viene selezionata solo la data
-    def ricerca_turni(self, text):
+    def filtra_turni(self, da_data, a_data):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        turni  = []
-        operatori=[]
-        mezzi=[]
-        for turno in cur.execute('SELECT * FROM Turni WHERE data LIKE ?', ("%"+text+"%")):
-            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio"):
+        turni = []
+        #ID, SERVIZIO, INIZIO, FINE, MEZZI, OPERATORI
+        for riga in cur.execute("SELECT * FROM Turni WHERE data_inizio BETWEEN ? AND ? OR data_fine BETWEEN ? AND ?", (da_data, a_data, da_data, a_data)).fetchall():
+            servizio=None
+            operatori = []
+            mezzi= []
+            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio WHERE L.id_turno="+str(riga[0])):
                 servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
-            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore"):
+            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore WHERE I.id_turno="+str(riga[0])):
                 operatori.append(Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
-            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo"):
+            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo WHERE A.id_turno="+str(riga[0])):
                 mezzi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
-            turno = Turno(turno[0], servizio, turno[1], turno[2], mezzi, operatori)
-            turni.append(turno)
+            turni.append(Turno(riga[0], servizio, riga[1], riga[2], mezzi, operatori))
         con.close()
         return turni
 

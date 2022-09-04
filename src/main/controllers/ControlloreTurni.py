@@ -1,8 +1,8 @@
-from models.MapperTurni import MapperTurno
+from models.MapperTurni import MapperTurni
 
 class ControlloreTurni:
     def __init__(self):
-        self.mapper = MapperTurno()
+        self.mapper = MapperTurni()
         
     def get_turno(self, id):
         return self.mapper.get_turno(id)
@@ -13,8 +13,8 @@ class ControlloreTurni:
     def insert_turno(self, id_servizio, data_inizio, data_fine, id_mezzi, id_operatori):
         return self.mapper.insert_turno(id_servizio, data_inizio, data_fine, id_mezzi, id_operatori)
 
-    def ricerca_turni(self, text):
-        return self.mapper.ricerca_turni(text)
+    def filtra_turni(self, da_data, a_data):
+        return self.mapper.filtra_turni(da_data, a_data)
 
     def elimina_turni(self, turni):
         return self.mapper.elimina_turni(turni)

@@ -18,8 +18,14 @@ class VistaListaTurni(QtWidgets.QMainWindow):
         self.visualizza_button.clicked.connect(self.go_visualizza)
         self.elimina_button.clicked.connect(self.go_elimina)
         self.indietro_button.clicked.connect(self.close)
-        self.search_button.clicked.connect(self.ricerca)
+        self.filtra_button.clicked.connect(self.filtra)
+        self.da_datepicker.setDate(QtCore.QDate.currentDate())
+        self.da_datepicker.editingFinished.connect(self.inizio_edited)
+        self.a_datepicker.setMinimumDate(QtCore.QDate.currentDate())
         self.update()
+
+    def inizio_edited(self):
+        self.a_datepicker.setMinimumDate(self.da_datepicker.date())
 
     def go_inserisci(self):
         self.vista_inserimentoturno = VistaInserimentoTurno(self)
@@ -54,14 +60,11 @@ class VistaListaTurni(QtWidgets.QMainWindow):
         turni=self.get_turni_selezionati()
         self.controller.elimina_turni(turni)
 
-    def ricerca(self):
-        text = self.date_filter.date()
-        data_filtro = text.toString("yyyy-MM-dd")
-        if data_filtro is not None:
-            self.tabella_turni.setRowCount(0)
-            self.inserisci_tabella(self.controller.ricerca_turni(data_filtro))
-        else:
-            self.update()
+    def filtra(self):
+        da_data=self.da_datepicker.date().toString("yyyy-MM-dd")
+        a_data=self.a_datepicker.date().toString("yyyy-MM-dd")
+        self.tabella_turni.setRowCount(0)
+        self.inserisci_tabella(self.controller.filtra_turni(da_data, a_data))
 
     def get_turni_selezionati(self):
         caselle_selezionate=self.tabella_turni.selectedItems()
