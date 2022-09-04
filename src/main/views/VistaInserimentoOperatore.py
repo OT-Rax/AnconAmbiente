@@ -9,6 +9,8 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
     controller = ControlloreOperatori()
 
     def __init__(self, parent):
+        # Costruttore 'VistaInserimentoOperatore'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         super(VistaInserimentoOperatore, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_operatore.ui', self)  # Load the .ui file
         self.annulla_button.clicked.connect(self.close)
@@ -23,6 +25,8 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
         #self.nome_field.setValidator()
 
     def inserisci(self):
+        # Metodo per inserimento nuovo operatore
+
         #Inserisci controllo validita caratteri, lunghezza e coerenza
         nome=self.nome_field.text()
         cognome=self.cognome_field.text()
@@ -44,9 +48,11 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
                 #print("Qualcosa non va nell'inserimento")
 
     def indeterminato_changed(self):
+        # Metodo per rendere campo fine contratto abilitato
         self.finecontratto_datepicker.setEnabled(not self.finecontratto_datepicker.isEnabled())
 
     def check_nome(self):
+        # Metodo per controllo correttezza del campo 'nome'
         if len(self.nome_field.text()) == 0:
             self.nome_error.setText("Inserire nome dell'operatore")
             return False
@@ -55,6 +61,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             return True
 
     def check_cognome(self):
+        # Metodo per controllo correttezza del campo 'cognome'
         if len(self.cognome_field.text()) == 0:
             self.cognome_error.setText("Inserire cognome dell'operatore")
             return False
@@ -63,6 +70,7 @@ class VistaInserimentoOperatore(QtWidgets.QMainWindow):
             return True
 
     def check_cf(self):
+        # Metodo per controllo correttezza del campo 'cf'
         if len(self.cf_field.text())!=16:
             self.cf_error.setText("Il codice fiscale deve essere lungo 16 caratteri")
             return False

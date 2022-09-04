@@ -10,6 +10,8 @@ class VistaInserimentoUtente(QtWidgets.QMainWindow):
     controller = ControlloreUtenti()
 
     def __init__(self, parent):
+        # Costruttore 'VistaInserimentoUtente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         super(VistaInserimentoUtente, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_utente.ui', self)  # Load the .ui file
         self.annulla_button.clicked.connect(self.close)
@@ -20,6 +22,8 @@ class VistaInserimentoUtente(QtWidgets.QMainWindow):
         #self.nome_field.setValidator()
 
     def inserisci(self):
+        # Metodo per inserimento nuovo utente
+
         #Inserisci controllo validita caratteri, lunghezza e coerenza
         username=self.username_field.text()
         password=self.password_field.text()
@@ -38,6 +42,7 @@ class VistaInserimentoUtente(QtWidgets.QMainWindow):
             self.parent().update()
 
     def check_username(self):
+        # Metodo per controllo correttezza del campo 'username'
         if len(self.username_field.text()) == 0:
             self.username_error.setText("Inserire username dell'utente")
             return False
@@ -49,6 +54,7 @@ class VistaInserimentoUtente(QtWidgets.QMainWindow):
             return True
 
     def check_password(self):
+        # Metodo per controllo correttezza del campo 'password'
         if len(self.password_field.text()) == 0:
             self.password_error.setText("Inserire password dell'utente")
             return False

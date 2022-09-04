@@ -9,6 +9,8 @@ class VistaInserimentoCliente(QtWidgets.QMainWindow):
     controller = ControlloreClienti()
 
     def __init__(self, parent):
+        # Costruttore 'VistaInserimentoCliente'
+        # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         super(VistaInserimentoCliente, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_cliente.ui', self)  # Load the .ui file
         self.annulla_button.clicked.connect(self.close)
@@ -21,6 +23,8 @@ class VistaInserimentoCliente(QtWidgets.QMainWindow):
         #self.nome_field.setValidator()
 
     def inserisci(self):
+        # Metodo per inserire un nuovo cliente
+
         #Inserisci controllo validita caratteri, lunghezza e coerenza
         nome=self.nome_field.text()
         cognome=self.cognome_field.text()
@@ -44,6 +48,8 @@ class VistaInserimentoCliente(QtWidgets.QMainWindow):
                 #print("Qualcosa non va nell'inserimento")
 
     def check_nome(self):
+        # Metodo per controllo correttezza del campo 'nome'
+
         if len(self.nome_field.text()) == 0:
             self.nome_error.setText("Inserire nome dell'cliente")
             return False
@@ -52,6 +58,8 @@ class VistaInserimentoCliente(QtWidgets.QMainWindow):
             return True
 
     def check_cognome(self):
+        # Metodo per controllo correttezza del campo 'cognome'
+
         if len(self.cognome_field.text()) == 0:
             self.cognome_error.setText("Inserire cognome dell'cliente")
             return False
@@ -60,6 +68,8 @@ class VistaInserimentoCliente(QtWidgets.QMainWindow):
             return True
 
     def check_cf(self):
+        # Metodo per controllo correttezza del campo 'cf'
+
         if len(self.cf_field.text())!=16:
             self.cf_error.setText("Il codice fiscale deve essere lungo 16 caratteri")
             return False
