@@ -18,7 +18,7 @@
     <normaloff>:/images/images/AnconAmbiente_Logo.png</normaloff>:/images/images/AnconAmbiente_Logo.png</iconset>
   </property>
   <widget class="QWidget" name="report_widget">
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="risultato_textedit">
     <property name="geometry">
      <rect>
       <x>10</x>
