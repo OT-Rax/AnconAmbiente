@@ -4,6 +4,8 @@ class ControlloreUtenti:
     def __init__(self):
         self.mapper = MapperUtenti()
     
+    #Metodi che si collegano ai metodi del mapper Utenti
+
     def check_password(self, username, password):
         return self.mapper.check_password(username, password)
 

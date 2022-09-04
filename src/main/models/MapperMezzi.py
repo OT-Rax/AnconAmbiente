@@ -6,6 +6,7 @@ class MapperMezzi:
     def __init__(self):
         self.db_directory="./db/AAdb"
 
+    #Metodo che restituisce tutti i mezzi presenti nel DB
     def get_mezzi(self):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -16,6 +17,9 @@ class MapperMezzi:
         con.close()
         return mezzi
 
+    #Metodo che restituisce tutti i mezzi che sono disponibili tra le date e gli orari dati in input
+    # :param inizio_turno: oggetto contenente data ed ora dell'inizio del turno
+    # :param fine_turno: oggetto contenente data ed ora della fine del turno
     def get_mezzi_disponibili(self, inizio_turno, fine_turno):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -31,6 +35,8 @@ class MapperMezzi:
         con.close()
         return mezzi
 
+    #Metodo che restituisce un mezzo attraverso l'id dato in input
+    # :param id: oggetto contenente l'id del mezzo da prelevare
     def get_mezzo(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -40,6 +46,8 @@ class MapperMezzi:
         con.close()
         return mezzo
 
+    #Metodo che restituisce un oggetto popolato dai mezzi che hanno in comune l'id o il tipo o l'allestimento dato in input
+    # :param text: oggetto contenente la stringa di caratteri per la ricerca di determinati mezzi
     def ricerca_mezzi(self, text):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -50,13 +58,23 @@ class MapperMezzi:
         con.close()
         return mezzi
 
-    def insert_operatore(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
+    #Metodo che inserisce un Mezzo nel DB
+    # :param targa: targa del Mezzo
+    # :param tipo: che tipo di mezzo e' (es. auto, camion,...)
+    # :param allestimento: allestimento del mezzo
+    # :param iscrizione_albo: oggetto contenente la data di iscrizione all'albo del mezzo
+    # :param patente: patente necessaria per guidare il mezzo
+    # :param stato: stato di disponibilita' del mezzo
+    def insert_mezzo(self, targa, tipo, allestimento, iscrizione_albo, patente, stato):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         cur.execute("INSERT INTO Mezzi (targa, tipo, allestimento, iscrizione_albo, patente, stato) VALUES (?, ?, ?, ?, ?, ?)", (targa, tipo, allestimento, iscrizione_albo, patente, stato))
         con.commit()
         con.close()
 
+    #Metodo per l'aggiornamento di un mezzo nel DB a seguito di una modifica
+    # :param id: id del mezzo da modificare
+    # :param mezzo: Oggetto Mezzo contenente i nuovi dati da inserire nel DB 
     def update_mezzo(self, id, mezzo):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -65,6 +83,8 @@ class MapperMezzi:
         con.commit()
         con.close()
 
+    #Metodo che elimina i mezzi, passati in input, dal DB
+    # :param mezzi: Oggetto popolato dai mezzi da eliminare dal DB
     def elimina_mezzi(self, mezzi):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

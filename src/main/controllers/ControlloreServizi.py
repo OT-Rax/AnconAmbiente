@@ -4,6 +4,8 @@ class ControlloreServizi:
     def __init__(self):
         self.mapper = MapperServizi()
 
+    #Metodi che si collegano ai metodi del mapper Servizi
+
     def elimina_servizi(self, servizi):
         return self.mapper.elimina_servizi(servizi)
 
