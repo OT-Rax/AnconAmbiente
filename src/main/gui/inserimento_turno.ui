@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>769</width>
-    <height>496</height>
+    <width>792</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>741</width>
+      <width>771</width>
       <height>421</height>
      </rect>
     </property>
@@ -37,23 +37,23 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>170</y>
-        <width>47</width>
-        <height>13</height>
+        <x>310</x>
+        <y>110</y>
+        <width>151</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>Servizio:</string>
+       <string>Servizi da inserire:</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tabella_servizi">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>170</y>
-        <width>601</width>
-        <height>161</height>
+        <x>10</x>
+        <y>140</y>
+        <width>751</width>
+        <height>191</height>
        </rect>
       </property>
       <property name="selectionBehavior">
@@ -208,7 +208,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>340</y>
+        <y>343</y>
         <width>151</width>
         <height>21</height>
        </rect>
@@ -227,79 +227,92 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>95</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Ora Fine Turno:</string>
-      </property>
-     </widget>
-     <widget class="QDateEdit" name="date_field">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>15</y>
-        <width>191</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="tabletTracking">
-       <bool>true</bool>
-      </property>
-      <property name="calendarPopup">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>55</y>
-        <width>121</width>
+        <y>70</y>
+        <width>131</width>
         <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>Ora Inizio Turno:</string>
-      </property>
-     </widget>
-     <widget class="QTimeEdit" name="time_start_field">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>55</y>
-        <width>191</width>
-        <height>28</height>
-       </rect>
+       <string>Data e ora fine turno:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>20</y>
+        <y>23</y>
         <width>121</width>
         <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>Data:</string>
+       <string>Data e ora inizio turno:</string>
       </property>
      </widget>
-     <widget class="QTimeEdit" name="time_end_field">
+     <widget class="QDateTimeEdit" name="inizio_datetimepicker">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>95</y>
-        <width>191</width>
-        <height>28</height>
+        <x>150</x>
+        <y>20</y>
+        <width>194</width>
+        <height>26</height>
        </rect>
+      </property>
+      <property name="displayFormat">
+       <string>M/d/yy hh:mm</string>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QDateTimeEdit" name="fine_datetimepicker">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>67</y>
+        <width>194</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="displayFormat">
+       <string>M/d/yy hh:mm</string>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="inserisci_button_2">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>110</y>
+        <width>141</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+      </property>
+      <property name="text">
+       <string>LISTA COMPLETA SERVIZI</string>
       </property>
      </widget>
     </widget>
@@ -310,22 +323,22 @@
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
+        <x>310</x>
+        <y>10</y>
         <width>91</width>
-        <height>16</height>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Mezzo:</string>
+       <string>Mezzi disponibili:</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tabella_mezzi">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>10</x>
         <y>40</y>
-        <width>611</width>
+        <width>721</width>
         <height>231</height>
        </rect>
       </property>
@@ -376,8 +389,8 @@
      <widget class="QLabel" name="warning_label2">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>20</y>
+        <x>10</x>
+        <y>280</y>
         <width>601</width>
         <height>16</height>
        </rect>
@@ -481,7 +494,7 @@
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>290</y>
+        <y>309</y>
         <width>161</width>
         <height>27</height>
        </rect>
@@ -491,13 +504,45 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>290</y>
+        <y>309</y>
         <width>141</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>Selezionare ID Mezzo:</string>
+      </property>
+     </widget>
+     <widget class="QScrollBar" name="verticalScrollBar">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>0</y>
+        <width>16</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="aggiungi_mezzo_button">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>31</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>+</string>
       </property>
      </widget>
     </widget>
@@ -508,23 +553,23 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>81</width>
-        <height>16</height>
+        <x>300</x>
+        <y>10</y>
+        <width>121</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Operatore:</string>
+       <string>Operatori disponibili:</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tabella_operatori">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>10</x>
         <y>40</y>
-        <width>621</width>
-        <height>211</height>
+        <width>721</width>
+        <height>231</height>
        </rect>
       </property>
       <property name="selectionBehavior">
@@ -584,9 +629,9 @@
      <widget class="QLabel" name="warning_label3">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>20</y>
-        <width>601</width>
+        <x>10</x>
+        <y>280</y>
+        <width>741</width>
         <height>16</height>
        </rect>
       </property>
@@ -689,7 +734,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>290</y>
+        <y>310</y>
         <width>161</width>
         <height>27</height>
        </rect>
@@ -699,7 +744,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>290</y>
+        <y>310</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -708,13 +753,45 @@
        <string>Selezionare ID Operatore:</string>
       </property>
      </widget>
+     <widget class="QScrollBar" name="verticalScrollBar_2">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>0</y>
+        <width>16</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="aggiungi_operatore_button">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>340</y>
+        <width>31</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="inserisci_button">
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>440</y>
+      <y>438</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -744,7 +821,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>440</y>
+      <y>438</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -768,6 +845,110 @@ font:  bold 11px
     </property>
     <property name="text">
      <string>ANNULLA</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="inserimento_error">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>444</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>190</red>
+          <green>190</green>
+          <blue>190</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="128">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

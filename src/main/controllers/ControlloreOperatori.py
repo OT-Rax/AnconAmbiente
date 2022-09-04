@@ -10,6 +10,9 @@ class ControlloreOperatori:
     def get_operatori(self):
         return self.mapper.get_operatori()
 
+    def get_operatori_disponibili(self, data_inizio, data_fine):
+        return self.mapper.get_operatori_disponibili(data_inizio, data_fine)
+
     def insert_operatore(self, nome, cognome, cf, data_nascita, patenti, data_fine_contratto):
         return self.mapper.insert_operatore(nome, cognome, cf, data_nascita, patenti, data_fine_contratto, 0)
 

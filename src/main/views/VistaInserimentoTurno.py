@@ -13,17 +13,22 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         super(VistaInserimentoTurno, self).__init__(parent)  # Call the inherited classes __init__ method
         uic.loadUi('gui/inserimento_turno.ui', self)  # Load the .ui file
         self.controller = ControlloreTurni()
-        self.controller2 = ControlloreServizi()
+        self.controller_servizi = ControlloreServizi()
         self.controller_mezzi = ControlloreMezzo()
         self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
-        self.date_field.setMinimumDate(QtCore.QDate.currentDate())
+        self.inizio_datetimepicker.setMinimumDateTime(QtCore.QDateTime.currentDateTime())
+        self.inizio_datetimepicker.editingFinished.connect(self.inizio_edited)
+        self.fine_datetimepicker.setMinimumDateTime(QtCore.QDateTime.currentDateTime())
         self.tabella_servizi.setRowCount(0)
         self.tabella_mezzi.setRowCount(0)
         self.tabella_operatori.setRowCount(0)
         self.update()
         
+    def inizio_edited(self):
+        self.fine_datetimepicker.setMinimumDateTime(self.inizio_datetimepicker.dateTime())
+
     def inserisci_tabella_servizi(self, servizi):
         row = self.tabella_servizi.rowCount()
         for servizio in servizi:
@@ -94,28 +99,30 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         self.parent().update()
     
     def update(self):
-        #riembimento combo box servizi
-        servizi = self.controller2.get_servizi()
+        inizio_turno = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+        fine_turno = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+        #riempimento combo box servizi
+        servizi = self.controller_servizi.get_servizi()
         id_servizi = []
         for servizio in servizi:
             id = servizio.get_id()
             id_servizi.append(str(id))
         self.combo_servizi.addItems(id_servizi)
-        #riembimento combo box mezzi
-        mezzi = self.controller_mezzi.get_mezzi()
+        #riempimento combo box mezzi
+        mezzi = self.controller_mezzi.get_mezzi_disponibili(inizio_turno, fine_turno)
         id_mezzi = []
         for mezzo in mezzi:
             id = mezzo.get_id_mezzo()
             id_mezzi.append(str(id))
         self.combo_mezzi.addItems(id_mezzi)
         #riempimento combo box operatori
-        operatori = self.controller_operatori.get_operatori()
+        operatori = self.controller_operatori.get_operatori_disponibili(inizio_turno, fine_turno)
         id_operatori = []
         for operatore in operatori:
             id = operatore.get_id()
             id_operatori.append(str(id))
         self.combo_operatori.addItems(id_operatori)
-        self.inserisci_tabella_servizi(self.controller2.get_servizi())
+        self.inserisci_tabella_servizi(self.controller_servizi.get_servizi())
         #aggiungere il get_tipo servizio per la ricerca dei mezzi
-        self.inserisci_tabella_mezzi(self.controller_mezzi.get_mezzi())
-        self.inserisci_tabella_operatori(self.controller_operatori.get_operatori())
+        self.inserisci_tabella_mezzi(mezzi)
+        self.inserisci_tabella_operatori(operatori)

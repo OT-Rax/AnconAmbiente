@@ -16,6 +16,21 @@ class MapperMezzi:
         con.close()
         return mezzi
 
+    def get_mezzi_disponibili(self, inizio_turno, fine_turno):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        mezzi  = []
+        for row in cur.execute("SELECT * FROM Mezzi AS M WHERE M.stato=0 \
+                                EXCEPT \
+                                SELECT M.* FROM (MEZZI AS M JOIN ASSEGNAMENTI AS A ON M.id=A.id_mezzo) JOIN TURNI AS T ON A.id_turno = T.id \
+                                WHERE (T.inizio_turno > ? AND T.inizio_turno < ?)\
+                                OR (T.fine_turno > ? AND T.fine_turno < ?)\
+                                OR (T.inizio_turno < ? AND T.fine_turno > ?)", (inizio_turno, fine_turno, inizio_turno, fine_turno, inizio_turno, fine_turno)):
+            mezzo = Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
+            mezzi.append(mezzo)
+        con.close()
+        return mezzi
+
     def get_mezzo(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

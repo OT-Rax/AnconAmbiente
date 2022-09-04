@@ -16,6 +16,22 @@ class MapperOperatori:
         con.close()
         return operatori
 
+    def get_operatori_disponibili(self, inizio_turno, fine_turno):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        operatori  = []
+        for row in cur.execute("SELECT * FROM Operatori AS O \
+                                WHERE O.stato=0 \
+                                EXCEPT \
+                                SELECT O.* FROM (OPERATORI AS O JOIN IMPIEGHI AS I ON O.id=I.id_operatore) JOIN TURNI AS T ON I.id_turno = T.id \
+                                WHERE (T.inizio_turno > ? AND T.inizio_turno < ?)\
+                                OR (T.fine_turno > ? AND T.fine_turno < ?)\
+                                OR (T.inizio_turno < ? AND T.fine_turno > ?)", (inizio_turno, fine_turno, inizio_turno, fine_turno, inizio_turno, fine_turno)):
+            operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
+            operatori.append(operatore)
+        con.close()
+        return operatori
+
     def get_operatore(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
