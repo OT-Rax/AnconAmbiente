@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>564</height>
+    <width>584</width>
+    <height>574</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>781</width>
-      <height>391</height>
+      <width>561</width>
+      <height>371</height>
      </rect>
     </property>
    </widget>
@@ -54,36 +54,16 @@
     </item>
     <item>
      <property name="text">
-      <string>Turni</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
       <string>Clienti</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>Utenti</string>
-     </property>
-    </item>
    </widget>
-   <widget class="QComboBox" name="oggetto_combo">
+   <widget class="QComboBox" name="ID_combo">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>220</x>
       <y>20</y>
-      <width>151</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="opzione_combo">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>20</y>
-      <width>151</width>
+      <width>91</width>
       <height>22</height>
      </rect>
     </property>
@@ -91,7 +71,7 @@
    <widget class="QDateEdit" name="da_datepicker">
     <property name="geometry">
      <rect>
-      <x>35</x>
+      <x>40</x>
       <y>57</y>
       <width>110</width>
       <height>22</height>
@@ -104,7 +84,7 @@
    <widget class="QDateEdit" name="a_datepicker">
     <property name="geometry">
      <rect>
-      <x>195</x>
+      <x>200</x>
       <y>57</y>
       <width>110</width>
       <height>22</height>
@@ -145,7 +125,7 @@
      <rect>
       <x>10</x>
       <y>100</y>
-      <width>761</width>
+      <width>561</width>
       <height>21</height>
      </rect>
     </property>
@@ -154,6 +134,79 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>20</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ID:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="report_button">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>20</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+    </property>
+    <property name="text">
+     <string>CREA REPORT</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="indietro_button">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>510</y>
+      <width>160</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(24, 105, 68);
+color: white;
+border-style: outset;
+font:  bold 11px
+
+
+}
+
+QPushButton:hover{
+background-color:rgb(170, 203, 108);
+color: white;
+border-style: outset;
+font:  bold 11px
+}</string>
+    </property>
+    <property name="text">
+     <string>INDIETRO</string>
     </property>
    </widget>
   </widget>
