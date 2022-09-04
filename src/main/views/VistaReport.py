@@ -17,9 +17,15 @@ class VistaReport(QtWidgets.QMainWindow):
     def prima(self):
         # Metodo attivato dalla prima combobox
         if(self.entita_combo.currentText() == 'Mezzi'):
+            self.oggetto_combo.clear()
             self.oggetto_combo.addItem('Tipo')
             self.oggetto_combo.addItem('Allestimento')
         if(self.entita_combo.currentText() == 'Servizi'):
+            self.oggetto_combo.clear()
+            self.oggetto_combo.addItem('Operatore')
+            self.oggetto_combo.addItem('Mezzo')
+        if (self.entita_combo.currentText() == 'Turni'):
+            self.oggetto_combo.clear()
             self.oggetto_combo.addItem('Operatore')
             self.oggetto_combo.addItem('Mezzo')
 
@@ -37,9 +43,11 @@ class VistaReport(QtWidgets.QMainWindow):
 
         if (self.oggetto_combo.currentText() == 'Operatore'):
             operatori = self.controller.get_Operatori()
+            self.opzione_combo.clear()
             for row in operatori:
                 self.opzione_combo.addItem(row)
         if (self.oggetto_combo.currentText() == 'Mezzo'):
+            self.opzione_combo.clear()
             mezzi = self.controller.get_Operatori()
             for row in mezzi:
                 self.opzione_combo.addItem(row)
