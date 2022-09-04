@@ -1,10 +1,13 @@
+import os
 import sqlite3
 
 from models.Mezzo import Mezzo
 
 class MapperMezzi:
     def __init__(self):
-        self.db_directory="./db/AAdb"
+        dirname = os.path.dirname(__file__)
+        db_file = os.path.join(dirname, '../db/AAdb')
+        self.db_directory = db_file
 
     #Metodo che restituisce tutti i mezzi presenti nel DB
     def get_mezzi(self):

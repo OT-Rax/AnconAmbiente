@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
@@ -11,7 +13,9 @@ class VistaMezzo(QtWidgets.QMainWindow):
         # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         # :param mezzo: mezzo dal quale visualizzare le informazioni
         super(VistaMezzo, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/visualizza_mezzo.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/visualizza_mezzo.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.mezzo = mezzo
         self.parent = parent
         self.id_label.setText(str(mezzo.get_id_mezzo()))

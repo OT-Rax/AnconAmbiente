@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 from models.Turno import Turno
@@ -7,7 +8,9 @@ from models.Servizio import Servizio
 
 class MapperTurni:
     def __init__(self):
-        self.db_directory="./db/AAdb"
+        dirname = os.path.dirname(__file__)
+        db_file = os.path.join(dirname, '../db/AAdb')
+        self.db_directory = db_file
 
     def get_turni(self):
         con = sqlite3.connect(self.db_directory)
