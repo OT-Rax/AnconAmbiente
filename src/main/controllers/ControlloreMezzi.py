@@ -1,6 +1,6 @@
 from models.MapperMezzi import MapperMezzi
 
-class ControlloreMezzo:
+class ControlloreMezzi:
     def __init__(self):
         self.mapper = MapperMezzi()
 

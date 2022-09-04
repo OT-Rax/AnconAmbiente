@@ -10,6 +10,18 @@ class ControlloreTurni:
     def get_turni(self):
         return self.mapper.get_turni()
 
+    def get_turni_operatore(self, id_operatore, data_inizio, data_fine):
+        return self.mapper.get_turni_operatore(id_operatore, data_inizio, data_fine)
+
+    def get_turni_mezzo(self, id_mezzo, data_inizio, data_fine):
+        return self.mapper.get_turni_mezzo(id_mezzo,data_inizio, data_fine)
+
+    def get_turni_servizio(self, id_servizio, data_inizio, data_fine):
+        return self.mapper.get_turni_servizio(id_servizio,data_inizio, data_fine)
+
+    def get_turni_cliente(self, id_cliente, data_inizio, data_fine):
+        return self.mapper.get_turni_cliente(id_cliente,data_inizio, data_fine)
+
     def insert_turno(self, id_servizio, data_inizio, data_fine, id_mezzi, id_operatori):
         return self.mapper.insert_turno(id_servizio, data_inizio, data_fine, id_mezzi, id_operatori)
 

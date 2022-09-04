@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
-    <height>574</height>
+    <width>580</width>
+    <height>580</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>580</width>
+    <height>580</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>580</width>
+    <height>580</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Report</string>
@@ -26,6 +38,9 @@
       <width>561</width>
       <height>371</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QComboBox" name="entita_combo">
@@ -58,7 +73,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="ID_combo">
+   <widget class="QComboBox" name="id_combo">
     <property name="geometry">
      <rect>
       <x>220</x>

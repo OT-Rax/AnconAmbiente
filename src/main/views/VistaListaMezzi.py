@@ -6,10 +6,10 @@ import xz_rc
 from views.VistaInserimentoMezzo import VistaInserimentoMezzo
 from views.VistaModificaMezzo import VistaModificaMezzo
 from views.VistaMezzo import VistaMezzo
-from controllers.ControlloreMezzi import ControlloreMezzo
+from controllers.ControlloreMezzi import ControlloreMezzi
 
 class VistaListaMezzi(QtWidgets.QMainWindow):
-    controller = ControlloreMezzo()
+    controller = ControlloreMezzi()
 
     def __init__(self):
         # Costruttore 'VistaListaMezzi'

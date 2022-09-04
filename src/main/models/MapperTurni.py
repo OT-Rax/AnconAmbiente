@@ -28,6 +28,84 @@ class MapperTurni:
         con.close()
         return turni
 
+    
+    def get_turni_operatore(self, id_operatore, data_inizio, data_fine):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        turni = []
+        #ID, SERVIZIO, INIZIO, FINE, MEZZI, OPERATORI
+        for riga in cur.execute("SELECT * FROM Turni AS T INNER JOIN Impieghi AS I on T.id=I.id_turno WHERE I.id_operatore=? AND T.data_fine BETWEEN ? AND ?", (id_operatore,data_inizio,data_fine)).fetchall():
+            servizio=None
+            operatori = []
+            mezzi= []
+            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio WHERE L.id_turno="+str(riga[0])):
+                servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore WHERE I.id_turno="+str(riga[0])):
+                operatori.append(Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo WHERE A.id_turno="+str(riga[0])):
+                mezzi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
+            turni.append(Turno(riga[0], servizio, riga[1], riga[2], mezzi, operatori))
+        con.close()
+        return turni
+    def get_turni_mezzo(self, id_mezzo, data_inizio, data_fine):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        turni = []
+        #ID, SERVIZIO, INIZIO, FINE, MEZZI, OPERATORI
+        for riga in cur.execute("SELECT * FROM Turni AS T INNER JOIN Assegnamenti AS A on T.id=A.id_turno WHERE A.id_mezzo=? AND T.data_fine BETWEEN ? AND ?", (id_mezzo,data_inizio,data_fine)).fetchall():
+            servizio=None
+            operatori = []
+            mezzi= []
+            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio WHERE L.id_turno="+str(riga[0])):
+                servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore WHERE I.id_turno="+str(riga[0])):
+                operatori.append(Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo WHERE A.id_turno="+str(riga[0])):
+                mezzi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
+            turni.append(Turno(riga[0], servizio, riga[1], riga[2], mezzi, operatori))
+        con.close()
+        return turni
+
+    def get_turni_servizio(self, id_servizio, data_inizio, data_fine):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        turni = []
+        #ID, SERVIZIO, INIZIO, FINE, MEZZI, OPERATORI
+        for riga in cur.execute("SELECT * FROM Turni AS T INNER JOIN Lavori AS L on T.id=L.id_turno WHERE L.id_servizio=? AND T.data_fine BETWEEN ? AND ?", (id_servizio,data_inizio,data_fine)).fetchall():
+            servizio=None
+            operatori = []
+            servizi= []
+            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio WHERE L.id_turno="+str(riga[0])):
+                servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore WHERE I.id_turno="+str(riga[0])):
+                operatori.append(Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo WHERE A.id_turno="+str(riga[0])):
+                servizi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
+            turni.append(Turno(riga[0], servizio, riga[1], riga[2], servizi, operatori))
+        con.close()
+        return turni
+
+
+    def get_turni_cliente(self, id_cliente, data_inizio, data_fine):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        turni = []
+        #ID, SERVIZIO, INIZIO, FINE, MEZZI, OPERATORI
+        for riga in cur.execute("SELECT * FROM (Turni AS T INNER JOIN Lavori AS L on T.id=L.id_turno) INNER JOIN Servizi AS S ON L.id_servizio=S.id \
+                WHERE S.id_cliente=? AND T.data_fine BETWEEN ? AND ?", (id_cliente,data_inizio,data_fine)).fetchall():
+            servizio=None
+            operatori = []
+            servizi= []
+            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio WHERE L.id_turno="+str(riga[0])):
+                servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore WHERE I.id_turno="+str(riga[0])):
+                operatori.append(Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo WHERE A.id_turno="+str(riga[0])):
+                servizi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
+            turni.append(Turno(riga[0], servizio, riga[1], riga[2], servizi, operatori))
+        con.close()
+        return turni
+
     def get_turno(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

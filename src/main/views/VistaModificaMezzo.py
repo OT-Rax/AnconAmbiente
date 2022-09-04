@@ -2,10 +2,10 @@ from PyQt5 import QtWidgets, QtCore, uic
 import sys
 import xz_rc
 
-from controllers.ControlloreMezzi import ControlloreMezzo
+from controllers.ControlloreMezzi import ControlloreMezzi
 
 class VistaModificaMezzo(QtWidgets.QMainWindow):
-    controller = ControlloreMezzo()
+    controller = ControlloreMezzi()
 
     def __init__(self, parent, mezzo):
         # Costruttore 'VistaModificaMezzo'
