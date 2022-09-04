@@ -20,21 +20,33 @@ class VistaTurno(QtWidgets.QMainWindow):
         self.parent = parent
         #id, data/ora inizio e data/ora fine  
         self.id_label.setText(str(self.turno.get_id()))
-        self.ora_inizio_label(self.turno.get_datainizio())
-        self.ora_fine_label(self.turno.get_datafine())
+        self.ora_inizio_label.setText(self.turno.get_data_inizio())
+        self.ora_fine_label.setText(self.turno.get_data_fine())
 
         #pulsanti
         self.modifica_button.clicked.connect(self.go_modifica)
         self.annulla_button.clicked.connect(self.close)
         
         #Dati Servizio
-        self.servizio = self.controller_servizi.get_servizio(turno.get_servizio())
+        self.servizio = self.controller_servizi.get_servizio(self.turno.get_servizio().get_id())
         self.id_servizio_label.setText(str(self.servizio.get_id()))
         self.tipo_label.setText(self.servizio.get_tipo())
         self.cliente_label.setText(self.controller_clienti.get_cliente(self.servizio.get_id_cliente()).get_nome()+" "+self.controller_clienti.get_cliente(self.servizio.get_id_cliente()).get_cognome())
         self.luogo_label.setText(str(self.servizio.get_luogo()))
         self.data_inizio_label.setText(str(self.servizio.get_datainizio()))
         self.data_fine_label.setText(str(self.servizio.get_datafine()))
+        ripetizione=self.servizio.get_ripetizione()
+        if self.servizio.get_periodicita() is None:
+            self.periodicita="Non periodico"
+        elif self.servizio.get_periodicita() == "Giornaliero":
+            self.periodicita=str(ripetizione)+" volte al giorno"
+        elif self.servizio.get_periodicita() == "Settimanale":
+            self.periodicita=str(ripetizione)+" volte a settimana"
+        elif self.servizio.get_periodicita() == "Mensile":
+            self.periodicita=str(ripetizione)+" volte al mese"
+        elif self.servizio.get_periodicita() == "Annuale":
+            self.periodicita=str(ripetizione)+" volte all'anno"
+        self.periodicita_label.setText(self.periodicita)
 
         #Dati Mezzi e Dati Operatori
         self.tabella_mezzi.setRowCount(0)
@@ -54,7 +66,7 @@ class VistaTurno(QtWidgets.QMainWindow):
         self.inserisci_tabella_mezzi(mezzi)
 
         #get operatori
-        operatori = self.turno.getoperatori()
+        operatori = self.turno.get_operatori()
         self.inserisci_tabella_operatori(operatori)
 
 
