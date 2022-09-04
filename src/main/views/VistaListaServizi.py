@@ -11,6 +11,7 @@ from controllers.ControlloreClienti import ControlloreClienti
 
 class VistaListaServizi(QtWidgets.QMainWindow):
     def __init__(self):
+        # Costruttore 'VistaListaServizi'
         super(VistaListaServizi, self).__init__()  # Call the inherited classes __init__ method
         uic.loadUi('gui/servizi.ui', self)  # Load the .ui file
         self.controller = ControlloreServizi()
@@ -28,10 +29,12 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         self.update()
 
     def go_inserisci(self):
+        # Metodo per richiamare la vista 'VistaInserimentoServizio'
         self.vista_inserimentoservizio = VistaInserimentoServizio(self)
         self.vista_inserimentoservizio.show()
 
     def go_modifica(self):
+        # Metodo per richiamare la vista 'VistaModificaServizio'
         servizi = self.get_servizi_selezionati()
         for servizio in servizi:
                 self.vista_modificaservizio = VistaModificaServizio(self, servizio)
@@ -39,6 +42,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
         
 
     def go_visualizza(self):
+        # Metodo per richiamare la vista 'VistaServizio'
         caselle_selezionate = self.tabella_servizi.selectedItems()
         righe_selezionate = []
         for casella in caselle_selezionate:
@@ -49,10 +53,12 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             self.vista_servizio.show()
 
     def update(self):
+        # Metodo per aggiornare la tabella che visualizza i servizi
         self.tabella_servizi.setRowCount(0)
         self.inserisci_tabella(self.controller.get_servizi())
 
     def go_elimina(self):
+        # Metodo per eliminare un servizio dalla tabella e dal database
         servizi=self.get_servizi_selezionati()
         if len(servizi) !=0:
             popup=QtWidgets.QDialog()
@@ -66,10 +72,12 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             self.update()
 
     def elimina(self):
+        # Metodo per eliminare un servizio dal database
         servizi=self.get_servizi_selezionati()
         self.controller.elimina_servizi(servizi)
 
     def ricerca(self):
+        # Metodo per cercare nella tabella
         text = self.search_field.text()
         if text is not None:
             self.tabella_servizi.setRowCount(0)
@@ -78,6 +86,8 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             self.update()
 
     def inserisci_tabella(self, servizi):
+        # Metodo che popola la tabella per visualizzare i servizi salvati nel database
+        # :param servizi: Oggetto contente i dati per popolare le colonne della tabella
         row = self.tabella_servizi.rowCount()
         for servizio in servizi:
             items = []
@@ -108,6 +118,7 @@ class VistaListaServizi(QtWidgets.QMainWindow):
 
 
     def get_servizi_selezionati(self):
+        # Metodo per restiture i servizi attualmente selezionati nela tabella
         caselle_selezionate=self.tabella_servizi.selectedItems()
         servizi=[]
         if len(caselle_selezionate) == 0:
