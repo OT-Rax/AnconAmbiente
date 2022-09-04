@@ -10,6 +10,18 @@
     <height>316</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>374</width>
+    <height>316</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>374</width>
+    <height>316</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Visualizza Utente</string>
   </property>
@@ -22,9 +34,9 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>140</y>
+      <y>132</y>
       <width>80</width>
-      <height>13</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -49,8 +61,8 @@
      <rect>
       <x>20</x>
       <y>65</y>
-      <width>55</width>
-      <height>13</height>
+      <width>101</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -128,7 +140,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Utenti</string>
+     <string>Utenti:</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="utenti_check">
@@ -187,7 +199,7 @@ font:  bold 11px
      </rect>
     </property>
     <property name="text">
-     <string>Turni</string>
+     <string>Turni:</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="mezzi_check">
@@ -229,7 +241,7 @@ font:  bold 11px
      </rect>
     </property>
     <property name="text">
-     <string>Mezzi</string>
+     <string>Mezzi:</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="operatori_check">
@@ -299,8 +311,8 @@ font:  bold 11px
      <rect>
       <x>20</x>
       <y>25</y>
-      <width>47</width>
-      <height>13</height>
+      <width>71</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
