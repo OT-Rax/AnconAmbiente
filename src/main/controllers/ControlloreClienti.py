@@ -3,7 +3,9 @@ from models.MapperClienti import MapperClienti
 class ControlloreClienti:
     def __init__(self):
         self.mapper = MapperClienti()
-        
+
+    #Metodi che si collegano ai metodi del mapper Clienti
+
     def get_cliente(self, id):
         return self.mapper.get_cliente(id)
 

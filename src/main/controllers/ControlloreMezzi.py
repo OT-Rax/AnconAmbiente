@@ -4,6 +4,8 @@ class ControlloreMezzo:
     def __init__(self):
         self.mapper = MapperMezzi()
 
+    #Metodi che si collegano ai metodi del mapper Mezzi
+
     def get_mezzo(self, id):
         return self.mapper.get_mezzo(id)
     

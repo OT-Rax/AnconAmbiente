@@ -11,7 +11,10 @@ class MapperUtenti:
         self.r=16
         self.p=1
         self.dklen=64
-        
+    
+    #Metodo che verifica che l'username e la password inserite nel login siano corrette
+    # :param username: username dell'utente
+    # :param login_pw: password dell'utente
     def check_password(self, username, login_pw):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -30,6 +33,7 @@ class MapperUtenti:
             else:
                 return False
 
+    #Metodo che restituisce tutti gli utenti presenti nel DataBase
     def get_utenti(self):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -40,17 +44,19 @@ class MapperUtenti:
         con.close()
         return utenti
 
+    #Metodo che restituisce un utente attraverso l'id dato in input
+    # :param id: id dell'utente
     def get_utente(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         utente=None
-        #Non ho usato bindings perche rotti
         for row in cur.execute("SELECT * FROM Utenti WHERE id="+str(id)):
             utente = Utente(row[0], row[1], row[2], (row[3], row[4], row[5], row[6], row[7],row[8]))
         con.close()
         return utente 
 
-
+    #Metodo che restituisce un utente attraverso l'username dato in input
+    # :param username: username dell'utente
     def get_utente_by_username(self, username):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -61,6 +67,8 @@ class MapperUtenti:
         con.close()
         return utente 
 
+    #Metodo che restituisce un oggetto popolato dagli utenti che hanno in comune l'id o l'username dato in input
+    # :param text: oggetto contenente la stringa di caratteri per la ricerca di determinati utenti
     def ricerca_utenti(self, text):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -71,6 +79,8 @@ class MapperUtenti:
         con.close()
         return utenti 
     
+    #Metodo che inserisce un Utente nel DataBase
+    # :param utente: oggetto utente da inserire nel DataBase
     def insert_utente(self, utente):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -79,13 +89,16 @@ class MapperUtenti:
         con.commit()
         con.close()
 
+
     def encrypt_password(self, password):
         salt = os.urandom(10)
         hash = hashlib.scrypt(password.encode(), salt=salt, n=self.n, r=self.r, p=self.p, dklen=self.dklen)
         encrypted_password = f"{hash.hex()}${salt.hex()}${self.n}${self.r}${self.p}${self.dklen}"
         return encrypted_password
 
-
+    #Metodo che va ad aggiornare i dati modificati di un Utente
+    # :param id: id dell'utente da modificare
+    # :param utente: oggetto contenete i dati aggiornati dell'utente da inserire nel DataBase 
     def update_utente(self, id, utente):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -95,6 +108,8 @@ class MapperUtenti:
         con.commit()
         con.close()
 
+    #Metodo per l'eliminazione degli utenti dal DataBase
+    # :param utenti: oggetto contenente gli utenti che si vogliono eliminare dal DataBase
     def elimina_utenti(self, utenti):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

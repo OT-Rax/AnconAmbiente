@@ -7,6 +7,7 @@ class MapperServizi:
     def __init__(self):
         self.db_directory="./db/AAdb"
 
+    #Metodo che restituisce tutti i servizi presenti nel DataBase
     def get_servizi(self):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -17,6 +18,8 @@ class MapperServizi:
         con.close()
         return servizi
 
+    #Metodo che restituisce i servizi la cui data è maggiore uguale della data data in input
+    # :param data: oggetto contenente la data con cui si vogliono filtrare i servizi
     def get_servizi_inseribili(self, data):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -27,6 +30,8 @@ class MapperServizi:
         con.close()
         return servizi
 
+    #Metodo che restituisce unoggetto contenente tutti i servizi da eseguire nella data inserita in input a seconda delle ripetizioni e periodicià dei servizi
+    # :param data: oggetto contenente la data con cui si vogliono filtrare i servizi
     def get_servizi_da_inserire(self, data):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -65,16 +70,19 @@ class MapperServizi:
         con.close()
         return servizi
 
+    #Metodo che restituisce un servizio con id corrispondente a quello dato in input
+    # :param id: id del servizio che si vuole ottenere
     def get_servizio(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         servizio = None
-        #Non ho usato bindings perche rotti
         for row in cur.execute("SELECT * FROM Servizi WHERE id="+str(id)):
             servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
         con.close()
         return servizio
 
+    #Metodo che restituisce un oggetto popolato dai servizi che hanno in comune l'id o il tipo o il luogo o la periodicità o l'id del cliente dato in input
+    # :param text: oggetto contenente la stringa di caratteri per la ricerca di determinati servizi
     def ricerca_servizi(self, text):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -85,6 +93,14 @@ class MapperServizi:
         con.close()
         return servizi
 
+    #Metodo che inserisce un Servizio nel DataBase
+    # :param id_cliente: id del cliente associato al servizio
+    # :param tipo: tipo di servizio da svolgere
+    # :param luogo: luogo in cui effettuare il servizio
+    # :param data_inizio: data di inizio del contratto del servizio
+    # :param data_fine: data di fine del contratto del servizio
+    # :param ripetizione: numero di volte con cui ripetere il servizio
+    # :param periodicita: con quale periodicità viene effettuato il servizio (giornaliera, settimanale, mensile, annuale)
     def insert_servizio(self, id_cliente, tipo, luogo, data_inizo, data_fine, ripetizione, periodicita):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -92,6 +108,9 @@ class MapperServizi:
         con.commit()
         con.close()
 
+    #Metodo che va ad aggiornare i dati modificati di un servizio
+    # :param id: id del servizio da modificare
+    # :param servizio: oggetto contenete i dati aggiornati del servizio da inserire nel DataBase 
     def update_servizio(self, id, servizio):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -107,6 +126,8 @@ class MapperServizi:
         con.commit()
         con.close()
 
+    #Metodo per l'eliminazione dei servizi dal DataBase
+    # :param servizi: oggetto contenente i servizi che si vogliono eliminare dal DataBase
     def elimina_servizi(self, servizi):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

@@ -6,6 +6,7 @@ class MapperOperatori:
     def __init__(self):
         self.db_directory="./db/AAdb"
 
+    #Metodo che restituisce tutti gli operatori presenti nel DataBase
     def get_operatori(self):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -16,6 +17,9 @@ class MapperOperatori:
         con.close()
         return operatori
 
+    #Metodo che restituisce tutti gli operatori che sono disponibili tra le date e gli orari dati in input
+    # :param inizio_turno: oggetto contenente data ed ora dell'inizio del turno
+    # :param fine_turno: oggetto contenente data ed ora della fine del turno
     def get_operatori_disponibili(self, inizio_turno, fine_turno):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -49,16 +53,19 @@ class MapperOperatori:
         con.close()
         return operatori
 
+    #Metodo che restituisce un operatore attraverso l'id dato in input
+    # :param id: oggetto contenente l'id dell'operatore da prelevare
     def get_operatore(self, id):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         operatore=None
-        #Non ho usato bindings perche rotti
         for row in cur.execute("SELECT * FROM Operatori WHERE id="+str(id)):
             operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
         con.close()
         return operatore
     
+    #Metodo che restituisce un oggetto popolato dagli operatori che hanno in comune l'id o il nome o il cognome dato in input
+    # :param text: oggetto contenente la stringa di caratteri per la ricerca di determinati operatori
     def ricerca_operatori(self, text):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -69,6 +76,14 @@ class MapperOperatori:
         con.close()
         return operatori
 
+    #Metodo che inserisce un Operatore nel DataBase
+    # :param nome: nome dell'operatore
+    # :param cognome: cognome dell'operatore
+    # :param datanascita: data di nascita dell'operatore
+    # :param cf: codice fiscale dell'operatore
+    # :param patenti: patenti possedute dall'operatore 
+    # :param data_fine_contratto: data di fine contratto dell'operatore
+    # :param stato: stato che indica se l'operatore è disponibile, in malattia o in ferie
     def insert_operatore(self, nome, cognome, data_nascita, cf, patenti, data_fine_contratto, stato):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -76,7 +91,9 @@ class MapperOperatori:
         con.commit()
         con.close()
 
-
+    #Metodo che va ad aggiornare i dati modificati di un operatore
+    # :param id: id dell'operatore da modificare
+    # :param operatore: oggetto contenete i dati aggiornati delloperatore da inserire nel DataBase 
     def update_operatore(self, id, operatore):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
@@ -85,6 +102,8 @@ class MapperOperatori:
         con.commit()
         con.close()
 
+    #Metodo per l'eliminazione degli operatori dal DataBase
+    # :param operatori: oggetto contenente gli operatori che si vogliono eliminare dal DataBase
     def elimina_operatori(self, operatori):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()

@@ -4,6 +4,8 @@ class ControlloreOperatori:
     def __init__(self):
         self.mapper = MapperOperatori()
         
+    #Metodi che si collegano ai metodi del mapper Operatori
+
     def get_operatore(self, id):
         return self.mapper.get_operatore(id)
 
