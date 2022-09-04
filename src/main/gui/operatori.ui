@@ -437,7 +437,7 @@ font:  bold 11px
    <widget class="QRadioButton" name="stato_radio">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>310</x>
       <y>60</y>
       <width>92</width>
       <height>23</height>
