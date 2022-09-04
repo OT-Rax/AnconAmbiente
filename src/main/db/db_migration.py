@@ -132,8 +132,8 @@ if __name__ == '__main__':
     ''')
     cur.execute('''
         CREATE TABLE Lavori(
-        id_turno INTEGER,
-        id_servizio INTEGER,
+        id_turno INTEGER NOT NULL,
+        id_servizio INTEGER NOT NULL,
         FOREIGN KEY(id_turno) REFERENCES Turni(id),
         FOREIGN KEY(id_servizio) REFERENCES Servizi(id),
         PRIMARY KEY(id_turno, id_servizio)
