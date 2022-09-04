@@ -28,6 +28,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         
     def inizio_edited(self):
         self.fine_datetimepicker.setMinimumDateTime(self.inizio_datetimepicker.dateTime())
+        self.update()
 
     def inserisci_tabella_servizi(self, servizi):
         row = self.tabella_servizi.rowCount()
@@ -35,8 +36,8 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
             items = []
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id())))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_tipo()))
-            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_cliente())))
-            items.append(QtWidgets.QTableWidgetItem(servizio.get_periodicita()))
+            items.append(QtWidgets.QTableWidgetItem(str(servizio.get_luogo())))
+            items.append(QtWidgets.QTableWidgetItem("Non periodico" if servizio.get_periodicita() is None else servizio.get_periodicita()))
             self.tabella_servizi.insertRow(row)
             column = 0
             for item in items:
@@ -99,10 +100,14 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         self.parent().update()
     
     def update(self):
+        self.tabella_operatori.setRowCount(0)
+        self.tabella_mezzi.setRowCount(0)
+        self.tabella_servizi.setRowCount(0)
         inizio_turno = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
         fine_turno = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
         #riempimento combo box servizi
-        servizi = self.controller_servizi.get_servizi()
+        print("Sto aggiornando i servizi")
+        servizi = self.controller_servizi.get_servizi_da_inserire(self.inizio_datetimepicker.dateTime())
         id_servizi = []
         for servizio in servizi:
             id = servizio.get_id()
@@ -122,7 +127,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
             id = operatore.get_id()
             id_operatori.append(str(id))
         self.combo_operatori.addItems(id_operatori)
-        self.inserisci_tabella_servizi(self.controller_servizi.get_servizi())
+        self.inserisci_tabella_servizi(servizi)
         #aggiungere il get_tipo servizio per la ricerca dei mezzi
         self.inserisci_tabella_mezzi(mezzi)
         self.inserisci_tabella_operatori(operatori)

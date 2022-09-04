@@ -10,6 +10,9 @@ class ControlloreServizi:
     def get_servizi(self):
         return self.mapper.get_servizi()
 
+    def get_servizi_da_inserire(self, data):
+        return self.mapper.get_servizi_da_inserire(data)
+
     def get_servizio(self, id):
         return self.mapper.get_servizio(id)
 

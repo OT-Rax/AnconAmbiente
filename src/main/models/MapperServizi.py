@@ -1,5 +1,6 @@
 import sqlite3
 
+from PyQt5 import QtCore
 from models.Servizio import Servizio
 
 class MapperServizi:
@@ -11,6 +12,54 @@ class MapperServizi:
         cur = con.cursor()
         servizi  = []
         for row in cur.execute("SELECT * FROM Servizi"):
+            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            servizi.append(servizio)
+        con.close()
+        return servizi
+
+    def get_servizi_inservibili(self, data):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        servizi  = []
+        for row in cur.execute("SELECT * FROM Servizi WHERE data_fine>=?", (data.date().toString("yyyy-MM-dd"),)):
+            servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            servizi.append(servizio)
+        con.close()
+        return servizi
+
+    def get_servizi_da_inserire(self, data):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        servizi  = []
+        print(data.date().toString("yyyy-MM-dd"))
+        for row in cur.execute("SELECT S.id, S.id_cliente, S.tipo, S.luogo, S.data_inizio, S.data_fine, S.ripetizione, S.periodicita, COUNT(ALL) \
+                                FROM (Servizi AS S LEFT JOIN Lavori AS L ON S.id = L.id_servizio) LEFT JOIN Turni as T ON L.id_turno=T.id\
+                                WHERE S.data_fine>=? AND ((periodicita IS NULL) \
+                                OR (periodicita='Giornaliero' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
+                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL))) \
+                                OR (periodicita='Settimanale' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
+                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL))) \
+                                OR (periodicita='Mensile' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
+                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL))) \
+                                OR (periodicita='Annuale' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
+                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL)))) \
+                                GROUP BY S.id, S.id_cliente, S.tipo, S.luogo, S.data_inizio, S.data_fine, S.ripetizione, S.periodicita \
+                                HAVING COUNT(*)<S.ripetizione"\
+                                ,
+                                (data.date().toString("yyyy-MM-dd"), \
+                                data.date().toString("yyyy-MM-dd"), data.date().addDays(1).toString("yyyy-MM-dd"), \
+                                data.date().toString("yyyy-MM-dd"), data.date().addDays(1).toString("yyyy-MM-dd"), \
+                                data.date().toString("yyyy-MM-dd"), data.date().addDays(1).toString("yyyy-MM-dd"), \
+                                data.date().addDays(-3).toString("yyyy-MM-dd"), data.date().addDays(4).toString("yyyy-MM-dd hh:mm"), \
+                                data.date().addDays(-3).toString("yyyy-MM-dd"), data.date().addDays(4).toString("yyyy-MM-dd hh:mm"), \
+                                data.date().addDays(-3).toString("yyyy-MM-dd"), data.date().addDays(4).toString("yyyy-MM-dd hh:mm"), \
+                                data.date().toString("yyyy-MM"), data.date().addMonths(1).toString("yyyy-MM"), \
+                                data.date().toString("yyyy-MM"), data.date().addMonths(1).toString("yyyy-MM"), \
+                                data.date().toString("yyyy-MM"), data.date().addMonths(1).toString("yyyy-MM"), \
+                                data.date().toString("yyyy"), data.date().addYears(1).toString("yyyy"), \
+                                data.date().toString("yyyy"), data.date().addYears(1).toString("yyyy"), \
+                                data.date().toString("yyyy"), data.date().addYears(1).toString("yyyy"), \
+                                )):
             servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
             servizi.append(servizio)
         con.close()

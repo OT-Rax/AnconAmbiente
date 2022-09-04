@@ -4,7 +4,7 @@ if __name__ == '__main__':
     con=sqlite3.connect('AAdb')
     cur=con.cursor()
     cur.execute('''
-        DROP TABLE Patenti;
+        DROP TABLE IF EXISTS Patenti;
     ''')
     cur.execute('''
         CREATE TABLE Patenti(
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Operatori;
+        DROP TABLE IF EXISTS Operatori;
     ''')
     cur.execute('''
         CREATE TABLE Operatori(
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Abilitazioni;
+        DROP TABLE IF EXISTS Abilitazioni;
     ''')
     cur.execute('''
         CREATE TABLE Abilitazioni(
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Mezzi;
+        DROP TABLE IF EXISTS Mezzi;
     ''')
     cur.execute('''
         CREATE TABLE Mezzi(
@@ -57,21 +57,19 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Turni;
+        DROP TABLE IF EXISTS Turni;
     ''')
+
     cur.execute('''
         CREATE TABLE Turni(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        servizio TEXT NOT NULL,
         inizio_turno TEXT NOT NULL,
-        fine_turno TEXT NOT NULL,
-        mezzo TEXT NOT NULL,
-        operatore TEXT NOT NULL
+        fine_turno TEXT NOT NULL
         );
     ''')
 
     cur.execute('''
-        DROP TABLE Impieghi;
+        DROP TABLE IF EXISTS Impieghi;
     ''')
     cur.execute('''
         CREATE TABLE Impieghi(
@@ -84,7 +82,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Assegnamenti;
+        DROP TABLE IF EXISTS Assegnamenti;
     ''')
     cur.execute('''
         CREATE TABLE Assegnamenti(
@@ -96,7 +94,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Clienti;
+        DROP TABLE IF EXISTS Clienti;
     ''')
     cur.execute('''
         CREATE TABLE Clienti(
@@ -113,7 +111,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Servizi;
+        DROP TABLE IF EXISTS Servizi;
     ''')
     cur.execute('''
         CREATE TABLE Servizi(
@@ -130,7 +128,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Lavori;
+        DROP TABLE IF EXISTS Lavori;
     ''')
     cur.execute('''
         CREATE TABLE Lavori(
@@ -143,7 +141,7 @@ if __name__ == '__main__':
     ''')
 
     cur.execute('''
-        DROP TABLE Utenti;
+        DROP TABLE IF EXISTS Utenti;
     ''')
     cur.execute('''
         CREATE TABLE Utenti(
