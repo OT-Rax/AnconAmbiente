@@ -3,7 +3,7 @@ import sys
 import xz_rc
 
 from controllers.ControlloreServizi import ControlloreServizi
-from controllers.ControlloreMezzi import ControlloreMezzo
+from controllers.ControlloreMezzi import ControlloreMezzi
 from controllers.ControlloreOperatori import ControlloreOperatori
 from controllers.ControlloreTurni import ControlloreTurni
 
@@ -16,7 +16,7 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
         uic.loadUi('gui/inserimento_turno.ui', self)  # Load the .ui file
         self.controller = ControlloreTurni()
         self.controller_servizi = ControlloreServizi()
-        self.controller_mezzi = ControlloreMezzo()
+        self.controller_mezzi = ControlloreMezzi()
         self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)

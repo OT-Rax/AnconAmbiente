@@ -3,10 +3,10 @@ from datetime import date
 import sys
 import xz_rc
 
-from controllers.ControlloreMezzi import ControlloreMezzo
+from controllers.ControlloreMezzi import ControlloreMezzi
 
 class VistaInserimentoMezzo(QtWidgets.QMainWindow):
-    controller = ControlloreMezzo()
+    controller = ControlloreMezzi()
 
     def __init__(self, parent):
         # Costruttore 'VistaInserimentoMezzo'

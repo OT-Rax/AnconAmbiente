@@ -4,7 +4,7 @@ import xz_rc
 
 from controllers.ControlloreTurni import ControlloreTurni
 from controllers.ControlloreServizi import ControlloreServizi
-from controllers.ControlloreMezzi import ControlloreMezzo
+from controllers.ControlloreMezzi import ControlloreMezzi
 from controllers.ControlloreOperatori import ControlloreOperatori
 
 from views.VistaListaServizi import VistaListaServizi
@@ -16,7 +16,7 @@ class VistaModificaTurno(QtWidgets.QMainWindow):
         self.turno = turno
         self.controller = ControlloreTurni()
         self.controller_servizi = ControlloreServizi()
-        self.controller_mezzi = ControlloreMezzo()
+        self.controller_mezzi = ControlloreMezzi()
         self.controller_operatori = ControlloreOperatori()
         self.annulla_button.clicked.connect(self.close)
         self.salva_button.clicked.connect(self.salva)
