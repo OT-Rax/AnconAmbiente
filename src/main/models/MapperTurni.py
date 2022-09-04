@@ -15,13 +15,14 @@ class MapperTurno:
         turni = []
         #ID, SERVIZIO, INIZIO, FINE, MEZZI, OPERATORI
         for riga in cur.execute("SELECT * FROM Turni").fetchall():
+            servizio=None
             operatori = []
             mezzi= []
-            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio"):
+            for row in cur.execute("SELECT S.* FROM Servizi AS S JOIN Lavori AS L ON S.id=L.id_servizio WHERE L.id_turno="+str(riga[0])):
                 servizio = Servizio(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
-            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore"):
+            for row in cur.execute("SELECT O.* FROM Operatori AS O JOIN Impieghi AS I ON O.id=I.id_operatore WHERE I.id_turno="+str(riga[0])):
                 operatori.append(Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
-            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo"):
+            for row in cur.execute("SELECT M.* FROM Mezzi as M JOIN Assegnamenti AS A ON M.id=A.id_mezzo WHERE A.id_turno="+str(riga[0])):
                 mezzi.append(Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))  
             turni.append(Turno(riga[0], servizio, riga[1], riga[2], mezzi, operatori))
         con.close()
@@ -68,6 +69,7 @@ class MapperTurno:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         cur.execute("INSERT INTO Turni (data_inizio, data_fine) VALUES (?, ?)", (data_inizio, data_fine))
+        con.commit()
         id_turno=self.get_ultimo_id()
         cur.execute("INSERT INTO Lavori (id_servizio, id_turno) VALUES (?,?)", (id_servizio, id_turno))
         for id_mezzo in id_mezzi:
