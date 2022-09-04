@@ -17,7 +17,7 @@ class MapperServizi:
         con.close()
         return servizi
 
-    def get_servizi_inservibili(self, data):
+    def get_servizi_inseribili(self, data):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         servizi  = []
@@ -35,14 +35,14 @@ class MapperServizi:
         for row in cur.execute("SELECT S.id, S.id_cliente, S.tipo, S.luogo, S.data_inizio, S.data_fine, S.ripetizione, S.periodicita, COUNT(ALL) \
                                 FROM (Servizi AS S LEFT JOIN Lavori AS L ON S.id = L.id_servizio) LEFT JOIN Turni as T ON L.id_turno=T.id\
                                 WHERE S.data_fine>=? AND ((periodicita IS NULL) \
-                                OR (periodicita='Giornaliero' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
-                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL))) \
-                                OR (periodicita='Settimanale' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
-                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL))) \
-                                OR (periodicita='Mensile' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
-                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL))) \
-                                OR (periodicita='Annuale' AND ((T.inizio_turno > ? AND T.inizio_turno < ?) OR (T.fine_turno > ? AND T.fine_turno < ?) OR (T.inizio_turno < ? AND T.fine_turno > ?) \
-                                OR (T.inizio_turno IS NULL AND T.fine_turno IS NULL)))) \
+                                OR (periodicita='Giornaliero' AND ((T.data_inizio > ? AND T.data_inizio < ?) OR (T.data_fine > ? AND T.data_fine < ?) OR (T.data_inizio < ? AND T.data_fine > ?) \
+                                OR (T.data_inizio IS NULL AND T.data_fine IS NULL))) \
+                                OR (periodicita='Settimanale' AND ((T.data_inizio > ? AND T.data_inizio < ?) OR (T.data_fine > ? AND T.data_fine < ?) OR (T.data_inizio < ? AND T.data_fine > ?) \
+                                OR (T.data_inizio IS NULL AND T.data_fine IS NULL))) \
+                                OR (periodicita='Mensile' AND ((T.data_inizio > ? AND T.data_inizio < ?) OR (T.data_fine > ? AND T.data_fine < ?) OR (T.data_inizio < ? AND T.data_fine > ?) \
+                                OR (T.data_inizio IS NULL AND T.data_fine IS NULL))) \
+                                OR (periodicita='Annuale' AND ((T.data_inizio > ? AND T.data_inizio < ?) OR (T.data_fine > ? AND T.data_fine < ?) OR (T.data_inizio < ? AND T.data_fine > ?) \
+                                OR (T.data_inizio IS NULL AND T.data_fine IS NULL)))) \
                                 GROUP BY S.id, S.id_cliente, S.tipo, S.luogo, S.data_inizio, S.data_fine, S.ripetizione, S.periodicita \
                                 HAVING COUNT(*)<S.ripetizione"\
                                 ,

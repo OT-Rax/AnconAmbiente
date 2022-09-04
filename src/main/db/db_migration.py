@@ -63,8 +63,8 @@ if __name__ == '__main__':
     cur.execute('''
         CREATE TABLE Turni(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        inizio_turno TEXT NOT NULL,
-        fine_turno TEXT NOT NULL
+        data_inizio TEXT NOT NULL,
+        data_fine TEXT NOT NULL
         );
     ''')
 

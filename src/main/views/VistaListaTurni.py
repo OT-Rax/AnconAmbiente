@@ -83,10 +83,9 @@ class VistaListaTurni(QtWidgets.QMainWindow):
         for turno in turni:
             items = []
             items.append(QtWidgets.QTableWidgetItem(str(turno.get_id())))
-            items.append(QtWidgets.QTableWidgetItem(turno.get_servizio()))
-            items.append(QtWidgets.QTableWidgetItem(turno.get_data()))
-            items.append(QtWidgets.QTableWidgetItem(str(turno.get_mezzo())))
-            items.append(QtWidgets.QTableWidgetItem(str(turno.get_operatore())))
+            items.append(QtWidgets.QTableWidgetItem(str(turno.get_servizio().get_id())))
+            items.append(QtWidgets.QTableWidgetItem(turno.get_data_inizio()))
+            items.append(QtWidgets.QTableWidgetItem(turno.get_data_fine()))
             self.tabella_turni.insertRow(row)
             column=0
             for item in items:
@@ -97,7 +96,9 @@ class VistaListaTurni(QtWidgets.QMainWindow):
         
     def update(self):
         self.tabella_turni.setRowCount(0)
-        self.inserisci_tabella(self.controller.get_turni())
+        turni = self.controller.get_turni()
+        print(len(turni))
+        self.inserisci_tabella(turni)
 
 class DialogElimina(QtWidgets.QDialog):
     def __init__(self):

@@ -117,22 +117,17 @@ font:  bold 11px
     </column>
     <column>
      <property name="text">
-      <string>Servizio</string>
+      <string>ID Servizio</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Data</string>
+      <string>Data ed ora inizio</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Mezzo</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Operatore</string>
+      <string>Data ed ora fine</string>
      </property>
     </column>
    </widget>

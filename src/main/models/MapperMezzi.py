@@ -23,9 +23,9 @@ class MapperMezzi:
         for row in cur.execute("SELECT * FROM Mezzi AS M WHERE M.stato=0 \
                                 EXCEPT \
                                 SELECT M.* FROM (MEZZI AS M JOIN ASSEGNAMENTI AS A ON M.id=A.id_mezzo) JOIN TURNI AS T ON A.id_turno = T.id \
-                                WHERE (T.inizio_turno > ? AND T.inizio_turno < ?)\
-                                OR (T.fine_turno > ? AND T.fine_turno < ?)\
-                                OR (T.inizio_turno < ? AND T.fine_turno > ?)", (inizio_turno, fine_turno, inizio_turno, fine_turno, inizio_turno, fine_turno)):
+                                WHERE (T.data_inizio > ? AND T.data_inizio < ?)\
+                                OR (T.data_fine > ? AND T.data_fine < ?)\
+                                OR (T.data_inizio < ? AND T.data_fine > ?)", (inizio_turno, fine_turno, inizio_turno, fine_turno, inizio_turno, fine_turno)):
             mezzo = Mezzo(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
             mezzi.append(mezzo)
         con.close()

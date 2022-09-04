@@ -89,45 +89,80 @@ class VistaInserimentoTurno(QtWidgets.QMainWindow):
             row+=1
 
     def inserisci(self):
-        servizio = self.combo_servizi.currentText()
-        data_turno = self.date_field.date()
-        ora_inizio = self.time_start_field.time()
-        ora_fine = self.time_end_field.time()
-        mezzo = self.combo_mezzi.currentText()
-        operatore = self.combo_operatori.currentText()
-        self.controller.insert_turno(servizio, data_turno.toString("yyyy-MM-dd"), ora_inizio.toString(), ora_fine.toString(), str(mezzo), str(operatore))
-        self.close()
-        self.parent().update()
+        operatori_validity = self.check_operatori()
+        servizio_validity = self.check_servizio()
+        if  operatori_validity and servizio_validity:
+            id_servizio = self.combo_servizi.currentText()
+            data_inizio = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+            data_fine = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
+            id_operatori = self.get_id_operatori_selezionati()
+            id_mezzi = self.get_id_mezzi_selezionati()
+            self.controller.insert_turno(id_servizio, data_inizio, data_fine, id_operatori, id_mezzi)
+            self.close()
+            self.parent().update()
     
     def update(self):
         self.tabella_operatori.setRowCount(0)
         self.tabella_mezzi.setRowCount(0)
         self.tabella_servizi.setRowCount(0)
+        self.combo_servizi.clear()
         inizio_turno = self.inizio_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
         fine_turno = self.fine_datetimepicker.dateTime().toString("yyyy-MM-dd hh:mm")
         #riempimento combo box servizi
-        print("Sto aggiornando i servizi")
-        servizi = self.controller_servizi.get_servizi_da_inserire(self.inizio_datetimepicker.dateTime())
+        servizi_da_inserire = self.controller_servizi.get_servizi_da_inserire(self.inizio_datetimepicker.dateTime())
+        servizi = self.controller_servizi.get_servizi_inseribili(self.inizio_datetimepicker.dateTime())
         id_servizi = []
         for servizio in servizi:
             id = servizio.get_id()
             id_servizi.append(str(id))
         self.combo_servizi.addItems(id_servizi)
-        #riempimento combo box mezzi
         mezzi = self.controller_mezzi.get_mezzi_disponibili(inizio_turno, fine_turno)
-        id_mezzi = []
-        for mezzo in mezzi:
-            id = mezzo.get_id_mezzo()
-            id_mezzi.append(str(id))
-        self.combo_mezzi.addItems(id_mezzi)
-        #riempimento combo box operatori
         operatori = self.controller_operatori.get_operatori_disponibili(inizio_turno, fine_turno)
-        id_operatori = []
-        for operatore in operatori:
-            id = operatore.get_id()
-            id_operatori.append(str(id))
-        self.combo_operatori.addItems(id_operatori)
-        self.inserisci_tabella_servizi(servizi)
+        self.inserisci_tabella_servizi(servizi_da_inserire)
         #aggiungere il get_tipo servizio per la ricerca dei mezzi
         self.inserisci_tabella_mezzi(mezzi)
         self.inserisci_tabella_operatori(operatori)
+
+    def check_operatori(self):
+        if len(self.get_id_operatori_selezionati()) == 0:
+            self.operatori_error.setText("Seleziona almeno un operatore")
+            self.inserimento_error.setText("Controlla di aver inserito tutti i campi")
+            return False
+        else:
+            self.operatori_error.setText("")
+            return True
+
+
+    def check_servizio(self):
+        if self.combo_servizi.currentText() == "":
+            self.servizio_error.setText("Seleziona almeno un servizio.")
+            self.inserimento_error.setText("Controlla di aver inserito tutti i campi")
+            return False
+        else:
+            self.servizio_error.setText("")
+            return True
+    
+
+    def get_id_operatori_selezionati(self):
+        # Metodo per restiture gli operatori attualmente selezionati nela tabella
+        caselle_selezionate=self.tabella_operatori.selectedItems()
+        id_operatori=[]
+        if len(caselle_selezionate) != 0:
+            righe_selezionate=[]
+            for casella in caselle_selezionate:
+                righe_selezionate.append(casella.row())
+            for riga in set(righe_selezionate):
+                id_operatori.append(int(self.tabella_operatori.item(riga, 0).text()))
+        return id_operatori
+     
+    def get_id_mezzi_selezionati(self):
+        # Metodo per restiture i mezzi attualmente selezionati nela tabella
+        caselle_selezionate=self.tabella_mezzi.selectedItems()
+        id_mezzi=[]
+        if len(caselle_selezionate) != 0:
+            righe_selezionate=[]
+            for casella in caselle_selezionate:
+                righe_selezionate.append(casella.row())
+            for riga in set(righe_selezionate):
+                id_mezzi.append(int(self.tabella_mezzi.item(riga, 0).text()))
+        return id_mezzi

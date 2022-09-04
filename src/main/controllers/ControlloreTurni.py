@@ -10,8 +10,8 @@ class ControlloreTurni:
     def get_turni(self):
         return self.mapper.get_turni()
 
-    def insert_turno(self, servizio, data, ora_inizio, ora_fine, mezzo, operatore):
-        return self.mapper.insert_turno(servizio, data, ora_inizio, ora_fine, mezzo, operatore)
+    def insert_turno(self, id_servizio, data_inizio, data_fine, id_mezzi, id_operatori):
+        return self.mapper.insert_turno(id_servizio, data_inizio, data_fine, id_mezzi, id_operatori)
 
     def ricerca_turni(self, text):
         return self.mapper.ricerca_turni(text)

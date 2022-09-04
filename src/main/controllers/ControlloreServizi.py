@@ -13,6 +13,9 @@ class ControlloreServizi:
     def get_servizi_da_inserire(self, data):
         return self.mapper.get_servizi_da_inserire(data)
 
+    def get_servizi_inseribili(self, data):
+        return self.mapper.get_servizi_inseribili(data)
+
     def get_servizio(self, id):
         return self.mapper.get_servizio(id)
 
