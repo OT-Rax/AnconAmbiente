@@ -1,17 +1,15 @@
 import unittest
-import sqlite3
+
 from faker import Faker
 import os
 import sys
 sys.path.append(os.path.abspath('../'))
+
 from models.MapperUtenti import MapperUtenti
 from models.MapperOperatori import MapperOperatori
 from models.Utente import Utente
-from models.Operatore import Operatore
 
 class TestAAERP (unittest.TestCase):
-    dirname = os.path.dirname(__file__)
-    db_file = os.path.join(dirname, '../db/AAdb')
     fake = Faker('it_IT')
     
     #Unit test per verificare che la verifica tramite hash della password funzioni
@@ -41,7 +39,7 @@ class TestAAERP (unittest.TestCase):
         self.assertEqual(data_contratto_random, operatore.get_datacontratto())
         self.assertEqual(stato_random, operatore.get_stato())
 
-    #test che assicura che tutti e 3 i campi per la ricerca funzionino
+    #test che verifica che la ricerca per nome e cognoma funzioni
     def test_ricerca_operatore(self):
         mapper_operatori = MapperOperatori()
         mapper_operatori.insert_operatore("Mario", "Rossi", "1900-10-31", "NTNBRC80M14E255O", "2022-12-16", 0)
@@ -59,6 +57,7 @@ class TestAAERP (unittest.TestCase):
         self.assertTrue(presenza_ricerca_nome)
         self.assertTrue(presenza_ricerca_cognome)
 
+    #test che verifica che l'operatore non sia ancora presente nel database in seguito all'eliminazione
     def test_elimina_operatore(self):
         mapper_operatori = MapperOperatori()
         nome_random = self.fake.first_name()

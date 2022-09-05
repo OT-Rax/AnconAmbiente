@@ -20,6 +20,7 @@ class VistaReport(QtWidgets.QMainWindow):
         uic.loadUi(gui_file, self)  # Load the .ui file
         self.entita_combo.currentIndexChanged.connect(self.entita_changed)
         self.report_button.clicked.connect(self.crea_report)
+        self.indietro_button.clicked.connect(self.close)
 
         self.controller = ControlloreReport()
         self.controller_operatori = ControlloreOperatori()

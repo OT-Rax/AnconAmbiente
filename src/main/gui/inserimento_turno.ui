@@ -10,6 +10,18 @@
     <height>491</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>792</width>
+    <height>491</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>792</width>
+    <height>491</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Inserimento Turno</string>
   </property>
@@ -27,8 +39,20 @@
       <height>421</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>771</width>
+      <height>421</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>771</width>
+      <height>421</height>
+     </size>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="dati_tab">
      <attribute name="title">
@@ -333,7 +357,7 @@ font:  bold 11px
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>721</width>
+        <width>751</width>
         <height>301</height>
        </rect>
       </property>
@@ -480,19 +504,6 @@ font:  bold 11px
        <string/>
       </property>
      </widget>
-     <widget class="QScrollBar" name="verticalScrollBar">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>0</y>
-        <width>16</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="operatori_tab">
      <attribute name="title">
@@ -516,7 +527,7 @@ font:  bold 11px
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>721</width>
+        <width>751</width>
         <height>301</height>
        </rect>
       </property>
@@ -542,7 +553,7 @@ font:  bold 11px
        <bool>false</bool>
       </attribute>
       <attribute name="horizontalHeaderStretchLastSection">
-       <bool>false</bool>
+       <bool>true</bool>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -676,19 +687,6 @@ font:  bold 11px
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-     <widget class="QScrollBar" name="verticalScrollBar_2">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>0</y>
-        <width>16</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
       </property>
      </widget>
     </widget>
