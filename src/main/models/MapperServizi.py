@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 from PyQt5 import QtCore
@@ -5,7 +6,9 @@ from models.Servizio import Servizio
 
 class MapperServizi:
     def __init__(self):
-        self.db_directory="./db/AAdb"
+        dirname = os.path.dirname(__file__)
+        db_file = os.path.join(dirname, '../db/AAdb')
+        self.db_directory = db_file
 
     #Metodo che restituisce tutti i servizi presenti nel DataBase
     def get_servizi(self):

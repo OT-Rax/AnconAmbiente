@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic
 from datetime import date
 import sys
@@ -12,7 +14,9 @@ class VistaInserimentoMezzo(QtWidgets.QMainWindow):
         # Costruttore 'VistaInserimentoMezzo'
         # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         super(VistaInserimentoMezzo, self).__init__(parent)  # Call the inherited classes __init__ method
-        uic.loadUi('gui/inserimento_mezzo.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/inserimento_mezzo.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.annulla_button.clicked.connect(self.close)
         self.inserisci_button.clicked.connect(self.inserisci)
         #print(self.parent().children())

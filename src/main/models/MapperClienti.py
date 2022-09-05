@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 from models.Cliente import Cliente
@@ -5,7 +6,9 @@ from models.Cliente import Cliente
 
 class MapperClienti:
     def __init__(self):
-        self.db_directory="./db/AAdb"
+        dirname = os.path.dirname(__file__)
+        db_file = os.path.join(dirname, '../db/AAdb')
+        self.db_directory=db_file
 
     #Metodo che restituisce tutti i clienti presenti nel Database
     def get_clienti(self):

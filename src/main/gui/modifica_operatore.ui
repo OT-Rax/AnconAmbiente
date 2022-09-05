@@ -66,24 +66,11 @@
      <string>Cognome:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>235</y>
-      <width>80</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Livello Patente:</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="salva_button">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>390</y>
+      <y>380</y>
       <width>161</width>
       <height>23</height>
      </rect>
@@ -109,51 +96,11 @@ font:  bold 11px
      <string>SALVA</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="patente_combo">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>230</y>
-      <width>220</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Senza Patente</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>A</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>B</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>C</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>D</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>E</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QPushButton" name="annulla_button">
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>390</y>
+      <y>380</y>
       <width>160</width>
       <height>23</height>
      </rect>
@@ -183,9 +130,9 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>285</y>
-      <width>100</width>
-      <height>13</height>
+      <y>250</y>
+      <width>121</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -212,7 +159,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>280</y>
+      <y>245</y>
       <width>220</width>
       <height>22</height>
      </rect>
@@ -274,7 +221,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>345</y>
+      <y>310</y>
       <width>220</width>
       <height>22</height>
      </rect>
@@ -299,7 +246,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>350</y>
+      <y>315</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -312,7 +259,7 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>141</x>
-      <y>305</y>
+      <y>270</y>
       <width>221</width>
       <height>23</height>
      </rect>
@@ -845,9 +792,9 @@ font:  bold 11px
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>260</y>
+      <y>220</y>
       <width>235</width>
-      <height>17</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="palette">

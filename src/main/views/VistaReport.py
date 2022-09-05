@@ -15,7 +15,9 @@ class VistaReport(QtWidgets.QMainWindow):
     def __init__(self):
         # Costruttore 'VistaReport'
         super(VistaReport, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/report.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/report.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.entita_combo.currentIndexChanged.connect(self.entita_changed)
         self.report_button.clicked.connect(self.crea_report)
 

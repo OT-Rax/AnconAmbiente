@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
@@ -14,7 +16,9 @@ class VistaHome(QtWidgets.QMainWindow):
     def __init__(self):
         # Costruttore 'VistaHome'
         super(VistaHome, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/home.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/home.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.operatori_button.clicked.connect(self.go_listaoperatori)
         self.mezzi_button.clicked.connect(self.go_listamezzi)
         self.servizi_button.clicked.connect(self.go_listaservizi)

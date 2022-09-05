@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
@@ -11,7 +13,9 @@ class VistaCliente(QtWidgets.QMainWindow):
         # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         # :param cliente: Cliente dal quale visualizzare le informazioni
         super(VistaCliente, self).__init__(parent)  # Call the inherited classes __init__ method
-        uic.loadUi('gui/visualizza_cliente.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/visualizza_cliente.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.cliente=cliente
         self.parent=parent
         self.id_label.setText(str(cliente.get_id()))

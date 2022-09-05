@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
@@ -12,7 +14,9 @@ class VistaServizio(QtWidgets.QMainWindow):
         # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         # :param Servizio: Servizio dal quale visualizzare le informazioni
         super(VistaServizio, self).__init__(parent)  # Call the inherited classes __init__ method
-        uic.loadUi('gui/visualizza_servizio.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/visualizza_servizio.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.controller_clienti = ControlloreClienti()
         self.servizio = servizio
         self.parent = parent
