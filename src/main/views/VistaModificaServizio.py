@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic, QtCore
 import sys
 import xz_rc
@@ -15,7 +17,9 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
         # :param parent: Vista che ha richiesto l'utilizzo di questa vista, posso utilizzare i metodi di parent
         # :param servizio: Servizio che si vuole modificare
         super(VistaModificaServizio, self).__init__(parent)  # Call the inherited classes __init__ method
-        uic.loadUi('gui/modifica_servizio.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/modifica_servizio.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.servizio = servizio
         self.annulla_button.clicked.connect(self.close)
         self.salva_button.clicked.connect(self.modifica)

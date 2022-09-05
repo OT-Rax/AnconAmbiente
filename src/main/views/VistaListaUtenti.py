@@ -14,7 +14,9 @@ class VistaListaUtenti(QtWidgets.QMainWindow):
     def __init__(self):
         # Costruttore 'VistaListaUtenti'
         super(VistaListaUtenti, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/utenti.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/utenti.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.inserisci_button.clicked.connect(self.go_inserisci)
         self.modifica_button.clicked.connect(self.go_modifica)
         self.visualizza_button.clicked.connect(self.go_visualizza)

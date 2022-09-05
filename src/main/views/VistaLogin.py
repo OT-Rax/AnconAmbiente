@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, uic
 import sys
 import xz_rc
+import os
 
 from views.VistaHome import VistaHome
 from controllers.ControlloreUtenti import ControlloreUtenti
@@ -9,7 +10,9 @@ class VistaLogin(QtWidgets.QMainWindow):
     def __init__(self):
         # Costruttore 'VistaLogin'
         super(VistaLogin, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/login.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/login.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
         self.login_button.clicked.connect(self.go_home)
         self.controller = ControlloreUtenti()
 

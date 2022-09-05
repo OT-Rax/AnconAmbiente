@@ -6,7 +6,9 @@ from models.Utente import Utente
 
 class MapperUtenti:
     def __init__(self):
-        self.db_directory="./db/AAdb"
+        dirname = os.path.dirname(__file__)
+        db_file = os.path.join(dirname, '../db/AAdb')
+        self.db_directory = db_file
         self.n=2
         self.r=16
         self.p=1

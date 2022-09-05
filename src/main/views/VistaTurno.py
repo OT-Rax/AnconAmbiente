@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets, uic, QtCore
 import sys
 import xz_rc
@@ -9,7 +11,9 @@ from controllers.ControlloreClienti import ControlloreClienti
 class VistaTurno(QtWidgets.QMainWindow):
     def __init__(self,parent,turno):
         super(VistaTurno, self).__init__()  # Call the inherited classes __init__ method
-        uic.loadUi('gui/visualizza_turno.ui', self)  # Load the .ui file
+        dirname = os.path.dirname(__file__)
+        gui_file = os.path.join(dirname, '../gui/visualizza_turno.ui')
+        uic.loadUi(gui_file, self)  # Load the .ui file
 
         #Dati Servizio
         #controllore Servizi
