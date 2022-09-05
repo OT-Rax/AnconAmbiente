@@ -18,8 +18,8 @@ class ControlloreOperatori:
     def get_operatori_disponibili_modifica(self, inizio_turno, fine_turno, id_turno):
         return self.mapper.get_operatori_disponibili_modifica(inizio_turno, fine_turno, id_turno)
 
-    def insert_operatore(self, nome, cognome, cf, data_nascita, patenti, data_fine_contratto):
-        return self.mapper.insert_operatore(nome, cognome, cf, data_nascita, patenti, data_fine_contratto, 0)
+    def insert_operatore(self, nome, cognome, cf, data_nascita, data_fine_contratto):
+        return self.mapper.insert_operatore(nome, cognome, cf, data_nascita, data_fine_contratto, 0)
 
     def ricerca_operatori(self, text):
         return self.mapper.ricerca_operatori(text)

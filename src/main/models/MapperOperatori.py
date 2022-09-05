@@ -64,6 +64,17 @@ class MapperOperatori:
         con.close()
         return operatore
     
+
+    #Metodo che restituisce l'ultimo operatore inserito
+    def get_ultimo_operatore(self):
+        con = sqlite3.connect(self.db_directory)
+        cur = con.cursor()
+        operatore=None
+        row = cur.execute("SELECT * FROM Operatori ORDER BY id DESC").fetchone()
+        operatore = Operatore(row[0], row[1], row[2], row[3], row[4], row[5], row[6])   
+        con.close()
+        return operatore
+
     #Metodo che restituisce un oggetto popolato dagli operatori che hanno in comune l'id o il nome o il cognome dato in input
     # :param text: oggetto contenente la stringa di caratteri per la ricerca di determinati operatori
     def ricerca_operatori(self, text):
@@ -84,7 +95,7 @@ class MapperOperatori:
     # :param patenti: patenti possedute dall'operatore 
     # :param data_fine_contratto: data di fine contratto dell'operatore
     # :param stato: stato che indica se l'operatore è disponibile, in malattia o in ferie
-    def insert_operatore(self, nome, cognome, data_nascita, cf, patenti, data_fine_contratto, stato):
+    def insert_operatore(self, nome, cognome, data_nascita, cf, data_fine_contratto, stato):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         cur.execute("INSERT INTO Operatori (nome, cognome, data_nascita, cf, data_fine_contratto, stato) VALUES (?, ?, ?, ?, ?, ?)", (nome, cognome, data_nascita, cf, data_fine_contratto, stato))

@@ -85,7 +85,7 @@ class MapperUtenti:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         permessi = utente.get_permessi()
-        cur.execute("INSERT INTO Utenti VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (utente.get_username(), self.encrypt_password(utente.get_password()), permessi[0], permessi[1], permessi[2], permessi[3], permessi[4], permessi[5]))
+        cur.execute("INSERT INTO Utenti (username, password_hash, accesso_operatori, accesso_mezzi, accesso_servizi, accesso_turni, accesso_clienti, accesso_utenti) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (utente.get_username(), self.encrypt_password(utente.get_password()), permessi[0], permessi[1], permessi[2], permessi[3], permessi[4], permessi[5]))
         con.commit()
         con.close()
 
@@ -103,7 +103,7 @@ class MapperUtenti:
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
         permessi = utente.get_permessi()
-        cur.execute("UPDATE Utenti SET username=?, accesso_operatori=?, accesso_mezzi=?, accessi_servizi=?, accesso_turni=?, accesso_clienti=?, accesso_utenti=? WHERE id=?",
+        cur.execute("UPDATE Utenti SET username=?, accesso_operatori=?, accesso_mezzi=?, accesso_servizi=?, accesso_turni=?, accesso_clienti=?, accesso_utenti=? WHERE id=?",
                 (utente.get_username(), permessi[0], permessi[1], permessi[2], permessi[3], permessi[4], permessi[5]))
         con.commit()
         con.close()
