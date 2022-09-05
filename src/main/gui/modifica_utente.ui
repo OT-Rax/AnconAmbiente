@@ -74,6 +74,9 @@ font:  bold 11px
     </property>
    </widget>
    <widget class="QLineEdit" name="password_field">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>140</x>

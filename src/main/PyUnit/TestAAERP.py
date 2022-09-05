@@ -3,7 +3,7 @@ import sqlite3
 from faker import Faker
 import os
 import sys
-sys.path.append(os.path.dirname(__file__) + "../")
+sys.path.append(os.path.abspath('../'))
 from models.MapperUtenti import MapperUtenti
 from models.MapperOperatori import MapperOperatori
 from models.Utente import Utente

@@ -51,7 +51,7 @@ class VistaModificaUtente(QtWidgets.QMainWindow):
         if len(self.username_field.text()) == 0:
             self.username_error.setText("Inserire username dell'utente")
             return False
-        elif(self.controller.get_utente_by_username(self.username_field.text()) is not None):
+        elif(self.controller.get_utente_by_username(self.username_field.text()) is not None and self.username_field.text()!=self.utente.get_username()):
             self.username_error.setText("Username già in uso da un altro utente")
             return False
         else:

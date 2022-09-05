@@ -107,7 +107,7 @@ class MapperUtenti:
         cur = con.cursor()
         permessi = utente.get_permessi()
         cur.execute("UPDATE Utenti SET username=?, accesso_operatori=?, accesso_mezzi=?, accesso_servizi=?, accesso_turni=?, accesso_clienti=?, accesso_utenti=? WHERE id=?",
-                (utente.get_username(), permessi[0], permessi[1], permessi[2], permessi[3], permessi[4], permessi[5]))
+                (utente.get_username(), permessi[0], permessi[1], permessi[2], permessi[3], permessi[4], permessi[5], id))
         con.commit()
         con.close()
 

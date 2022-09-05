@@ -22,9 +22,9 @@ class VistaLogin(QtWidgets.QMainWindow):
             if self.controller.check_password(self.user_field.text(), self.password_field.text()):
                 self.go_home()  
             else:
-                self.warning_label.setText('Username or password is incorrect.')
+                self.warning_label.setText('Username e/o password incorretti.')
         else:
-            self.warning_label.setText('Please insert username and password')
+            self.warning_label.setText('Inserisci username e password.')
 
     def go_home(self):
         # Metodo per visualizzare 'VistaHome'

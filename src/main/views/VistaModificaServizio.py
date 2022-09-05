@@ -33,7 +33,7 @@ class VistaModificaServizio(QtWidgets.QMainWindow):
         for i in range(len(id)):
             self.cliente_combo.addItem(str(id[i]))
         self.tipo_field.setText(self.servizio.get_tipo())
-        self.cliente_combo.setCurrentText(str(self.servizio.get_id_cliente()))
+        self.cliente_combo.setCurrentText("" if self.servizio.get_id_cliente() is None else str(self.servizio.get_id_cliente()))
         self.luogo_field.setText(self.servizio.get_luogo())
         self.inizio_datepicker.setDateTime(QtCore.QDateTime.fromString(servizio.get_datainizio(),"yyyy-mm-dd"))
         self.fine_datepicker.setDateTime(QtCore.QDateTime.fromString(servizio.get_datafine(),"yyyy-mm-dd"))

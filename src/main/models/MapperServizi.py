@@ -136,5 +136,6 @@ class MapperServizi:
         cur = con.cursor()
         for servizio in servizi:
             cur.execute("DELETE FROM Servizi WHERE id="+str(servizio.get_id()))
+            cur.execute("DELETE FROM Turni Where id IN (SELECT id_turno FROM Lavori WHERE id_servizio="+str(servizio.get_id())+")")
         con.commit()
         con.close()

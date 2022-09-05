@@ -98,7 +98,8 @@ class VistaListaServizi(QtWidgets.QMainWindow):
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id())))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_tipo()))
             items.append(QtWidgets.QTableWidgetItem(str(servizio.get_id_cliente())))
-            items.append(QtWidgets.QTableWidgetItem(self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_nome()+" "+self.controller_clienti.get_cliente(servizio.get_id_cliente()).get_cognome()))
+            cliente = self.controller_clienti.get_cliente(servizio.get_id_cliente())
+            items.append(QtWidgets.QTableWidgetItem("" if cliente is None else cliente.get_nome()+" "+cliente.get_cognome()))
             items.append(QtWidgets.QTableWidgetItem(servizio.get_luogo()))
             ripetizione=servizio.get_ripetizione()
             if servizio.get_periodicita() is None:

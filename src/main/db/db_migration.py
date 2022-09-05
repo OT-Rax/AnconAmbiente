@@ -123,7 +123,7 @@ if __name__ == '__main__':
         data_fine TEXT NOT NULL,
         ripetizione INTEGER,
         periodicita TEXT,
-        FOREIGN KEY(id_cliente) REFERENCES Clienti(id)
+        FOREIGN KEY(id_cliente) REFERENCES Clienti(id) ON DELETE CASCADE
         );
     ''')
 
