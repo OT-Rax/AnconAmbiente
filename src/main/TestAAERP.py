@@ -28,18 +28,18 @@ class TestAAERP (unittest.TestCase):
         mapper_operatori = MapperOperatori()
         nome_random = self.fake.first_name()
         cognome_random = self.fake.last_name()
-        data_nascita_random = self.fake.date_of_birth()
+        data_nascita_random = str(self.fake.date_of_birth())
         cf_random = self.fake.ssn()
-        data_contratto_random = self.fake.future_date()
+        data_contratto_random = str(self.fake.future_date())
         stato_random = self.fake.random_int(min=0, max=2)
         mapper_operatori.insert_operatore(nome_random, cognome_random, data_nascita_random, cf_random, data_contratto_random, stato_random)
         operatore = mapper_operatori.get_ultimo_operatore()
-        self.assertEquals(nome_random, operatore.get_nome())
-        self.assertEquals(cognome_random, operatore.get_cognome())
-        self.assertEquals(data_nascita_random, operatore.get_datanascita())
-        self.assertEquals(cf_random, operatore.get_cf())
-        self.assertEquals(data_contratto_random, operatore.get_datacontratto())
-        self.assertEquals(stato_random, operatore.get_stato())
+        self.assertEqual(nome_random, operatore.get_nome())
+        self.assertEqual(cognome_random, operatore.get_cognome())
+        self.assertEqual(data_nascita_random, operatore.get_datanascita())
+        self.assertEqual(cf_random, operatore.get_cf())
+        self.assertEqual(data_contratto_random, operatore.get_datacontratto())
+        self.assertEqual(stato_random, operatore.get_stato())
 
     #test che assicura che tutti e 3 i campi per la ricerca funzionino
     def test_ricerca_operatore(self):
@@ -55,7 +55,7 @@ class TestAAERP (unittest.TestCase):
                 presenza_ricerca_nome = True
         for operatore in operatori_test_cognome:
             if operatore.get_id() == operatore_test.get_id():
-                presenza_ricerca_nome = True
+                presenza_ricerca_cognome = True
         self.assertTrue(presenza_ricerca_nome)
         self.assertTrue(presenza_ricerca_cognome)
 
@@ -85,7 +85,7 @@ class TestAAERP (unittest.TestCase):
         nome_test = self.fake.first_name()
         operatore.set_nome = nome_test
         mapper_operatori.update_operatore(operatore.get_id(), operatore)
-        self.assertEqual(operatore, mapper_operatori.get_ultimo_operatore()) 
+        self.assertEqual(operatore.get_nome(), mapper_operatori.get_ultimo_operatore().get_nome()) 
 
 if __name__ == '__main__':
     unittest.main()

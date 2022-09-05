@@ -34,7 +34,7 @@ class VistaInserimentoUtente(QtWidgets.QMainWindow):
         username_validity = self.check_username()
         password_validity = self.check_password()
         accesso_operatori = 1 if self.operatori_check.isChecked() else 0
-        accesso_mezzi = 1 if self.mezzo_check.isChecked() else 0
+        accesso_mezzi = 1 if self.mezzi_check.isChecked() else 0
         accesso_servizi = 1 if self.servizi_check.isChecked() else 0
         accesso_turni = 1 if self.turni_check.isChecked() else 0
         accesso_clienti = 1 if self.clienti_check.isChecked() else 0

@@ -13,7 +13,7 @@ class VistaLogin(QtWidgets.QMainWindow):
         dirname = os.path.dirname(__file__)
         gui_file = os.path.join(dirname, '../gui/login.ui')
         uic.loadUi(gui_file, self)  # Load the .ui file
-        self.login_button.clicked.connect(self.go_home)
+        self.login_button.clicked.connect(self.login)
         self.controller = ControlloreUtenti()
 
     def login(self):

@@ -65,4 +65,9 @@
 \contentsline {section}{\numberline {3.7}WireFrame}{41}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Mockup}{42}{section.3.8}%
 \contentsline {chapter}{\numberline {4}Unit Test}{43}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Test Operatori}{43}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Test Login}{43}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Test Operatori}{43}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Test Inserimento}{43}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Test Ricerca}{43}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Test Elimina}{44}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Test Update}{44}{subsection.4.2.4}%

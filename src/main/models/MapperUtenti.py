@@ -20,9 +20,8 @@ class MapperUtenti:
     def check_password(self, username, login_pw):
         con = sqlite3.connect(self.db_directory)
         cur = con.cursor()
-        c = cur.execute("SELECT password_hash FROM Utenti WHERE username = ?", (username,))
-        con.close()
-        if c.arraysize == 0:
+        c = cur.execute("SELECT password_hash FROM Utenti WHERE username = ?", (username,)).fetchall()
+        if len(c)==0:
             return False
         else:
             stored_pw = ""
@@ -31,8 +30,10 @@ class MapperUtenti:
             parameters = stored_pw.split('$')
             hashed_passw = hashlib.scrypt(login_pw.encode(), salt=bytes.fromhex(parameters[1]), n=int(parameters[2]), r=int(parameters[3]), p=int(parameters[4]), dklen=int(parameters[5])) 
             if hashed_passw.hex() == parameters[0]:
+                con.close()
                 return True
             else:
+                con.close()
                 return False
 
     #Metodo che restituisce tutti gli utenti presenti nel DataBase
